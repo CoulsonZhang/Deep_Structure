@@ -3,6 +3,6 @@ IGL project: Department's Deep Structure
 
 ## To Do
 
-make .gitignor
+make .gitignore
 
 ![image](https://github.com/CoulsonZhang/Deep_Structure/blob/main/Image/UIUC_logo.png)
