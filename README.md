@@ -3,4 +3,6 @@ IGL project: Department's Deep Structure
 
 ## To Do
 Add UIUC log
-make .gitignore
+make .gitignor
+
+[!image](https://github.com/CoulsonZhang/Deep_Structure/blob/main/Image/UIUC_logo.png)
