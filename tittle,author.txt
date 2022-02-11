@@ -1,0 +1,500 @@
+Title:
+$\roman{Sp}$-equivariant modules over polynomial rings in infinitely many variables.
+Author(s):
+['Sam, Steven', 'Snowden, Andrew']
+
+Title:
+An Algebraic Approach to Projective Uniqueness with an Application to Order Polytopes.
+Author(s):
+['Bogart, Tristram', 'Gouveia, João', 'Torres, Juan Camilo']
+
+Title:
+Krull modules and completely integrally closed modules.
+Author(s):
+["Nurwigantara, Mu'amar Musa", 'Wijayanti, Indah Emilia', 'Marubayashi, Hidetoshi', 'Wahyuni, Sri']
+
+Title:
+Cohomological operators on quotients by exact zero divisors.
+Author(s):
+['Windle, Andrew']
+
+Title:
+The Hilbert-Kunz function of some quadratic quotients of the Rees algebra.
+Author(s):
+['Strazzanti, Francesco', 'Zarzuela Armengou, Santiago']
+
+Title:
+Connectedness of square-free Groebner deformations.
+Author(s):
+['Alanís-López, Lilia', 'Núñez-Betancourt, Luis', 'Ramírez-Moreno, Pedro']
+
+Title:
+Linearly presented modules and bounds on the Castelnuovo-Mumford regularity of ideals.
+Author(s):
+['Caviglia, Giulio', 'De Stefani, Alessandro']
+
+Title:
+Which homotopy algebras come from transfer?
+Author(s):
+['Markl, Martin', 'Rogers, Christopher']
+
+Title:
+On the Cohen-Macaulay property of the Rees algebra of the module of differentials.
+Author(s):
+['Costantini, Alessandra', 'Dang, Tan']
+
+Title:
+Deformations and representations of Lie algebroids.
+Author(s):
+['Bouaziz, Emile']
+
+Title:
+Reducers and $K_0$ with support.
+Author(s):
+['Chanda, Subhajit', 'Sane, Sarang']
+
+Title:
+Integral domains issued from associated primes.
+Author(s):
+['Kim, Hwankoo', 'Tamoussit, Ali']
+
+Title:
+Covering modules by proper submodules.
+Author(s):
+['Khare, Apoorva', 'Tikaradze, Akaki']
+
+Title:
+Graded Linearity of Stanley–Reisner Ring of Broken Circuit Complexes.
+Author(s):
+['Reza-Rahmati, Mohammad', 'Flores, Gerardo']
+
+Title:
+Beck's Coloring of Finite Product of Commutative Ring with Unity.
+Author(s):
+['Kavaskar, Thanthony']
+
+Title:
+Heuristics to sift extraneous factors in Dixon resultants.
+Author(s):
+['Qin, Xiaolin', 'Zhang, Lige', 'Yang, Lu', 'Cao, Sheng']
+
+Title:
+A Theorem About Maximal Cohen–Macaulay Modules.
+Author(s):
+['Polstra, Thomas']
+
+Title:
+Leading Terms of SL3 Web Invariants.
+Author(s):
+['Bazier-Matte, Véronique', 'Douville, Guillaume', 'Garver, Alexander', 'Patrias, Rebecca', 'Thomas, Hugh', 'Yıldırım, Emine']
+
+Title:
+On the limit closure of a sequence of elements in local rings.
+Author(s):
+['Cuong, Nguyen Tu', 'Quy, Pham Hung']
+
+Title:
+Indecomposable integrally closed modules of arbitrary rank over a two-dimensional regular local ring.
+Author(s):
+['Hayasaka, Futoshi']
+
+Title:
+Bi-graded Koszul modules, K3 carpets, and Green's conjecture.
+Author(s):
+['Raicu, Claudiu', 'Sam, Steven V.']
+
+Title:
+Linkage of modules by reflexive morphisms.
+Author(s):
+['DEHGHANI-ZADEH, Fatemeh', 'DIBAEI, Mohammad T.', 'SADEGHI, Arash']
+
+Title:
+Finite factorization properties in commutative monoid rings with zero divisors.
+Author(s):
+['Juett, J. R.', 'Medina, Alejandra M.']
+
+Title:
+On modules satisfying the descending chain condition on $r$-submodules.
+Author(s):
+['Anebri, Adam', 'Mahdou, Najib', 'Tekir, Ünsal']
+
+Title:
+On graded pseudo-valuation domains.
+Author(s):
+['Sahandi, Parviz']
+
+Title:
+Cofiniteness of torsion functors of ideal transforms.
+Author(s):
+['Pirmohammadi, Gholamreza']
+
+Title:
+On spectrum of comultiplication modules.
+Author(s):
+['Öneş, Ortaç']
+
+Title:
+On the freeness of dual semidualizing modules.
+Author(s):
+['Bagheri, Mohammad', 'Taherizadeh, Abdoljavad']
+
+Title:
+On semigroup algebras with rational exponents.
+Author(s):
+['Gotti, Felix']
+
+Title:
+A Transformation Rule for Natural Multiplicities.
+Author(s):
+['Jeffries, Jack', 'Smirnov, Ilya']
+
+Title:
+A partial characterization of Hilbert quasi-polynomials in the non-standard case.
+Author(s):
+['Caboara, Massimo', 'Mascia, Carla']
+
+Title:
+A Cluster Character with Coefficients for Cluster Category.
+Author(s):
+['Borges, Fernando', 'Pierin, Tanise Carnieri']
+
+Title:
+Divisibility in rings of integer-valued polynomials.
+Author(s):
+['Gotti, Felix', 'Li, Bangzheng']
+
+Title:
+On the Nonorientable Genus of the Generalized Unit and Unitary Cayley Graphs of a Commutative Ring.
+Author(s):
+['Khorsandi, Mahdi Reza', 'Musawi, Seyed Reza']
+
+Title:
+Some Results on Noetherian Warfield Domains.
+Author(s):
+['Hu, Kui', 'Lim, Jung Wook', 'Zhou, Dechuan']
+
+Title:
+On Finite Local Rings with Clique Number Four.
+Author(s):
+['Liu, Qiong', 'Wu, Tongsuo', 'Guo, Jin']
+
+Title:
+Geometry of varieties for graded maximal Cohen-Macaulay modules.
+Author(s):
+['Hiramatsu, Naoya']
+
+Title:
+Vasconcelos' conjecture on the conormal module.
+Author(s):
+['Briggs, Benjamin']
+
+Title:
+Arithmetic invariants of pseudoreflection groups and regular graded algebras.
+Author(s):
+['Mundelius, David']
+
+Title:
+Graded ideals of König type.
+Author(s):
+['Herzog, Jürgen', 'Hibi, Takayuki', 'Moradi, Somayeh']
+
+Title:
+Generic freeness of local cohomology and graded specialization.
+Author(s):
+['Chardin, Marc', 'Cid-Ruiz, Yairon', 'Simis, Aron']
+
+Title:
+The (ir)regularity of Tor and Ext.
+Author(s):
+['Chardin, Marc', 'Ghosh, Dipankar', 'Nemati, Navid']
+
+Title:
+Graded components of local cohomology modules.
+Author(s):
+['Puthenpurakal, Tony J.']
+
+Title:
+Subalgebra analogue of standard bases for ideals in $K[[t_1,t_2,\dots,t_m]][x_1,x_2,\dots,x_n].$
+Author(s):
+['Jabeen, Nazia', 'Khan, Junaid Alam']
+
+Title:
+An expansion formula for quantum cluster algebras from unpunctured triangulated surfaces.
+Author(s):
+['Huang, Min']
+
+Title:
+Gorenstein sequences of high socle degrees.
+Author(s):
+['Park, Jung Pil', 'Shin, Yong-Su']
+
+Title:
+$F$-volumes.
+Author(s):
+['Badilla-Céspedes, Wágner', 'Núñez-Betancourt, Luis', 'Rodríguez-Villalobos, Sandra']
+
+Title:
+Base change along the Frobenius endomorphism and the Gorenstein property.
+Author(s):
+['Dirnfeld, Pinches']
+
+Title:
+Average-case complexity of the Euclidean algorithm with a fixed polynomial over a finite field.
+Author(s):
+['Giménez, Nardo', 'Matera, Guillermo', 'Pérez, Mariana', 'Privitelli, Melina']
+
+Title:
+Hilbert functions of Artinian Gorenstein algebras with the strong Lefschetz property.
+Author(s):
+['Altafi, Nasrin']
+
+Title:
+On reducing homological dimensions over Noetherian rings.
+Author(s):
+['Araya, Tokuji', 'Takahashi, Ryo']
+
+Title:
+Finitely star regular domains.
+Author(s):
+['Mimouni, Abdeslam']
+
+Title:
+Conic divisorial ideals and non-commutative crepant resolutions of edge rings of complete multipartite graphs.
+Author(s):
+['Higashitani, Akihiro', 'Matsushita, Koji']
+
+Title:
+Annihilators of local cohomology modules over a Cohen-Macaulay ring.
+Author(s):
+['Yoshizawa, Takeshi']
+
+Title:
+Completions of uncountable local rings with countable spectra.
+Author(s):
+['Loepp, S.', 'Yu, Teresa']
+
+Title:
+On $n$-absorbing ideals of locally divided commutative rings.
+Author(s):
+['Choi, Hyun Seung']
+
+Title:
+Generalizations of Samuel's criteria for a ring to be a unique factorization domain.
+Author(s):
+['Daigle, Daniel', 'Freudenburg, Gene', 'Nagamine, Takanori']
+
+Title:
+Betti numbers under small perturbations.
+Author(s):
+['Duarte, Luís']
+
+Title:
+The homotopy theory of complete modules.
+Author(s):
+['Pol, Luca', 'Williamson, Jordan']
+
+Title:
+Syzygies of $\Bbb P^1\times\Bbb P^1$: data and conjectures.
+Author(s):
+['Bruce, Juliette', 'Corey, Daniel', 'Erman, Daniel', 'Goldstein, Steve', 'Laudone, Robert P.', 'Yang, Jay']
+
+Title:
+Edge rings with $q$-linear resolutions.
+Author(s):
+['Mori, Kenta', 'Ohsugi, Hidefumi', 'Tsuchiya, Akiyoshi']
+
+Title:
+On classification of finite commutative chain rings.
+Author(s):
+['Alabiad, Sami', 'Alkhamees, Yousef']
+
+Title:
+Computation of Macaulay constants and degree bounds for Gröbner bases.
+Author(s):
+['Hashemi, Amir', 'Parnian, Hossein', 'Seiler, Werner M.']
+
+Title:
+Degree bounds for Gröbner bases of modules.
+Author(s):
+['Liang, Yihui']
+
+Title:
+Guessing Gröbner bases of structured ideals of relations of sequences.
+Author(s):
+['Berthomieu, Jérémy', 'Safey El Din, Mohab']
+
+Title:
+On Property $(\Cal A)$ with respect to an ideal.
+Author(s):
+['Ait Ouahi, A.', 'Arssi, Y.', 'Bouchiba, S.']
+
+Title:
+Comultiplication-like modules and related results.
+Author(s):
+['Farshadifar, Faranak']
+
+Title:
+A note on residually small rings and modules.
+Author(s):
+['Kumar, Rahul', 'Gaur, Atul']
+
+Title:
+A classification up to algebra isomorphism of the ramified minimal ring extensions of a principal ideal ring.
+Author(s):
+['Dobbs, David E.']
+
+Title:
+Dedekind-Mertens lemma for power series in an arbitrary set of indeterminates.
+Author(s):
+['Ngoc Giau, Le Thi', 'Toan, Phan Thanh', 'Vo, Thieu N.']
+
+Title:
+On decomposing monomial algebras with the Lefschetz properties.
+Author(s):
+['Gasanova, Oleksandra', 'Lundqvist, Samuel', 'Nicklasson, Lisa']
+
+Title:
+Products of polymatroids with the strong exchange property.
+Author(s):
+['Nicklasson, Lisa']
+
+Title:
+On Sally modules.
+Author(s):
+['Lima, P. H.']
+
+Title:
+On truncations of valuations.
+Author(s):
+['Novacoski, J. A.', 'Silva de Souza, C. H.']
+
+Title:
+Equivalent generating vectors of finitely generated modules over commutative rings.
+Author(s):
+['Guyot, Luc']
+
+Title:
+Symbolic powers of generalized star configurations of hypersurfaces.
+Author(s):
+['Lin, Kuei-Nuan', 'Shen, Yi-Huang']
+
+Title:
+Valuations on $K[x]$ approaching a fixed irreducible polynomial.
+Author(s):
+['dos Santos Barnabé, Matheus', 'Novacoski, Josnei']
+
+Title:
+Symbolic powers of monomial ideals.
+Author(s):
+['Puthenpurakal, Tony J.']
+
+Title:
+Minimal free resolutions of certain equigenerated monomial ideals.
+Author(s):
+['VandeBogert, Keller']
+
+Title:
+On Hilbert ideals for a class of $p$-groups in characteristic $p$.
+Author(s):
+['Kummini, Manoj', 'Mondal, Mandira']
+
+Title:
+Construction of strictly closed rings.
+Author(s):
+['Endo, Naoki', 'Goto, Shiro']
+
+Title:
+Hulls of cyclic serial codes over a finite chain ring.
+Author(s):
+['Talbi, Sarra', 'Batoul, Aicha', 'Fotue Tabue, Alexandre', 'Martínez-Moro, Edgar']
+
+Title:
+Mixed multiplicities of graded families of ideals.
+Author(s):
+['Cid-Ruiz, Yairon', 'Montaño, Jonathan']
+
+Title:
+The resolution of $(x^N, y^N, z^N, w^N)$.
+Author(s):
+['Kustin, Andrew R.', 'R. G., Rebecca', 'Vraciu, Adela']
+
+Title:
+Algebraic model selection and experimental design in biological data science.
+Author(s):
+['Dimitrova, Elena', 'Hu, Jingzhen', 'Liang, Qingzhong', 'Stigler, Brandilyn', 'Zhang, Anyu']
+
+Title:
+Lexicographic Gröbner bases of bivariate polynomials modulo a univariate one.
+Author(s):
+['Dahan, Xavier']
+
+Title:
+Polarizations of powers of graded maximal ideals.
+Author(s):
+['Almousa, Ayah', 'Fløystad, Gunnar', 'Lohne, Henning']
+
+Title:
+$F$-thresholds $c^ I({\bf m})$ for projective curves.
+Author(s):
+['Trivedi, Vijaylaxmi']
+
+Title:
+Open loci results for commutative DG-rings.
+Author(s):
+['Shaul, Liran']
+
+Title:
+On universal stably free modules in positive characteristic.
+Author(s):
+['Primozic, Eric']
+
+Title:
+Buchsbaumness and Castelnuovo-Mumford regularity of non-smooth monomial curves.
+Author(s):
+['Lam, Tran Thi Gia', 'Trung, Ngo Viet']
+
+Title:
+$k$-Lefschetz properties, sectional matrices and hyperplane arrangements.
+Author(s):
+['Palezzato, Elisa', 'Torielli, Michele']
+
+Title:
+Atomic bases of quantum cluster algebras of type $\tilde A_{2n- 1, 1}$.
+Author(s):
+['Ding, Ming', 'Xu, Fan', 'Chen, Xueqing']
+
+Title:
+A structure result for Gorenstein algebras of odd codimension.
+Author(s):
+['Stenger, Isabel']
+
+Title:
+The local cohomology of a parameter ideal with respect to an arbitrary ideal.
+Author(s):
+['Lewis, Monica A.']
+
+Title:
+Algebraic sets defined by the commutator matrix.
+Author(s):
+['Kadyrsizova, Zhibek', 'Yerlanov, Madi']
+
+Title:
+Stronger bounds on the cost of computing Gröbner bases for HFE systems.
+Author(s):
+['Gorla, Elisa', 'Mueller, Daniela', 'Petit, Christophe']
+
+Title:
+Saturations of subalgebras, SAGBI bases, and U-invariants.
+Author(s):
+['Bigatti, Anna Maria', 'Robbiano, Lorenzo']
+
+Title:
+Modules whose finiteness dimensions coincide with their cohomological dimensions.
+Author(s):
+['Divaani-Aazar, Kamran', 'Ghanbari Doust, Akram', 'Tousi, Massoud', 'Zakeri, Hossein']
+
+Title:
+$N$-fiber-full modules.
+Author(s):
+['Yu, Hongmiao']
+

@@ -12,19 +12,40 @@ match_num = re.sub(r'\D', "", Matches)
 
 idx = 0
 
+# head = content.find('div', {"class": "headline"})
+# title = head.find('span', {"class": "title"}).getText()
+# ele = head.find('a', {"class": "item_status"}).getText()
+#
+#
+# authors = head.getText().split(ele+'\n\n')[1:][0]
+# authors = authors.split(title)[:-1][0]
+# names = []
+# for author in authors.split(';'):
+#     name = author.strip()
+#     if name:
+#         names.append(name)
+#
+# print(names)
+
 papers = dict()
 
 heads = content.findAll('div', {"class": "headline"})
 for head in heads:
     title = head.find('span', {"class": "title"}).getText()
-    author = head.getText().split(title)[0]
-    author = head.getText().split(';')
-    print(author)
-    author[0] = author[0].split('\n')[-1]
-    for i in range(len(author)):
-        author[i] = author[i].strip()
+    ele = head.find('a', {"class": "item_status"}).getText()
+    # print(head.getText().replace('\n','').split(ele))
+    authors = head.getText().replace('\n','').split(ele)[1:][0]
+    authors = authors.split(title)[:-1][0]
+    names = []
+    for author in authors.split(';'):
+        name = author.strip()
+        if name:
+            names.append(name)
+    papers[title] = names
 
-    print("Tittle:\n{}\nAuthor:\n{}\n\n".format(title,author))
+with open('tittle,author.txt', 'w') as file:
+    for k in papers:
+        file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k,papers[k]))
 
 
 
