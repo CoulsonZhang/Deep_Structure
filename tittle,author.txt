@@ -1,500 +1,190 @@
 Title:
-$\roman{Sp}$-equivariant modules over polynomial rings in infinitely many variables.
+Reachability switching games.
 Author(s):
-['Sam, Steven', 'Snowden, Andrew']
+['Fearnley, John', 'Gairing, Martin', 'Mnich, Matthias', 'Savani, Rahul']
 
 Title:
-An Algebraic Approach to Projective Uniqueness with an Application to Order Polytopes.
+Existence and complexity of approximate equilibria in weighted congestion games.
 Author(s):
-['Bogart, Tristram', 'Gouveia, João', 'Torres, Juan Camilo']
+['Christodoulou, George', 'Gairing, Martin', 'Giannakopoulos, Yiannis', 'Poças, Diogo', 'Waldmann, Clara']
 
 Title:
-Krull modules and completely integrally closed modules.
+Existence and efficiency of equilibria for cost-sharing in generalized weighted congestion games.
 Author(s):
-["Nurwigantara, Mu'amar Musa", 'Wijayanti, Indah Emilia', 'Marubayashi, Hidetoshi', 'Wahyuni, Sri']
+['Gairing, Martin', 'Kollias, Kostas', 'Kotsialou, Grammateia']
 
 Title:
-Cohomological operators on quotients by exact zero divisors.
+Hiring secretaries over time: the benefit of concurrent employment.
 Author(s):
-['Windle, Andrew']
+['Disser, Yann', 'Fearnley, John', 'Gairing, Martin', 'Göbel, Oliver', 'Klimm, Max', 'Schmand, Daniel', 'Skopalik, Alexander', 'Tönnis, Andreas']
 
 Title:
-The Hilbert-Kunz function of some quadratic quotients of the Rees algebra.
+The price of stability of weighted congestion games.
 Author(s):
-['Strazzanti, Francesco', 'Zarzuela Armengou, Santiago']
+['Christodoulou, George', 'Gairing, Martin', 'Giannakopoulos, Yiannis', 'Spirakis, Paul G.']
 
 Title:
-Connectedness of square-free Groebner deformations.
+Computing stable outcomes in symmetric additively separable hedonic games.
 Author(s):
-['Alanís-López, Lilia', 'Núñez-Betancourt, Luis', 'Ramírez-Moreno, Pedro']
+['Gairing, Martin', 'Savani, Rahul']
 
 Title:
-Linearly presented modules and bounds on the Castelnuovo-Mumford regularity of ideals.
+Preface to the special issue on algorithmic game theory.
 Author(s):
-['Caviglia, Giulio', 'De Stefani, Alessandro']
+['Gairing, Martin', 'Savani, Rahul']
 
 Title:
-Which homotopy algebras come from transfer?
+Greedy metric minimum online matchings with random arrivals.
 Author(s):
-['Markl, Martin', 'Rogers, Christopher']
+['Gairing, Martin', 'Klimm, Max']
 
 Title:
-On the Cohen-Macaulay property of the Rees algebra of the module of differentials.
+A 3-player protocol preventing persistence in strategic contention with limited feedback.
 Author(s):
-['Costantini, Alessandra', 'Dang, Tan']
+['Christodoulou, George', 'Gairing, Martin', 'Nikoletseas, Sotiris', 'Raptopoulos, Christoforos', 'Spirakis, Paul']
 
 Title:
-Deformations and representations of Lie algebroids.
+Complexity and approximation of the continuous network design problem.
 Author(s):
-['Bouaziz, Emile']
+['Gairing, Martin', 'Harks, Tobias', 'Klimm, Max']
 
 Title:
-Reducers and $K_0$ with support.
+Cost-sharing in generalised selfish routing.
 Author(s):
-['Chanda, Subhajit', 'Sane, Sarang']
+['Gairing, Martin', 'Kollias, Konstantinos', 'Kotsialou, Grammateia']
 
 Title:
-Integral domains issued from associated primes.
+Strategic contention resolution with limited feedback.
 Author(s):
-['Kim, Hwankoo', 'Tamoussit, Ali']
+['Christodoulou, George', 'Gairing, Martin', 'Nikoletseas, Sotiris', 'Raptopoulos, Christoforos', 'Spirakis, Paul']
 
 Title:
-Covering modules by proper submodules.
+Price of stability in polynomial congestion games.
 Author(s):
-['Khare, Apoorva', 'Tikaradze, Akaki']
+['Christodoulou, George', 'Gairing, Martin']
 
 Title:
-Graded Linearity of Stanley–Reisner Ring of Broken Circuit Complexes.
+Learning equilibria of games via payoff queries.
 Author(s):
-['Reza-Rahmati, Mohammad', 'Flores, Gerardo']
+['Fearnley, John', 'Gairing, Martin', 'Goldberg, Paul W.', 'Savani, Rahul']
 
 Title:
-Beck's Coloring of Finite Product of Commutative Ring with Unity.
+Tight bounds for cost-sharing in weighted congestion games.
 Author(s):
-['Kavaskar, Thanthony']
+['Gairing, Martin', 'Kollias, Konstantinos', 'Kotsialou, Grammateia']
 
 Title:
-Heuristics to sift extraneous factors in Dixon resultants.
+Congestion games with player-specific costs revisited.
 Author(s):
-['Qin, Xiaolin', 'Zhang, Lige', 'Yang, Lu', 'Cao, Sheng']
+['Gairing, Martin', 'Klimm, Max']
 
 Title:
-A Theorem About Maximal Cohen–Macaulay Modules.
+Quasirandom load balancing.
 Author(s):
-['Polstra, Thomas']
+['Friedrich, Tobias', 'Gairing, Martin', 'Sauerwald, Thomas']
 
 Title:
-Leading Terms of SL3 Web Invariants.
+Exact price of anarchy for polynomial congestion games.
 Author(s):
-['Bazier-Matte, Véronique', 'Douville, Guillaume', 'Garver, Alexander', 'Patrias, Rebecca', 'Thomas, Hugh', 'Yıldırım, Emine']
+['Aland, Sebastian', 'Dumrauf, Dominic', 'Gairing, Martin', 'Monien, Burkhard', 'Schoppmann, Florian']
 
 Title:
-On the limit closure of a sequence of elements in local rings.
+Routing (un-) splittable flow in games with player-specific affine latency functions.
 Author(s):
-['Cuong, Nguyen Tu', 'Quy, Pham Hung']
+['Gairing, Martin', 'Monien, Burkhard', 'Tiemann, Karsten']
 
 Title:
-Indecomposable integrally closed modules of arbitrary rank over a two-dimensional regular local ring.
+Computing stable outcomes in hedonic games.
 Author(s):
-['Hayasaka, Futoshi']
+['Gairing, Martin', 'Savani, Rahul']
 
 Title:
-Bi-graded Koszul modules, K3 carpets, and Green's conjecture.
+Weighted congestion games: price of anarchy, universal worst-case examples, and tightness.
 Author(s):
-['Raicu, Claudiu', 'Sam, Steven V.']
+['Bhawalkar, Kshipra', 'Gairing, Martin', 'Roughgarden, Tim']
 
 Title:
-Linkage of modules by reflexive morphisms.
+Computing Nash equilibria for scheduling on restricted parallel links.
 Author(s):
-['DEHGHANI-ZADEH, Fatemeh', 'DIBAEI, Mohammad T.', 'SADEGHI, Arash']
+['Gairing, Martin', 'Lücking, Thomas', 'Mavronicolas, Marios', 'Monien, Burkhard']
 
 Title:
-Finite factorization properties in commutative monoid rings with zero divisors.
+Malicious Bayesian congestion games.
 Author(s):
-['Juett, J. R.', 'Medina, Alejandra M.']
+['Gairing, Martin']
 
 Title:
-On modules satisfying the descending chain condition on $r$-submodules.
+Nash equilibria in discrete routing games with convex latency functions.
 Author(s):
-['Anebri, Adam', 'Mahdou, Najib', 'Tekir, Ünsal']
+['Gairing, Martin', 'Lücking, Thomas', 'Mavronicolas, Marios', 'Monien, Burkhard', 'Rode, Manuel']
 
 Title:
-On graded pseudo-valuation domains.
+Selfish routing with incomplete information.
 Author(s):
-['Sahandi, Parviz']
+['Gairing, Martin', 'Monien, Burkhard', 'Tiemann, Karsten']
 
 Title:
-Cofiniteness of torsion functors of ideal transforms.
+A faster combinatorial approximation algorithm for scheduling unrelated parallel machines.
 Author(s):
-['Pirmohammadi, Gholamreza']
+['Gairing, Martin', 'Monien, Burkhard', 'Woclaw, Andreas']
 
 Title:
-On spectrum of comultiplication modules.
+Routing (un-) splittable flow in games with player-specific linear latency functions.
 Author(s):
-['Öneş, Ortaç']
+['Gairing, Martin', 'Monien, Burkhard', 'Tiemann, Karsten']
 
 Title:
-On the freeness of dual semidualizing modules.
+The price of anarchy for polynomial social cost.
 Author(s):
-['Bagheri, Mohammad', 'Taherizadeh, Abdoljavad']
+['Gairing, Martin', 'Lücking, Thomas', 'Mavronicolas, Marios', 'Monien, Burkhard']
 
 Title:
-On semigroup algebras with rational exponents.
+The price of anarchy for restricted parallel links.
 Author(s):
-['Gotti, Felix']
+['Gairing, Martin', 'Lücking, Thomas', 'Mavronicolas, Marios', 'Monien, Burkhard']
 
 Title:
-A Transformation Rule for Natural Multiplicities.
+Nash equilibria, the price of anarchy and the fully mixed Nash equilibrium conjecture.
 Author(s):
-['Jeffries, Jack', 'Smirnov, Ilya']
+['Gairing, Martin', 'Lücking, Thomas', 'Monien, Burkhard', 'Tiemann, Karsten']
 
 Title:
-A partial characterization of Hilbert quasi-polynomials in the non-standard case.
+Structure and complexity of extreme Nash equilibria.
 Author(s):
-['Caboara, Massimo', 'Mascia, Carla']
+['Gairing, M.', 'Lücking, T.', 'Mavronicolas, M.', 'Monien, B.', 'Spirakis, P.']
 
 Title:
-A Cluster Character with Coefficients for Cluster Category.
+Distance-two information in self-stabilizing algorithms.
 Author(s):
-['Borges, Fernando', 'Pierin, Tanise Carnieri']
+['Gairing, Martin', 'Goddard, Wayne', 'Hedetniemi, Stephen T.', 'Kristiansen, Petter', 'McRae, Alice A.']
 
 Title:
-Divisibility in rings of integer-valued polynomials.
+A self-stabilizing algorithm for maximal 2-packing.
 Author(s):
-['Gotti, Felix', 'Li, Bangzheng']
+['Gairing, Martin', 'Geist, Robert M.', 'Hedetniemi, Stephen T.', 'Kristiansen, Petter']
 
 Title:
-On the Nonorientable Genus of the Generalized Unit and Unitary Cayley Graphs of a Commutative Ring.
+Self-stabilizing maximal $k$-dependent sets in linear time.
 Author(s):
-['Khorsandi, Mahdi Reza', 'Musawi, Seyed Reza']
+['Gairing, Martin', 'Goddard, Wayne', 'Hedetniemi, Stephen T.', 'Jacobs, David P.']
 
 Title:
-Some Results on Noetherian Warfield Domains.
+Selfish routing in non-cooperative networks: a survey.
 Author(s):
-['Hu, Kui', 'Lim, Jung Wook', 'Zhou, Dechuan']
+['Feldmann, R.', 'Gairing, M.', 'Lücking, Thomas', 'Monien, Burkhard', 'Rode, Manuel']
 
 Title:
-On Finite Local Rings with Clique Number Four.
+Nashification and the coordination ratio for a selfish routing game.
 Author(s):
-['Liu, Qiong', 'Wu, Tongsuo', 'Guo, Jin']
+['Feldmann, Rainer', 'Gairing, Martin', 'Lücking, Thomas', 'Monien, Burkhard', 'Rode, Manuel']
 
 Title:
-Geometry of varieties for graded maximal Cohen-Macaulay modules.
+Extreme Nash equilibria.
 Author(s):
-['Hiramatsu, Naoya']
+['Gairing, Martin', 'Lücking, Thomas', 'Mavronicolas, Marios', 'Monien, Burkhard', 'Spirakis, Paul']
 
 Title:
-Vasconcelos' conjecture on the conormal module.
+Gallai theorems involving domination parameters.
 Author(s):
-['Briggs, Benjamin']
-
-Title:
-Arithmetic invariants of pseudoreflection groups and regular graded algebras.
-Author(s):
-['Mundelius, David']
-
-Title:
-Graded ideals of König type.
-Author(s):
-['Herzog, Jürgen', 'Hibi, Takayuki', 'Moradi, Somayeh']
-
-Title:
-Generic freeness of local cohomology and graded specialization.
-Author(s):
-['Chardin, Marc', 'Cid-Ruiz, Yairon', 'Simis, Aron']
-
-Title:
-The (ir)regularity of Tor and Ext.
-Author(s):
-['Chardin, Marc', 'Ghosh, Dipankar', 'Nemati, Navid']
-
-Title:
-Graded components of local cohomology modules.
-Author(s):
-['Puthenpurakal, Tony J.']
-
-Title:
-Subalgebra analogue of standard bases for ideals in $K[[t_1,t_2,\dots,t_m]][x_1,x_2,\dots,x_n].$
-Author(s):
-['Jabeen, Nazia', 'Khan, Junaid Alam']
-
-Title:
-An expansion formula for quantum cluster algebras from unpunctured triangulated surfaces.
-Author(s):
-['Huang, Min']
-
-Title:
-Gorenstein sequences of high socle degrees.
-Author(s):
-['Park, Jung Pil', 'Shin, Yong-Su']
-
-Title:
-$F$-volumes.
-Author(s):
-['Badilla-Céspedes, Wágner', 'Núñez-Betancourt, Luis', 'Rodríguez-Villalobos, Sandra']
-
-Title:
-Base change along the Frobenius endomorphism and the Gorenstein property.
-Author(s):
-['Dirnfeld, Pinches']
-
-Title:
-Average-case complexity of the Euclidean algorithm with a fixed polynomial over a finite field.
-Author(s):
-['Giménez, Nardo', 'Matera, Guillermo', 'Pérez, Mariana', 'Privitelli, Melina']
-
-Title:
-Hilbert functions of Artinian Gorenstein algebras with the strong Lefschetz property.
-Author(s):
-['Altafi, Nasrin']
-
-Title:
-On reducing homological dimensions over Noetherian rings.
-Author(s):
-['Araya, Tokuji', 'Takahashi, Ryo']
-
-Title:
-Finitely star regular domains.
-Author(s):
-['Mimouni, Abdeslam']
-
-Title:
-Conic divisorial ideals and non-commutative crepant resolutions of edge rings of complete multipartite graphs.
-Author(s):
-['Higashitani, Akihiro', 'Matsushita, Koji']
-
-Title:
-Annihilators of local cohomology modules over a Cohen-Macaulay ring.
-Author(s):
-['Yoshizawa, Takeshi']
-
-Title:
-Completions of uncountable local rings with countable spectra.
-Author(s):
-['Loepp, S.', 'Yu, Teresa']
-
-Title:
-On $n$-absorbing ideals of locally divided commutative rings.
-Author(s):
-['Choi, Hyun Seung']
-
-Title:
-Generalizations of Samuel's criteria for a ring to be a unique factorization domain.
-Author(s):
-['Daigle, Daniel', 'Freudenburg, Gene', 'Nagamine, Takanori']
-
-Title:
-Betti numbers under small perturbations.
-Author(s):
-['Duarte, Luís']
-
-Title:
-The homotopy theory of complete modules.
-Author(s):
-['Pol, Luca', 'Williamson, Jordan']
-
-Title:
-Syzygies of $\Bbb P^1\times\Bbb P^1$: data and conjectures.
-Author(s):
-['Bruce, Juliette', 'Corey, Daniel', 'Erman, Daniel', 'Goldstein, Steve', 'Laudone, Robert P.', 'Yang, Jay']
-
-Title:
-Edge rings with $q$-linear resolutions.
-Author(s):
-['Mori, Kenta', 'Ohsugi, Hidefumi', 'Tsuchiya, Akiyoshi']
-
-Title:
-On classification of finite commutative chain rings.
-Author(s):
-['Alabiad, Sami', 'Alkhamees, Yousef']
-
-Title:
-Computation of Macaulay constants and degree bounds for Gröbner bases.
-Author(s):
-['Hashemi, Amir', 'Parnian, Hossein', 'Seiler, Werner M.']
-
-Title:
-Degree bounds for Gröbner bases of modules.
-Author(s):
-['Liang, Yihui']
-
-Title:
-Guessing Gröbner bases of structured ideals of relations of sequences.
-Author(s):
-['Berthomieu, Jérémy', 'Safey El Din, Mohab']
-
-Title:
-On Property $(\Cal A)$ with respect to an ideal.
-Author(s):
-['Ait Ouahi, A.', 'Arssi, Y.', 'Bouchiba, S.']
-
-Title:
-Comultiplication-like modules and related results.
-Author(s):
-['Farshadifar, Faranak']
-
-Title:
-A note on residually small rings and modules.
-Author(s):
-['Kumar, Rahul', 'Gaur, Atul']
-
-Title:
-A classification up to algebra isomorphism of the ramified minimal ring extensions of a principal ideal ring.
-Author(s):
-['Dobbs, David E.']
-
-Title:
-Dedekind-Mertens lemma for power series in an arbitrary set of indeterminates.
-Author(s):
-['Ngoc Giau, Le Thi', 'Toan, Phan Thanh', 'Vo, Thieu N.']
-
-Title:
-On decomposing monomial algebras with the Lefschetz properties.
-Author(s):
-['Gasanova, Oleksandra', 'Lundqvist, Samuel', 'Nicklasson, Lisa']
-
-Title:
-Products of polymatroids with the strong exchange property.
-Author(s):
-['Nicklasson, Lisa']
-
-Title:
-On Sally modules.
-Author(s):
-['Lima, P. H.']
-
-Title:
-On truncations of valuations.
-Author(s):
-['Novacoski, J. A.', 'Silva de Souza, C. H.']
-
-Title:
-Equivalent generating vectors of finitely generated modules over commutative rings.
-Author(s):
-['Guyot, Luc']
-
-Title:
-Symbolic powers of generalized star configurations of hypersurfaces.
-Author(s):
-['Lin, Kuei-Nuan', 'Shen, Yi-Huang']
-
-Title:
-Valuations on $K[x]$ approaching a fixed irreducible polynomial.
-Author(s):
-['dos Santos Barnabé, Matheus', 'Novacoski, Josnei']
-
-Title:
-Symbolic powers of monomial ideals.
-Author(s):
-['Puthenpurakal, Tony J.']
-
-Title:
-Minimal free resolutions of certain equigenerated monomial ideals.
-Author(s):
-['VandeBogert, Keller']
-
-Title:
-On Hilbert ideals for a class of $p$-groups in characteristic $p$.
-Author(s):
-['Kummini, Manoj', 'Mondal, Mandira']
-
-Title:
-Construction of strictly closed rings.
-Author(s):
-['Endo, Naoki', 'Goto, Shiro']
-
-Title:
-Hulls of cyclic serial codes over a finite chain ring.
-Author(s):
-['Talbi, Sarra', 'Batoul, Aicha', 'Fotue Tabue, Alexandre', 'Martínez-Moro, Edgar']
-
-Title:
-Mixed multiplicities of graded families of ideals.
-Author(s):
-['Cid-Ruiz, Yairon', 'Montaño, Jonathan']
-
-Title:
-The resolution of $(x^N, y^N, z^N, w^N)$.
-Author(s):
-['Kustin, Andrew R.', 'R. G., Rebecca', 'Vraciu, Adela']
-
-Title:
-Algebraic model selection and experimental design in biological data science.
-Author(s):
-['Dimitrova, Elena', 'Hu, Jingzhen', 'Liang, Qingzhong', 'Stigler, Brandilyn', 'Zhang, Anyu']
-
-Title:
-Lexicographic Gröbner bases of bivariate polynomials modulo a univariate one.
-Author(s):
-['Dahan, Xavier']
-
-Title:
-Polarizations of powers of graded maximal ideals.
-Author(s):
-['Almousa, Ayah', 'Fløystad, Gunnar', 'Lohne, Henning']
-
-Title:
-$F$-thresholds $c^ I({\bf m})$ for projective curves.
-Author(s):
-['Trivedi, Vijaylaxmi']
-
-Title:
-Open loci results for commutative DG-rings.
-Author(s):
-['Shaul, Liran']
-
-Title:
-On universal stably free modules in positive characteristic.
-Author(s):
-['Primozic, Eric']
-
-Title:
-Buchsbaumness and Castelnuovo-Mumford regularity of non-smooth monomial curves.
-Author(s):
-['Lam, Tran Thi Gia', 'Trung, Ngo Viet']
-
-Title:
-$k$-Lefschetz properties, sectional matrices and hyperplane arrangements.
-Author(s):
-['Palezzato, Elisa', 'Torielli, Michele']
-
-Title:
-Atomic bases of quantum cluster algebras of type $\tilde A_{2n- 1, 1}$.
-Author(s):
-['Ding, Ming', 'Xu, Fan', 'Chen, Xueqing']
-
-Title:
-A structure result for Gorenstein algebras of odd codimension.
-Author(s):
-['Stenger, Isabel']
-
-Title:
-The local cohomology of a parameter ideal with respect to an arbitrary ideal.
-Author(s):
-['Lewis, Monica A.']
-
-Title:
-Algebraic sets defined by the commutator matrix.
-Author(s):
-['Kadyrsizova, Zhibek', 'Yerlanov, Madi']
-
-Title:
-Stronger bounds on the cost of computing Gröbner bases for HFE systems.
-Author(s):
-['Gorla, Elisa', 'Mueller, Daniela', 'Petit, Christophe']
-
-Title:
-Saturations of subalgebras, SAGBI bases, and U-invariants.
-Author(s):
-['Bigatti, Anna Maria', 'Robbiano, Lorenzo']
-
-Title:
-Modules whose finiteness dimensions coincide with their cohomological dimensions.
-Author(s):
-['Divaani-Aazar, Kamran', 'Ghanbari Doust, Akram', 'Tousi, Massoud', 'Zakeri, Hossein']
-
-Title:
-$N$-fiber-full modules.
-Author(s):
-['Yu, Hongmiao']
+['Balasubramanian, S.', 'Farr, J.', 'Bernasconi, K.', 'Laskar, R.', 'Villalpando, J.', 'Hutson, K.', 'Stevens, G.', 'Gairing, M.', 'Hedetniemi, S. T.']
 
