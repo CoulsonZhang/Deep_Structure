@@ -34,9 +34,9 @@ def fetch(url):
     data = requests.get(url).content
 
     content = BeautifulSoup(data, 'html.parser')
-    Matches = content.find('div', {"class": "matches"}).get_text().replace('\n', '')
-    match_num = re.sub(r'\D', "", Matches)
-    idx = 0
+    # Matches = content.find('div', {"class": "matches"}).get_text().replace('\n', '')
+    # match_num = re.sub(r'\D', "", Matches)
+    # idx = 0
     papers = dict()
 
     heads = content.findAll('div', {"class": "headline"})
@@ -61,7 +61,8 @@ def fetch(url):
     return  papers
 
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=Gairing%2C+Martin&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
+url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=13&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
+
 papers = fetch(url)
 
 with open('tittle,author.txt', 'w') as file:
