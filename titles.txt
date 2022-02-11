@@ -1,0 +1,100 @@
+$\roman{Sp}$-equivariant modules over polynomial rings in infinitely many variables.
+An Algebraic Approach to Projective Uniqueness with an Application to Order Polytopes.
+Krull modules and completely integrally closed modules.
+Cohomological operators on quotients by exact zero divisors.
+The Hilbert-Kunz function of some quadratic quotients of the Rees algebra.
+Connectedness of square-free Groebner deformations.
+Linearly presented modules and bounds on the Castelnuovo-Mumford regularity of ideals.
+Which homotopy algebras come from transfer?
+On the Cohen-Macaulay property of the Rees algebra of the module of differentials.
+Deformations and representations of Lie algebroids.
+Reducers and $K_0$ with support.
+Integral domains issued from associated primes.
+Covering modules by proper submodules.
+Graded Linearity of Stanley–Reisner Ring of Broken Circuit Complexes.
+Beck's Coloring of Finite Product of Commutative Ring with Unity.
+Heuristics to sift extraneous factors in Dixon resultants.
+A Theorem About Maximal Cohen–Macaulay Modules.
+Leading Terms of SL3 Web Invariants.
+On the limit closure of a sequence of elements in local rings.
+Indecomposable integrally closed modules of arbitrary rank over a two-dimensional regular local ring.
+Bi-graded Koszul modules, K3 carpets, and Green's conjecture.
+Linkage of modules by reflexive morphisms.
+Finite factorization properties in commutative monoid rings with zero divisors.
+On modules satisfying the descending chain condition on $r$-submodules.
+On graded pseudo-valuation domains.
+Cofiniteness of torsion functors of ideal transforms.
+On spectrum of comultiplication modules.
+On the freeness of dual semidualizing modules.
+On semigroup algebras with rational exponents.
+A Transformation Rule for Natural Multiplicities.
+A partial characterization of Hilbert quasi-polynomials in the non-standard case.
+A Cluster Character with Coefficients for Cluster Category.
+Divisibility in rings of integer-valued polynomials.
+On the Nonorientable Genus of the Generalized Unit and Unitary Cayley Graphs of a Commutative Ring.
+Some Results on Noetherian Warfield Domains.
+On Finite Local Rings with Clique Number Four.
+Geometry of varieties for graded maximal Cohen-Macaulay modules.
+Vasconcelos' conjecture on the conormal module.
+Arithmetic invariants of pseudoreflection groups and regular graded algebras.
+Graded ideals of König type.
+Generic freeness of local cohomology and graded specialization.
+The (ir)regularity of Tor and Ext.
+Graded components of local cohomology modules.
+Subalgebra analogue of standard bases for ideals in $K[[t_1,t_2,\dots,t_m]][x_1,x_2,\dots,x_n].$
+An expansion formula for quantum cluster algebras from unpunctured triangulated surfaces.
+Gorenstein sequences of high socle degrees.
+$F$-volumes.
+Base change along the Frobenius endomorphism and the Gorenstein property.
+Average-case complexity of the Euclidean algorithm with a fixed polynomial over a finite field.
+Hilbert functions of Artinian Gorenstein algebras with the strong Lefschetz property.
+On reducing homological dimensions over Noetherian rings.
+Finitely star regular domains.
+Conic divisorial ideals and non-commutative crepant resolutions of edge rings of complete multipartite graphs.
+Annihilators of local cohomology modules over a Cohen-Macaulay ring.
+Completions of uncountable local rings with countable spectra.
+On $n$-absorbing ideals of locally divided commutative rings.
+Generalizations of Samuel's criteria for a ring to be a unique factorization domain.
+Betti numbers under small perturbations.
+The homotopy theory of complete modules.
+Syzygies of $\Bbb P^1\times\Bbb P^1$: data and conjectures.
+Edge rings with $q$-linear resolutions.
+On classification of finite commutative chain rings.
+Computation of Macaulay constants and degree bounds for Gröbner bases.
+Degree bounds for Gröbner bases of modules.
+Guessing Gröbner bases of structured ideals of relations of sequences.
+On Property $(\Cal A)$ with respect to an ideal.
+Comultiplication-like modules and related results.
+A note on residually small rings and modules.
+A classification up to algebra isomorphism of the ramified minimal ring extensions of a principal ideal ring.
+Dedekind-Mertens lemma for power series in an arbitrary set of indeterminates.
+On decomposing monomial algebras with the Lefschetz properties.
+Products of polymatroids with the strong exchange property.
+On Sally modules.
+On truncations of valuations.
+Equivalent generating vectors of finitely generated modules over commutative rings.
+Symbolic powers of generalized star configurations of hypersurfaces.
+Valuations on $K[x]$ approaching a fixed irreducible polynomial.
+Symbolic powers of monomial ideals.
+Minimal free resolutions of certain equigenerated monomial ideals.
+On Hilbert ideals for a class of $p$-groups in characteristic $p$.
+Construction of strictly closed rings.
+Hulls of cyclic serial codes over a finite chain ring.
+Mixed multiplicities of graded families of ideals.
+The resolution of $(x^N, y^N, z^N, w^N)$.
+Algebraic model selection and experimental design in biological data science.
+Lexicographic Gröbner bases of bivariate polynomials modulo a univariate one.
+Polarizations of powers of graded maximal ideals.
+$F$-thresholds $c^ I({\bf m})$ for projective curves.
+Open loci results for commutative DG-rings.
+On universal stably free modules in positive characteristic.
+Buchsbaumness and Castelnuovo-Mumford regularity of non-smooth monomial curves.
+$k$-Lefschetz properties, sectional matrices and hyperplane arrangements.
+Atomic bases of quantum cluster algebras of type $\tilde A_{2n- 1, 1}$.
+A structure result for Gorenstein algebras of odd codimension.
+The local cohomology of a parameter ideal with respect to an arbitrary ideal.
+Algebraic sets defined by the commutator matrix.
+Stronger bounds on the cost of computing Gröbner bases for HFE systems.
+Saturations of subalgebras, SAGBI bases, and U-invariants.
+Modules whose finiteness dimensions coincide with their cohomological dimensions.
+$N$-fiber-full modules.
