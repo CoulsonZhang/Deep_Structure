@@ -12,12 +12,14 @@ def findnext(start):
 
     pages = content.find('div', {"class": "navbar"})
 
-    if len(pages) == 1:  # No next page button
+    if not pages or len(pages) == 1:  # No next page button
         # print("No next page! gg bro!")
         return False, None
     else:
         currnum = pages.find('span', {"class": "CurrentPage"}).get_text()
         nextnum = pages.findAll('span', {"class": "PageLink"})[-1].get_text()
+
+        print('curr page is: {}\n curr url is:\n{}\n\n'.format(currnum, start))
 
         if nextnum < currnum:
             # print("End of pages bro, time to stop")
@@ -52,24 +54,31 @@ def fetch(url):
             if name:
                 names.append(name)
         papers[title] = names
-
+#write current info
+    with open('tittle,author.txt', 'a') as file:
+        for k in papers:
+            file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k, papers[k]))
+#continue for future work
     next, next_url = findnext(url)
     if next:
-        next_paper = fetch(next_url)
-        papers.update(next_paper)
+        fetch(next_url)
+        #next_paper = fetch(next_url)
+        #next_paper.update(papers)
 
-    return  papers
+    # return  papers
 
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=13&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
+url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=&s5=&s6=13&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=2061'
+fetch(url)
 
-papers = fetch(url)
 
-with open('tittle,author.txt', 'w') as file:
-    for k in papers:
-        file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k, papers[k]))
+# papers = fetch(url)
 
-print(len(papers))
+# with open('tittle,author.txt', 'a') as file:
+#     for k in papers:
+#         file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k, papers[k]))
+
+# print(len(papers))
 
 
 

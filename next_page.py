@@ -19,6 +19,8 @@ def findnext(start):
         currnum = pages.find('span', {"class": "CurrentPage"}).get_text()
         nextnum = pages.findAll('span', {"class": "PageLink"})[-1].get_text()
 
+        print('curr page is: {}'.format(currnum))
+
         if nextnum < currnum:
             # print("End of pages bro, time to stop")
             return False, None
@@ -30,6 +32,7 @@ def findnext(start):
 
 
 url = 'https://mathscinet.ams.org//mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Kleinberg%2C%20Jon&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=81'
+
 
 print(findnext(url))
 
