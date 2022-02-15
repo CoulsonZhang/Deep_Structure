@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import re
 import requests
 
+#This function find the url of "next" button
 def findnext(start):
     # start = 'https://mathscinet.ams.org//mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Kleinberg%2C%20Jon&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=81'
     data = requests.get(start).content
@@ -31,7 +32,7 @@ def findnext(start):
             return True, link
 
 
-
+#This function extracts the info from the input url page
 def fetch(url):
     data = requests.get(url).content
 
@@ -68,7 +69,7 @@ def fetch(url):
     # return  papers
 
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=&s5=&s6=13&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=2061'
+url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=+Oren%2C+Sigal+&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
 fetch(url)
 
 
