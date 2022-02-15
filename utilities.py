@@ -37,16 +37,20 @@ def fetch(url):
     data = requests.get(url).content
 
     content = BeautifulSoup(data, 'html.parser')
-    # Matches = content.find('div', {"class": "matches"}).get_text().replace('\n', '')
-    # match_num = re.sub(r'\D', "", Matches)
-    # idx = 0
-    papers = dict()
+    #Key: title Value: list of author name
+    papers = dict() #dict for store the paper info.
+
+    #Key: title Value: detail page url
+    details = dict() #dict for storing the paper detail page (for reference)
+
+    #Key: title Value: citation page url
+    citation = dict() #dict for storing the paper citatoin page (for citation)
 
     heads = content.findAll('div', {"class": "headline"})
     for head in heads:
+        # fetch the title in this paper
         title = head.find('span', {"class": "title"}).getText()
         ele = head.find('a', {"class": "item_status"}).getText()
-        # print(head.getText().replace('\n','').split(ele))
         authors = head.getText().replace('\n', '').split(ele)[1:][0]
         authors = authors.split(title)[:-1][0]
         names = []
@@ -55,10 +59,24 @@ def fetch(url):
             if name:
                 names.append(name)
         papers[title] = names
+
+        # fetch the url for detail page & citation page
+        citation = head.find('div', {"class": "headlineMenu"})
+        menu_link = []
+        for i in citation.findAll('a', href=True):
+            menu_link.append(i['href'])
+
+        detail_page = 'https://mathscinet.ams.org/' + menu_link[0]
+        citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if citation.getText().endswith("Citations\n") else None
+        details[title] = detail_page
+        citation[title] = citation_page
+
+
 #write current info
     with open('tittle,author.txt', 'a') as file:
         for k in papers:
             file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k, papers[k]))
+
 #continue for future work
     next, next_url = findnext(url)
     if next:
