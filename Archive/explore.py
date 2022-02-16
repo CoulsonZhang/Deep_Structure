@@ -3,7 +3,7 @@ import re
 import requests
 
 
-
+# TO BE tested: various page have various format.
 def fetch_reference(url):
     titles = dict() #dic for storing reference. Key: title, Value: list of authors' name
     data = requests.get(url).content
@@ -29,9 +29,12 @@ def fetch_reference(url):
 
     return titles
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
+url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Ashlagi%2C%20Itai&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=3&mx-pid=4161833'
+
 title = fetch_reference(url)
-print(title)
+for k in title:
+    print(k, end="  ")
+    print(title[k])
 
 
 # url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
