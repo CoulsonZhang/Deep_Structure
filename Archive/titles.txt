@@ -1,37 +1,111 @@
 Stable matching mechanisms are not obviously strategy-proof
+Ashlagi, I., Gonczarowski, Y.A.
+
 Unbalanced random matching markets: the stark effect of competition
+Ashlagi, I., Kanoria, Y., Leshno, J.D.
+
 On the complexity of trial and error
+Bei, X., Chen, N., Zhang, S.
+
 Sampling stable marriages: why spouse-swapping won't work
+Bhatnagar, N., Greenberg, S., Randall, D.
+
 Euclidean preferences
+Bogomolnaia, A., Laslier, J.-F.
+
 Communication requirements for stable marriages
+Chou, J.-H., Lu, C.-J.
+
 Economic efficiency requires interaction
+Dobzinski, S., Nisan, N., Oren, S.
+
 Machiavelli and the Gale-Shapley algorithm
+Dubins, L.E., Freedman, D.A.
+
 Instability of matchings in decentralized markets with various preference structures
+Eriksson, K., Häggström, O.
+
 Unraveling yields inefficient matchings: evidence from post-season college football bowls
+Fréchette, G.R., Roth, A.E., Ünver, M.U.
+
 College admissions and the stability of marriage
+Gale, D., Shapley, L.S.
+
 Manipulation of stable matchings using minimal blacklists
+Gonczarowski, Y.A.
+
 Sisterhood in the Gale-Shapley matching algorithm
+Gonczarowski, Y.A., Friedgut, E.
+
 A stable marriage requires communication
+Gonczarowski, Y.A., Nisan, N., Ostrovsky, R., Rosenbaum, W.
+
 Three fast algorithms for four problems in stable marriage
+Gusfield, D.
+
 The Stable Marriage Problem: Structure and Algorithms
+Gusfield, D., Irving, R.W.
+
 A new–old algorithm for minimum-cut and maximum-flow in closure graphs
+Hochbaum, D.S.
+
 The complexity of counting stable marriages
+Irving, R.W., Leather, P.
+
 The probabilistic communication complexity of set intersection
+Kalyanasundaram, B., Schintger, G.
+
 Marriage stables et leurs relations avec d'autres problèmes combinatoires
+Knuth, D.E.
+
 Communication Complexity
+Kushilevitz, E., Nisan, N.
+
 Unraveling in matching markets
+Li, H., Rosen, S.
+
 Obviously strategy-proof mechanisms
+Li, S.
+
 The stable marriage problem
+McVitie, D.G., Wilson, L.B.
+
 Lower bounds for the stable marriage problem and its variants
+Ng, C., Hirschberg, D.
+
 Unraveling reduces mobility in a labor market: gastroenterology with and without a centralized match
+Niederle, M., Roth, A.E.
+
 Fast distributed almost stable matchings
+Ostrovsky, R., Rosenbaum, W.
+
 Maximal closure of a graph and applications to combinatorial problems
+Picard, J.-C.
+
 On the distributional complexity of disjointness
+Razborov, A.A.
+
 The evolution of the labor market for medical interns and residents: a case study in game theory
+Roth, A.E.
+
 On the allocation of residents to rural hospitals: a general property of two-sided matching markets
+Roth, A.E.
+
 A natural experiment in the organization of entry-level labor markets: regional markets for new physicians and surgeons in the United Kingdom
+Roth, A.E.
+
 Jumping the gun: imperfections and institutions related to the timing of market transactions
+Roth, A.E., Xing, X.
+
 The communication requirements of social choice rules and supporting budget sets
+Segal, I.
+
 On the survival of some unstable two-sided matching mechanisms
+Ünver, M.U.
+
 An analysis of the stable marriage assignment algorithm
+Wilson, L.B.
+
 Some complexity questions related to distributive computing (preliminary report)
+Yao, A.C.-C.
+
