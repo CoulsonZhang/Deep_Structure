@@ -1,4 +1,4 @@
-# Deep_Structure
+# Department's Deep Structure
 IGL project: Department's Deep Structure
 detailed page:
 
