@@ -1,0 +1,37 @@
+Stable matching mechanisms are not obviously strategy-proof
+Unbalanced random matching markets: the stark effect of competition
+On the complexity of trial and error
+Sampling stable marriages: why spouse-swapping won't work
+Euclidean preferences
+Communication requirements for stable marriages
+Economic efficiency requires interaction
+Machiavelli and the Gale-Shapley algorithm
+Instability of matchings in decentralized markets with various preference structures
+Unraveling yields inefficient matchings: evidence from post-season college football bowls
+College admissions and the stability of marriage
+Manipulation of stable matchings using minimal blacklists
+Sisterhood in the Gale-Shapley matching algorithm
+A stable marriage requires communication
+Three fast algorithms for four problems in stable marriage
+The Stable Marriage Problem: Structure and Algorithms
+A new–old algorithm for minimum-cut and maximum-flow in closure graphs
+The complexity of counting stable marriages
+The probabilistic communication complexity of set intersection
+Marriage stables et leurs relations avec d'autres problèmes combinatoires
+Communication Complexity
+Unraveling in matching markets
+Obviously strategy-proof mechanisms
+The stable marriage problem
+Lower bounds for the stable marriage problem and its variants
+Unraveling reduces mobility in a labor market: gastroenterology with and without a centralized match
+Fast distributed almost stable matchings
+Maximal closure of a graph and applications to combinatorial problems
+On the distributional complexity of disjointness
+The evolution of the labor market for medical interns and residents: a case study in game theory
+On the allocation of residents to rural hospitals: a general property of two-sided matching markets
+A natural experiment in the organization of entry-level labor markets: regional markets for new physicians and surgeons in the United Kingdom
+Jumping the gun: imperfections and institutions related to the timing of market transactions
+The communication requirements of social choice rules and supporting budget sets
+On the survival of some unstable two-sided matching mechanisms
+An analysis of the stable marriage assignment algorithm
+Some complexity questions related to distributive computing (preliminary report)

@@ -2,24 +2,37 @@ from bs4 import BeautifulSoup
 import re
 import requests
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=+Oren%2C+Sigal+&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
 
+url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
 data = requests.get(url).content
 content = BeautifulSoup(data, 'html.parser')
-heads = content.findAll('div', {"class": "headline"})
+list = content.find('div', {"class": "reflist"})
+headline = list.findAll('li')
+with open('headline.txt', 'w') as file:
+    for i in headline:
+        file.write(i.getText().replace('\n',''))
+        file.write('\n')
+        print(i.getText().replace('\n',''))
+        print('xxx')
 
-for head in heads:
-    title = head.find('span', {"class": "title"}).getText()
-    # print("Title is:{}".format(title))
-    citation = head.find('div', {"class": "headlineMenu"})
-    menu_link = []
-    for i in citation.findAll('a', href=True):
-        menu_link.append(i['href'])
-
-    detail_page = 'https://mathscinet.ams.org/' + menu_link[0]
-    citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if citation.getText().endswith("Citations\n") else None
-
-    print('Title is:{}\ndetail:{}\ncitation:{}\n\n'.format(title, detail_page, citation_page))
+# url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=+Oren%2C+Sigal+&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
+#
+# data = requests.get(url).content
+# content = BeautifulSoup(data, 'html.parser')
+# heads = content.findAll('div', {"class": "headline"})
+#
+# for head in heads:
+#     title = head.find('span', {"class": "title"}).getText()
+#     # print("Title is:{}".format(title))
+#     citation = head.find('div', {"class": "headlineMenu"})
+#     menu_link = []
+#     for i in citation.findAll('a', href=True):
+#         menu_link.append(i['href'])
+#
+#     detail_page = 'https://mathscinet.ams.org/' + menu_link[0]
+#     citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if citation.getText().endswith("Citations\n") else None
+#
+#     print('Title is:{}\ndetail:{}\ncitation:{}\n\n'.format(title, detail_page, citation_page))
 
 
     # if citation.getText().endswith("Citations\n"):

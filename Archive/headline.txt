@@ -1,0 +1,37 @@
+  Ashlagi, I., Gonczarowski, Y.A., 2018. Stable matching mechanisms are not obviously strategy-proof. J. Econ. Theory 177, 405–425. MR3849759
+  Ashlagi, I., Kanoria, Y., Leshno, J.D., 2017. Unbalanced random matching markets: the stark effect of competition. J. Polit. Econ. 125 (1), 69–98. 
+  Bei, X., Chen, N., Zhang, S., 2013. On the complexity of trial and error. In: Proceedings of the 44th Annual ACM Symposium on Theory of Computing (STOC), pp. 31–40. 
+  Bhatnagar, N., Greenberg, S., Randall, D., 2008. Sampling stable marriages: why spouse-swapping won't work. In: Proceedings of the 19th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pp. 1223–1232. MR2490494
+  Bogomolnaia, A., Laslier, J.-F., 2007. Euclidean preferences. J. Math. Econ. 43 (2), 87–98. MR2298239
+  Chou, J.-H., Lu, C.-J., 2010. Communication requirements for stable marriages. In: Proceedings of the 7th International Conference on Algorithms and Complexity (CIAC), pp. 371–382. MR2753876
+  Dobzinski, S., Nisan, N., Oren, S., 2014. Economic efficiency requires interaction. In: Proceedings of the 46th Annual ACM Symposium on Theory of Computing (STOC), pp. 233–242, full version available at arXiv:1311.4721. cf. MR4040196
+  Dubins, L.E., Freedman, D.A., 1981. Machiavelli and the Gale-Shapley algorithm. Am. Math. Mon. 88 (7), 485–494. MR0628016
+  Eriksson, K., Häggström, O., 2008. Instability of matchings in decentralized markets with various preference structures. Int. J. Game Theory 36 (3), 409–420. MR2383469
+  Fréchette, G.R., Roth, A.E., Ünver, M.U., 2007. Unraveling yields inefficient matchings: evidence from post-season college football bowls. Rand J. Econ. 38 (4), 967–982. 
+  Gale, D., Shapley, L.S., 1962. College admissions and the stability of marriage. Am. Math. Mon. 69 (1), 9–15. MR1531503
+  Gonczarowski, Y.A., 2014. Manipulation of stable matchings using minimal blacklists. In: Proceedings of the 15th ACM Conference on Economics and Computation (EC), p. 449. 
+  Gonczarowski, Y.A., Friedgut, E., 2013. Sisterhood in the Gale-Shapley matching algorithm. Electron. J. Comb. 20 (2), #P12, 18 pp. MR3066351
+  Gonczarowski, Y.A., Nisan, N., Ostrovsky, R., Rosenbaum, W., 2015. A stable marriage requires communication. In: Proceedings of the 26th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pp. 1003–1017. MR3451092
+  Gusfield, D., 1987. Three fast algorithms for four problems in stable marriage. SIAM J. Comput. 16 (1), 111–128. MR0873255
+  Gusfield, D., Irving, R.W., 1989. The Stable Marriage Problem: Structure and Algorithms. MIT Press. MR1021242
+  Hochbaum, D.S., 2001. A new–old algorithm for minimum-cut and maximum-flow in closure graphs. Networks 37 (4), 171–193. MR1837196
+  Irving, R.W., Leather, P., 1986. The complexity of counting stable marriages. SIAM J. Comput. 15 (3), 655–667. MR0850415
+  Kalyanasundaram, B., Schintger, G., 1992. The probabilistic communication complexity of set intersection. SIAM J. Discrete Math. 5 (4), 545–557. MR1186822
+  Knuth, D.E., 1976. Marriage stables et leurs relations avec d'autres problèmes combinatoires. Les Presses de l'Université de Montréal. MR0488980
+  Kushilevitz, E., Nisan, N., 1997. Communication Complexity. Cambridge University Press. MR1426129
+  Li, H., Rosen, S., 1998. Unraveling in matching markets. Am. Econ. Rev. 88 (3), 371–387. 
+  Li, S., 2017. Obviously strategy-proof mechanisms. Am. Econ. Rev. 107 (11), 3257–3287. 
+  McVitie, D.G., Wilson, L.B., 1971. The stable marriage problem. Commun. ACM 14 (7), 486–490. MR0307688
+  Ng, C., Hirschberg, D., 1990. Lower bounds for the stable marriage problem and its variants. SIAM J. Comput. 19 (1), 71–77. MR1035198
+  Niederle, M., Roth, A.E., 2003. Unraveling reduces mobility in a labor market: gastroenterology with and without a centralized match. J. Polit. Econ. 111 (6), 1342–1352. 
+  Ostrovsky, R., Rosenbaum, W., 2015. Fast distributed almost stable matchings. In: Proceedings of the 34th ACM Symposium on Principles of Distributed Computing (PODC), pp. 101–108. MR3503485
+  Picard, J.-C., 1976. Maximal closure of a graph and applications to combinatorial problems. Manag. Sci. 22 (11), 1268–1272. MR0403596
+  Razborov, A.A., 1992. On the distributional complexity of disjointness. Theor. Comput. Sci. 106. MR1192778
+  Roth, A.E., 1984. The evolution of the labor market for medical interns and residents: a case study in game theory. J. Polit. Econ. 92 (6), 991–1016. 
+  Roth, A.E., 1986. On the allocation of residents to rural hospitals: a general property of two-sided matching markets. Econometrica 54 (4), 425–427. MR0832765
+  Roth, A.E., 1991. A natural experiment in the organization of entry-level labor markets: regional markets for new physicians and surgeons in the United Kingdom. Am. Econ. Rev. 81 (3), 415–440. 
+  Roth, A.E., Xing, X., 1994. Jumping the gun: imperfections and institutions related to the timing of market transactions. Am. Econ. Rev. 84 (4), 992–1044. 
+  Segal, I., 2007. The communication requirements of social choice rules and supporting budget sets. J. Econ. Theory 136, 341–378. MR2888414
+  Ünver, M.U., 2005. On the survival of some unstable two-sided matching mechanisms. Int. J. Game Theory 33 (2), 239–254. MR2211724
+  Wilson, L.B., 1972. An analysis of the stable marriage assignment algorithm. BIT Numer. Math. 12 (4), 569–575. 
+  Yao, A.C.-C., 1979. Some complexity questions related to distributive computing (preliminary report). In: Proceedings of the 11th Annual ACM Symposium on Theory of Computing (STOC), pp. 209–213.
