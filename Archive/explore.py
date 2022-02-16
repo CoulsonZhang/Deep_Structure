@@ -3,17 +3,48 @@ import re
 import requests
 
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
-data = requests.get(url).content
-content = BeautifulSoup(data, 'html.parser')
-list = content.find('div', {"class": "reflist"})
-headline = list.findAll('li')
-with open('headline.txt', 'w') as file:
+
+def fetch_reference(url):
+    titles = dict() #dic for storing reference. Key: title, Value: list of authors' name
+    data = requests.get(url).content
+    content = BeautifulSoup(data, 'html.parser')
+    list = content.find('div', {"class": "reflist"})
+    headline = list.findAll('li')
+
+    #fetch title of reference paper
     for i in headline:
-        file.write(i.getText().replace('\n',''))
-        file.write('\n')
-        print(i.getText().replace('\n',''))
-        print('xxx')
+        tokens = i.getText().replace('\n','').split('.')
+        # print(tokens)
+        for idx in range(len(tokens)):
+            if tokens[idx][-4:].isdigit():
+                # fetch list of authors of the current reference paper
+                curr = tokens[idx + 1].strip()
+                titles[curr] = []
+                names = i.getText().replace('\n','').split(curr)[0].split('.,')[:-1]
+                for i in names:
+                    titles[curr].append(i.strip() + ".")
+
+                break
+
+
+    return titles
+
+url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
+title = fetch_reference(url)
+print(title)
+
+
+# url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
+# data = requests.get(url).content
+# content = BeautifulSoup(data, 'html.parser')
+# list = content.find('div', {"class": "reflist"})
+# headline = list.findAll('li')
+# with open('headline.txt', 'w') as file:
+#     for i in headline:
+#         file.write(i.getText().replace('\n',''))
+#         file.write('\n')
+#         print(i.getText().replace('\n',''))
+#         print('xxx')
 
 # url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=+Oren%2C+Sigal+&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
 #
