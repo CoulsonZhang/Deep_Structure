@@ -8,6 +8,7 @@ To Do:
 - reference fetch function compatibility
 > - trouble: differnt pages have various format in pure string type
 - entry integration (all function, class structure may be utilized)
+- Structure optimization. 3 dict may be redundant 
 
 Finished:
 - search result page info fetch (paper title, authors' name)
