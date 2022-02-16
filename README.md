@@ -6,7 +6,7 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
 
 To Do:
 - reference fetch function compatibility
-> - trouble: differnt page have various format in pure string type
+> - trouble: differnt pages have various format in pure string type
 - entry integration (all function, class structure may be utilized)
 
 Finished:
