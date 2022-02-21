@@ -1,0 +1,350 @@
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Mechanisms for (Mis)allocating Scientific Credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Economic efficiency requires interaction.
+Author(s):
+['Dobzinski, Shahar', 'Nisan, Noam', 'Oren, Sigal']
+
+Title:
+Dynamics of evolving social groups.
+Author(s):
+['Alon, Noga', 'Feldman, Michal', 'Mansour, Yishay', 'Oren, Sigal', 'Tennenholtz, Moshe']
+
+Title:
+Principal-agent problems with present-biased agents.
+Author(s):
+['Oren, Sigal', 'Soker, Dolav']
+
+Title:
+Optimization with demand oracles.
+Author(s):
+['Badanidiyuru, Ashwinkumar', 'Dobzinski, Shahar', 'Oren, Sigal']
+
+Title:
+On discrete preferences and coordination.
+Author(s):
+['Chierichetti, Flavio', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Dynamic models of reputation and competition in job-market matching.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+How bad is forming your own opinion?
+Author(s):
+['Bindel, David', 'Kleinberg, Jon', 'Oren, Sigal']
+
+Title:
+Side-communication yields efficiency of ascending auctions: the two-items case.
+Author(s):
+['Lavi, Ron', 'Oren, Sigal']
+
+Title:
+Mechanisms for (mis)allocating scientific credit.
+Author(s):
+['Kleinberg, Jon', 'Oren, Sigal']
+

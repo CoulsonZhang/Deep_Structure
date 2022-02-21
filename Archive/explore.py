@@ -1,51 +1,92 @@
-from bs4 import BeautifulSoup
-import re
-import requests
+# from bs4 import BeautifulSoup
+# import re
+# import requests
+# import utilities as u
+# import time
+# import ujson
+#
+# with open('names.txt', 'r') as file:
+#     data = file.read()
+#     names = data.split('\n')
+#
+# result = dict()
+# for i in names:
+#     time.sleep(2)
+#     url = u.search(i)
+#     papers = u.fetch(url)
+#     result[i] = papers
+#
+#
+# with open('variable.json', 'w') as file:
+#     ujson.dump(result, file)
+
+# with open('variable.json') as file:
+#     data = ujson.load(file)
+#
+# print(data)
 
 
-# TO BE tested: various page have various format.
-# developing usage url:
-# https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198
-
-def fetch_reference(url):
-    titles = dict() #dic for storing reference. Key: title, Value: list of authors' name
-    data = requests.get(url).content
-    content = BeautifulSoup(data, 'html.parser')
-    list = content.find('div', {"class": "reflist"})
-    headline = list.findAll('li')
-
-    #fetch title of reference paper
-    for i in headline:
-        tokens = i.getText().replace('\n','').split('.')
-        # print(tokens)
-        for idx in range(len(tokens)):
-            if tokens[idx][-4:].isdigit():
-                # fetch list of authors of the current reference paper
-                curr = tokens[idx + 1].strip()
-                titles[curr] = []
-                names = i.getText().replace('\n','').split(curr)[0].split('.,')[:-1]
-                for i in names:
-                    titles[curr].append(i.strip() + ".")
-
-                break
 
 
-    return titles
 
-url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
+# def search(name):
+#     first = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4='
+#     second = '&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
+#     return first + name.replace(" ", "") + second
 
-title = fetch_reference(url)
+# url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?fmt=amsrefs&pg1=MR&s1=4040198'
+# data = requests.get(url).content
+# content = BeautifulSoup(data, 'html.parser')
+# list = content.find('pre')
+# print(list.getText())
+#
 
-with open('titles.txt', 'w') as file:
-    for k in title:
-        print(k, end="  ")
-        print(title[k])
-        file.write(k)
-        file.write('\n')
-        file.write(", ".join(title[k]))
-        file.write('\n')
-        file.write('\n')
 
+
+
+# # TO BE tested: various page have various format.
+# # developing usage url:
+# # https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198
+#
+# def fetch_reference(url):
+#     titles = dict() #dic for storing reference. Key: title, Value: list of authors' name
+#     data = requests.get(url).content
+#     content = BeautifulSoup(data, 'html.parser')
+#     list = content.find('div', {"class": "reflist"})
+#     headline = list.findAll('li')
+#
+#     #fetch title of reference paper
+#     for i in headline:
+#         tokens = i.getText().replace('\n','').split('.')
+#         # print(tokens)
+#         for idx in range(len(tokens)):
+#             if tokens[idx][-4:].isdigit():
+#                 # fetch list of authors of the current reference paper
+#                 curr = tokens[idx + 1].strip()
+#                 titles[curr] = []
+#                 names = i.getText().replace('\n','').split(curr)[0].split('.,')[:-1]
+#                 for i in names:
+#                     titles[curr].append(i.strip() + ".")
+#
+#                 break
+#
+#
+#     return titles
+#
+# url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
+#
+# title = fetch_reference(url)
+#
+# with open('titles.txt', 'w') as file:
+#     for k in title:
+#         print(k, end="  ")
+#         print(title[k])
+#         file.write(k)
+#         file.write('\n')
+#         file.write(", ".join(title[k]))
+#         file.write('\n')
+#         file.write('\n')
+#
 
 
 # url = 'https://mathscinet.ams.org/mathscinet/search/publdoc.html?loc=headline&refcit=4040196&sort=Newest&vfpref=pdf&r=1&mx-pid=4040198'
