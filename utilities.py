@@ -1,12 +1,56 @@
 from bs4 import BeautifulSoup
 import re
+from itertools import combinations
 import requests
+import time
+import ujson
+
+# This function read variable joint
+# output the joint
+def find_joint():
+    with open('variable.json') as file:
+        result = ujson.load(file)
+
+    pairs = combinations(result, 2)
+    joint = dict()
+    for i in pairs:
+        one, two = i
+        num = 0
+        for paper in result[one]:
+            if two in result[one][paper]:
+                num += 1
+        joint[i] = num
+
+    print(joint)
+    with open('joint.json', 'w') as file:
+        ujson.dump(joint, file)
+
+
+#This function read author names in certain files and fetch publication informatoins
+# for the authors.
+# structure: list of authors names [].
+# Each element in list is a dict(), with paper title as key, list of authors' name of this paper is value
+def fetch_list():
+    with open('faculties.txt', 'r') as file:
+        data = file.read()
+        names = data.split('\n')
+
+    result = dict()
+    for i in names:
+        time.sleep(2)
+        url = search(i)
+        papers = fetch(url)
+        result[i] = papers
+
+    with open('variable.json', 'w') as file:
+        ujson.dump(result, file)
+    return result
 
 #This function find the url for searching result of input name
 def search(name):
     first = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4='
     second = '&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
-    return first + name.replace(" ", "") + second
+    return first + name + second
 
 
 #This function find the url of "next" button
@@ -59,7 +103,24 @@ def fetch(url):
         title = head.find('span', {"class": "title"}).getText()
         ele = head.find('a', {"class": "item_status"}).getText()
         authors = head.getText().replace('\n', '').split(ele)[1:][0]
-        authors = authors.split(title)[:-1][0]
+
+        try:
+            authors = authors.split(title)[:-1][0]
+        except IndexError:
+            # print('Wrong: title:{}\nauthor_list:{}\nurl:{}\n'.format(title,authors, url))
+            authors = authors.split(title.replace('\n', ''))[:-1][0]
+            print(authors)
+            # print(extra)
+            # print('XXX')
+            # print(title)
+            # print(authors.split(title))
+            # print("XXXXX")
+            # print(authors)
+            # print(title.replace('\n', "" ) in authors)
+
+
+
+
         names = []
         for author in authors.split(';'):
             name = author.strip()
