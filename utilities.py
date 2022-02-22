@@ -36,11 +36,14 @@ def fetch_list():
         names = data.split('\n')
 
     result = dict()
+    idx = 1
     for i in names:
+        print("{}/{}Checking:{}\n".format(idx, len(names), i))
         time.sleep(2)
         url = search(i)
         papers = fetch(url)
         result[i] = papers
+        idx += 1
 
     with open('variable.json', 'w') as file:
         ujson.dump(result, file)
