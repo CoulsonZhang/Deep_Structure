@@ -12,7 +12,7 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
 - Structure optimization. 3 dict may be redundant 
 - Auto name correction (search) by MathSciNet engine
 
-Finished:
+## Finished:
 - search result page info fetch (paper title, authors' name)
 - "next" page url fetch 
 - Paper detailed intro page url fetch 
