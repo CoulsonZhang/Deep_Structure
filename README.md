@@ -26,7 +26,10 @@ facilities.txt stores all "formal" name of UIUC math faculties
 
 names.txt stores all name of UIUC math faculties
 
+joint.json stores joint publication number between any pair of authors stored in facilities.txt
+
 Other files are temporary files used during developing
+
 
 
 ![image](https://github.com/CoulsonZhang/Deep_Structure/blob/main/Image/UIUC_logo.png)
