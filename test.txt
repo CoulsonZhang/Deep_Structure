@@ -1,2 +1,0 @@
-Upper bounds for the chromatic number of a graph in terms of its degree, density and girth.
-Kostočka, A. V. Upper bounds for the chromatic number of a graph in terms of its degree, density and girth.(Russian)  Dokl. Akad. Nauk SSSR  235  (1977),  no. 3, 516–518. (Reviewer:  Author's review)  05C15HTMLClipboardJournalArticlePublication Year 1977Indexed 1979-04-01Review Published1979-10-01
