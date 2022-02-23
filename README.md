@@ -4,7 +4,7 @@ detailed page:
 
 https://ymb.web.illinois.edu/teaching/igl-projects-s22/
 
-To Do:
+## To Do:
 - reference fetch function compatibility
 > - trouble: differnt pages have various format in pure string type
 > - Current solution: only get those paper that is collected in MathSciNet
