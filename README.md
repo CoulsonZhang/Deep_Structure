@@ -19,4 +19,10 @@ Finished:
 - Paper reference page url fetch
 - Joint publication number between any pair of authors
 
+## File
+utilities.py stores all completed functions
+facilities.txt stores all "formal" name of UIUC math faculties
+names.txt stores all name of UIUC math faculties
+Other files are temporary files used during developing
+
 ![image](https://github.com/CoulsonZhang/Deep_Structure/blob/main/Image/UIUC_logo.png)
