@@ -5,11 +5,12 @@ detailed page:
 https://ymb.web.illinois.edu/teaching/igl-projects-s22/
 
 ## To Do:
+- Make a class for paper record 
+> - save all info (paper title, list of author, list of math id, id of journal, last identifiers)
 - reference fetch function compatibility
 > - trouble: differnt pages have various format in pure string type
 > - Current solution: only get those paper that is collected in MathSciNet
 - entry integration (all function, class structure may be utilized)
-- Structure optimization. 3 dict may be redundant 
 - Auto name correction (search) by MathSciNet engine
 
 ## Finished:
