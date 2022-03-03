@@ -72,4 +72,5 @@ def citation_directed():
     with open('citation_directed', 'w') as file:
         ujson.dump(directed, file)
 
-find_citation()
+citation_joint()
+citation_directed()
