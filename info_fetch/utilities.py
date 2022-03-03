@@ -5,6 +5,76 @@ import requests
 import time
 import ujson
 
+
+#this function collect the paper citation. If paper title repeat, it keeps the last appearance result
+# data structure: dict. Key: title of paper, Value: list of citation paper title
+def fetch_citation(url):
+    data = requests.get(url).content
+
+    content = BeautifulSoup(data, 'html.parser')
+    # #Key: title Value: citation page url
+    cite = dict() #dict for storing the paper citatoin page (for citation)
+
+    heads = content.findAll('div', {"class": "headline"})
+    for head in heads:
+        # fetch the title in this paper
+        title = head.find('span', {"class": "title"}).getText()
+        print('processing paper: {}'.format(title))
+        # fetch the url for detail page & citation page
+        citation = head.find('div', {"class": "headlineMenu"})
+        menu_link = []
+        for i in citation.findAll('a', href=True):
+            menu_link.append(i['href'])
+
+        time.sleep(3)
+        #citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if (citation.getText().endswith("Citations\n") or citation.getText().endswith("Citation\n")) else None
+        if  citation.getText().endswith("Citation\n"):
+            citation_page = 'https://mathscinet.ams.org/' + menu_link[-1]
+            cite[title] = fetch_single_title(citation_page)
+        elif citation.getText().endswith("Citations\n"):
+            citation_page = 'https://mathscinet.ams.org/' + menu_link[-1]
+            cite[title] = fetch_title(citation_page)
+        else:
+            cite[title] = None
+    print("Check/Go next page")
+    # continue for future work
+    next, next_url = findnext(url)
+    if next:
+        next_cite = fetch_citation(next_url)
+        total = {**cite, **next_cite}
+        return total
+    else:
+        return cite
+
+# fetch titles on a page
+def fetch_title(url):
+    data = requests.get(url).content
+
+    content = BeautifulSoup(data, 'html.parser')
+    titles = []
+
+    heads = content.findAll('div', {"class": "headline"})
+    for head in heads:
+        # fetch the title in this paper
+        title = head.find('span', {"class": "title"}).getText()
+        titles.append(title)
+
+    # continue for future work
+    next, next_url = findnext(url)
+    if next:
+        next_titles = fetch_title(next_url)
+        titles.extend(next_titles)
+    return titles
+
+def fetch_single_title(url):
+    data = requests.get(url).content
+    content = BeautifulSoup(data, 'html.parser')
+    title = content.find('span', {"class": "title"}).getText()
+    return [title]
+
+
+
+
 # This function read variable joint
 # output the joint
 def find_joint():
@@ -59,8 +129,8 @@ def search(name):
 #This function find the url of "next" button
 def findnext(start):
     # start = 'https://mathscinet.ams.org//mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Kleinberg%2C%20Jon&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=81'
+    time.sleep(3)
     data = requests.get(start).content
-
     content = BeautifulSoup(data, 'html.parser')
     # Matches = content.find('div', {"class": "matches"}).get_text().replace('\n', '')
     # match_num = re.sub(r'\D', "", Matches)
@@ -93,12 +163,6 @@ def fetch(url):
     content = BeautifulSoup(data, 'html.parser')
     #Key: title Value: list of author name
     papers = dict() #dict for store the paper info.
-    #
-    # #Key: title Value: detail page url
-    # details = dict() #dict for storing the paper detail page (for reference)
-    #
-    # #Key: title Value: citation page url
-    # citation = dict() #dict for storing the paper citatoin page (for citation)
 
     heads = content.findAll('div', {"class": "headline"})
     for head in heads:
@@ -113,16 +177,6 @@ def fetch(url):
             # print('Wrong: title:{}\nauthor_list:{}\nurl:{}\n'.format(title,authors, url))
             authors = authors.split(title.replace('\n', ''))[:-1][0]
             print(authors)
-            # print(extra)
-            # print('XXX')
-            # print(title)
-            # print(authors.split(title))
-            # print("XXXXX")
-            # print(authors)
-            # print(title.replace('\n', "" ) in authors)
-
-
-
 
         names = []
         for author in authors.split(';'):
@@ -152,31 +206,6 @@ def fetch(url):
         # citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if citation.getText().endswith("Citations\n") else None
         # details[title] = detail_page
         # citation[title] = citation_page
-
-
-# #write current info
-#     with open('tittle,author.txt', 'a') as file:
-#         for k in papers:
-#             file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k, papers[k]))
-#
-
-#
-#
-# url = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=+Oren%2C+Sigal+&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
-# fetch(url)
-
-
-# papers = fetch(url)
-
-# with open('tittle,author.txt', 'a') as file:
-#     for k in papers:
-#         file.write('Title:\n{}\nAuthor(s):\n{}\n\n'.format(k, papers[k]))
-
-# print(len(papers))
-
-
-
-
 
 
 
