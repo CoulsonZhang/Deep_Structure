@@ -28,7 +28,7 @@ def find_citation():
 
 
 def citation_joint():
-    with open('citation.json', 'r') as file:
+    with open('update_citation', 'r') as file:
         data = ujson.load(file)
 
     total_citation = dict()
@@ -52,7 +52,7 @@ def citation_joint():
 
 
 def citation_directed():
-    with open('citation.json', 'r') as file:
+    with open('update_citation', 'r') as file:
         data = ujson.load(file)
 
     total_citation = dict()
@@ -74,3 +74,34 @@ def citation_directed():
 
 citation_joint()
 citation_directed()
+
+
+
+# with open('rest.txt', 'r') as file:
+#     data = file.read()
+#     names = data.split('\n')
+#
+# result = dict()
+# idx = 1
+# for i in names:
+#     print("{}/{}Checking:{}\n".format(idx, len(names), i))
+#     time.sleep(2)
+#     url = u.search(i)
+#     citation = u.fetch_citation(url)
+#     result[i] = citation
+#     idx += 1
+#
+# with open('rest_citation.json', 'w') as file:
+#     ujson.dump(result, file)
+
+# with open('rest_citation.json', 'r') as file:
+#     rest = ujson.load(file)
+#
+# with open('citation.json', 'r') as file:
+#     first = ujson.load(file)
+#
+# for i in rest:
+#     first[i] = rest[i]
+#
+# with open('update_citation', 'w') as file:
+#     ujson.dump(first, file)
