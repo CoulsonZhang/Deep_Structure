@@ -22,13 +22,13 @@ def find_citation():
         result[i] = citation
         idx += 1
 
-    with open('citation.json', 'w') as file:
+    with open('data/citation.json', 'w') as file:
         ujson.dump(result, file)
     return result
 
 
 def citation_joint():
-    with open('update_citation', 'r') as file:
+    with open('data/update_citation', 'r') as file:
         data = ujson.load(file)
 
     total_citation = dict()
@@ -47,12 +47,12 @@ def citation_joint():
         joint[i] = len(total_citation[one] & total_citation[two])
 
 
-    with open('citation_joint', 'w') as file:
+    with open('data/citation_joint', 'w') as file:
         ujson.dump(joint, file)
 
 
 def citation_directed():
-    with open('update_citation', 'r') as file:
+    with open('data/update_citation', 'r') as file:
         data = ujson.load(file)
 
     total_citation = dict()
@@ -69,12 +69,33 @@ def citation_directed():
         one, two = i
         directed[i] = len(set(data[one]) & total_citation[two])
 
-    with open('citation_directed', 'w') as file:
+    with open('data/citation_directed', 'w') as file:
         ujson.dump(directed, file)
 
-citation_joint()
-citation_directed()
+def citation_joint_name():
+    with open('data/update_citation', 'r') as file:
+        data = ujson.load(file)
 
+    total_citation = dict()
+    for i in data:
+        tmp = data[i]
+        total_citation[i] = set()
+        for k in tmp:
+            if tmp[k]:
+                for j in tmp[k]:
+                    total_citation[i].add(j)
+
+    pairs = combinations(total_citation, 2)
+    joint = dict()
+    for i in pairs:
+        one, two = i
+        joint[i] = list(total_citation[one] & total_citation[two])
+
+
+    with open('data/citation_joint_title', 'w') as file:
+        ujson.dump(joint, file)
+
+citation_joint_name()
 
 
 # with open('rest.txt', 'r') as file:
