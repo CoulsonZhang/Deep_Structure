@@ -4,6 +4,8 @@ from itertools import combinations
 import requests
 import time
 import ujson
+from itertools import combinations
+from itertools import permutations
 
 
 #this function collect the paper citation. If paper title repeat, it keeps the last appearance result
@@ -78,7 +80,7 @@ def fetch_single_title(url):
 # This function read variable joint
 # output the joint
 def find_joint():
-    with open('data/variable.json') as file:
+    with open('data/publication_source.json') as file:
         result = ujson.load(file)
 
     pairs = combinations(result, 2)
@@ -117,7 +119,7 @@ def fetch_list():
         result[i] = papers
         idx += 1
 
-    with open('data/variable.json', 'w') as file:
+    with open('data/publication_source.json', 'w') as file:
         ujson.dump(result, file)
     return result
 
@@ -196,19 +198,93 @@ def fetch(url):
         return papers
 
 
+def find_citation():
+    with open('faculties.txt', 'r') as file:
+        data = file.read()
+        names = data.split('\n')
+
+    result = dict()
+    idx = 1
+    for i in names:
+        print("{}/{}Checking:{}\n".format(idx, len(names), i))
+        time.sleep(2)
+        url = search(i)
+        citation = fetch_citation(url)
+        result[i] = citation
+        idx += 1
+
+    with open('data/citations_source.json', 'w') as file:
+        ujson.dump(result, file)
+    return result
 
 
-        # # fetch the url for detail page & citation page
-        # citation = head.find('div', {"class": "headlineMenu"})
-        # menu_link = []
-        # for i in citation.findAll('a', href=True):
-        #     menu_link.append(i['href'])
-        #
-        # detail_page = 'https://mathscinet.ams.org/' + menu_link[0]
-        # citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if citation.getText().endswith("Citations\n") else None
-        # details[title] = detail_page
-        # citation[title] = citation_page
+def citation_joint():
+    with open('data/citations_source.json', 'r') as file:
+        data = ujson.load(file)
 
+    total_citation = dict()
+    for i in data:
+        tmp = data[i]
+        total_citation[i] = set()
+        for k in tmp:
+            if tmp[k]:
+                for j in tmp[k]:
+                    total_citation[i].add(j)
+
+    pairs = combinations(total_citation, 2)
+    joint = dict()
+    for i in pairs:
+        one, two = i
+        joint[i] = len(total_citation[one] & total_citation[two])
+
+
+    with open('data/citation_joint.json', 'w') as file:
+        ujson.dump(joint, file)
+
+
+def citation_directed():
+    with open('data/citations_source.json', 'r') as file:
+        data = ujson.load(file)
+
+    total_citation = dict()
+    for i in data:
+        tmp = data[i]
+        total_citation[i] = set()
+        for k in tmp:
+            if tmp[k]:
+                for j in tmp[k]:
+                    total_citation[i].add(j)
+    pairs = permutations(total_citation, 2) # for (one, two). How many time one takes reference of two's paper
+    directed = dict()
+    for i in pairs:
+        one, two = i
+        directed[i] = len(set(data[one]) & total_citation[two])
+
+    with open('data/citation_directed.json', 'w') as file:
+        ujson.dump(directed, file)
+
+def citation_joint_name():
+    with open('data/citations_source.json', 'r') as file:
+        data = ujson.load(file)
+
+    total_citation = dict()
+    for i in data:
+        tmp = data[i]
+        total_citation[i] = set()
+        for k in tmp:
+            if tmp[k]:
+                for j in tmp[k]:
+                    total_citation[i].add(j)
+
+    pairs = combinations(total_citation, 2)
+    joint = dict()
+    for i in pairs:
+        one, two = i
+        joint[i] = list(total_citation[one] & total_citation[two])
+
+
+    with open('data/citation_joint_title', 'w') as file:
+        ujson.dump(joint, file)
 
 
 
