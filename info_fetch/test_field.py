@@ -95,7 +95,7 @@ def citation_joint_name():
     with open('data/citation_joint_title', 'w') as file:
         ujson.dump(joint, file)
 
-citation_joint()
+u.find_joint()
 
 
 # with open('rest.txt', 'r') as file:

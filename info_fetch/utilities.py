@@ -78,17 +78,19 @@ def fetch_single_title(url):
 # This function read variable joint
 # output the joint
 def find_joint():
-    with open('variable.json') as file:
+    with open('data/variable.json') as file:
         result = ujson.load(file)
 
     pairs = combinations(result, 2)
     joint = dict()
     for i in pairs:
         one, two = i
-        num = 0
-        for paper in result[one]:
-            if two in result[one][paper]:
-                num += 1
+        num = len(set(result[one]) & set(result[two]))
+
+        # num = 0
+        # for paper in result[one]:
+        #     if two in result[one][paper]:
+        #         num += 1
         joint[i] = num
 
     print(joint)
@@ -115,7 +117,7 @@ def fetch_list():
         result[i] = papers
         idx += 1
 
-    with open('variable.json', 'w') as file:
+    with open('data/variable.json', 'w') as file:
         ujson.dump(result, file)
     return result
 
