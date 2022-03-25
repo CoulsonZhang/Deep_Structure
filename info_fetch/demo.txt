@@ -1,0 +1,36 @@
+1:
+input:
+txt:
+
+
+
+2:
+author:
+paper title
+author id
+
+[author1, author2]
+
+author1:
+list len > 1 
+[authorid, paper1id, paper2id]
+
+
+
+3:
+paper:
+paper id
+journal id
+citation
+reference
+
+[paper1id, paper2id]
+paper1: dict()	 key:paper id  value:[]
+list len > 4
+[id, journal id,  citation, reference]
+
+
+
+
+
+

@@ -12,7 +12,6 @@ from itertools import permutations
 # data structure: dict. Key: title of paper, Value: list of citation paper title
 def fetch_citation(url):
     data = requests.get(url).content
-
     content = BeautifulSoup(data, 'html.parser')
     # #Key: title Value: citation page url
     cite = dict() #dict for storing the paper citatoin page (for citation)
@@ -133,7 +132,7 @@ def search(name):
 #This function find the url of "next" button
 def findnext(start):
     # start = 'https://mathscinet.ams.org//mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Kleinberg%2C%20Jon&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=81'
-    time.sleep(3)
+    time.sleep(0.5)
     data = requests.get(start).content
     content = BeautifulSoup(data, 'html.parser')
     # Matches = content.find('div', {"class": "matches"}).get_text().replace('\n', '')
