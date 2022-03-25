@@ -3,7 +3,6 @@ input:
 txt:
 
 
-
 2:
 author:
 paper title
@@ -25,7 +24,8 @@ citation
 reference
 
 [paper1id, paper2id]
-paper1: dict()	 key:paper id  value:[]
+
+paper1: dict()	 key:paper title  value:[]
 list len > 4
 [id, journal id,  citation, reference]
 
