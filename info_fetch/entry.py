@@ -1,5 +1,5 @@
 import utilities as u
-import common_references as c
+# import common_references as c
 
 #1. read file (list of author txt file)
 #1.5 function auto correct name
@@ -21,10 +21,17 @@ def get_names(filename):
 #1.5
 def auto_correct(name):
     #auto check name in mathscinet website
-    pass
+    return u.get_author_name(name)
 #2
 def fetch_author_info(name):
-    pass
+    result = []
+    id = u.get_author_id(name)
+    result.append(id)
+    url = u.search(name)
+    titles = u.fetch_title(url)
+    result.extend(titles)
+    return result
+
 
 #3
 def fetch_paper_info(name):
@@ -32,6 +39,6 @@ def fetch_paper_info(name):
     pass
 
 
-
+auto_correct(' Gary J.')
 
 

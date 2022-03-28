@@ -7,6 +7,26 @@ import ujson
 from itertools import combinations
 from itertools import permutations
 
+#This funtion take input of author's name and check author's formal name
+def get_author_name(name):
+    url = 'https://mathscinet.ams.org/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
+    data = requests.get(url).content
+    content = BeautifulSoup(data, 'html.parser')
+    #identify = content.find('title').getText().split(' ')[-1].replace('\n','')
+    result_name = content.find('span', {"class": "authorName important"})
+    if result_name:
+        return result_name.getText()
+    else:
+        print("Multiple name possible, please re-check your input")
+        return None
+
+#This funtion take input of author's name and check author's id
+def get_author_id(name):
+    url = 'https://mathscinet.ams.org/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
+    data = requests.get(url).content
+    content = BeautifulSoup(data, 'html.parser')
+    identify = content.find('title').getText().split(' ')[-1].replace('\n','')
+    return identify
 
 #this function collect the paper citation. If paper title repeat, it keeps the last appearance result
 # data structure: dict. Key: title of paper, Value: list of citation paper title

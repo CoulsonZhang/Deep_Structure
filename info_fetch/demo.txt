@@ -12,7 +12,7 @@ author id
 
 author1:
 list len > 1 
-[authorid, paper1id, paper2id]
+[authorid, paper1_title, paper2_title]
 
 
 
@@ -28,9 +28,6 @@ reference
 paper1: dict()	 key:paper title  value:[]
 list len > 4
 [id, journal id,  citation, reference]
-
-
-
 
 
 
