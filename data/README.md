@@ -1,6 +1,6 @@
 ## Available Data Sets:
 
-### Collaboration distance
+### Collaboration Distance
 - "Collaboration distance" is obtained from a tool on https://mathscinet.ams.org/.
 - This distance represents minimumly how many papers away two authors are. For example, if A coauthored a paper with B, but A worked with C, C worked with D, and D worked with B, then the collaboration distance between A and B would be 3 (A-C-D-B). Similarly, collaboration distance between A and C is 1, between A and D is 2.
 
