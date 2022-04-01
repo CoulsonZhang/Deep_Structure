@@ -48,7 +48,7 @@ except:
 
 time.sleep(0.3)
 
-def access_author():
+def access_author(author_name):
     time.sleep(0.4)
     driver.find_element_by_css_selector("input[type='radio'][value='pubyear']").click()
     time.sleep(0.4)
@@ -70,7 +70,7 @@ def check_exists_by_class_name():
         return False
     return True
 
-def back_to_home():
+def back_to_home(author_name):
     driver.find_element_by_link_text("Home").click()
     time.sleep(0.2)
     driver.find_element_by_css_selector("input[type='radio'][value='pubyear']").click()
@@ -107,8 +107,8 @@ def get_titles():
 
     return titles
 
-def get_references():
-    back_to_home()
+def get_references(author_name):
+    back_to_home(author_name)
 
     driver.find_element_by_class_name("mrnum").click()
 
@@ -151,9 +151,9 @@ def get_references():
             break
     return listreferences
 
-def get_journals():
+def get_journals(author_name):
 
-    back_to_home()
+    back_to_home(author_name)
 
     driver.find_element_by_class_name("mrnum").click()
     links = []
@@ -195,8 +195,8 @@ def get_journals():
     return journal_ids
            
 
-def get_author_id():
-    back_to_home();
+def get_author_id(author_name):
+    back_to_home(author_name)
     driver.find_element_by_class_name("mrnum").click()
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -213,30 +213,29 @@ def get_author_id():
 
     return author_id
     
+def paper_info(name):
+    access_author(name)
+    author_id = get_author_id(name)
+    titles = get_titles(name)
+    references = get_references(name)
+    journals = get_journals(name)
+
+    print(len(titles))
+    print(len(references))
+    print(len(journals))
+
+    paperdict = {}
 
 
-access_author();
-author_id = get_author_id()
-titles = get_titles()
-references = get_references();
-journals = get_journals()
+    for i in range(len(references)):
+        list_of_info = []
+        list_of_info.append(author_id)
+        list_of_info.append(journals[i])
+        list_of_info.append(references[i])
 
-print(len(titles))
-print(len(references))
-print(len(journals))
+        paperdict[titles[i]] = list_of_info
 
-paperdict = {}
-
-
-for i in range(len(references)):
-    list_of_info = []
-    list_of_info.append(author_id)
-    list_of_info.append(journals[i])
-    list_of_info.append(references[i])
-
-    paperdict[titles[i]] = list_of_info
-
-print(paperdict)
+    return (paperdict)
 
 
     
