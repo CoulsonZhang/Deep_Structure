@@ -1,5 +1,6 @@
 import utilities as u
-# import common_references as c
+import common_references as c
+import paperinfo as p
 
 #1. read file (list of author txt file)
 #1.5 function auto correct name
@@ -36,6 +37,8 @@ def fetch_author_info(name):
 #3
 def fetch_paper_info(name):
     u.find_citation()
+    p.paper_info()
+
     pass
 
 
