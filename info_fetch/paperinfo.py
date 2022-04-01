@@ -216,13 +216,9 @@ def get_author_id(author_name):
 def paper_info(name):
     access_author(name)
     author_id = get_author_id(name)
-    titles = get_titles(name)
+    titles = get_titles()
     references = get_references(name)
     journals = get_journals(name)
-
-    print(len(titles))
-    print(len(references))
-    print(len(journals))
 
     paperdict = {}
 
@@ -236,6 +232,9 @@ def paper_info(name):
         paperdict[titles[i]] = list_of_info
 
     return (paperdict)
+
+# paper_info(author_name)
+# driver.quit()
 
 
     
