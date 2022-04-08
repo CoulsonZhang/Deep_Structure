@@ -1,4 +1,5 @@
 from turtle import back
+from unicodedata import name
 import credential as c
 import os
 import time
@@ -12,7 +13,7 @@ import numpy as np
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import utilities as u
 from selenium.webdriver.support.ui import Select
 
 #sample input
@@ -222,6 +223,12 @@ def paper_info(name):
 
     paperdict = {}
 
+    citationdict = u.fetch_citation(u.search(name))
+    print(citationdict)
+
+
+    
+
 
     for i in range(len(references)):
         list_of_info = []
@@ -229,12 +236,23 @@ def paper_info(name):
         list_of_info.append(journals[i])
         list_of_info.append(references[i])
 
+        list_of_info.append(citationdict.get(titles[i]))
+        
+
         paperdict[titles[i]] = list_of_info
+        
+
 
     return (paperdict)
 
-# paper_info(author_name)
-# driver.quit()
+
+# references = get_references(author_name)
+# print(references)
+# print(get_titles)
+
+
+# print(paper_info(author_name))
+# # driver.quit()
 
 
     
