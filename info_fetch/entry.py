@@ -36,10 +36,8 @@ def fetch_author_info(name):
 
 #3
 def fetch_paper_info(name):
-    u.find_citation()
-    p.paper_info()
+    return p.paper_info(name)
 
-    pass
 
 
 auto_correct(' Gary J.')
