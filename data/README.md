@@ -27,3 +27,8 @@
 - This data represents how many papers each pair of faculties both refered to in their publishings.
 - For example, if A refered to paper x, y, z in her papers, and B refered to paper w, x, y in his papers, then entry (A, B) of this dataset would be 2.
 - This dataset is symmetrical.
+
+### Citation Matrix
+- This data represents how many time for any author has citation(s) for one specific paper.
+- For example, if A's paper has been citated by a paper called P. Then in the matrix, cell in the row A and column P has value of 1.
+- This dataset is NOT symmetrical. 
