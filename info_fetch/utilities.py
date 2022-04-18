@@ -145,7 +145,7 @@ def fetch_list():
 #This function find the url for searching result of input name
 def search(name):
     first = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4='
-    second = '&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
+    second = '&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=ANDdr=pubyear&yrop=gt&arg3=2010&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
     return first + name + second
 
 

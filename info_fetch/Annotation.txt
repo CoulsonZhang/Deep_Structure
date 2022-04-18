@@ -1,0 +1,23 @@
+Annotation for each function in the file "utilities.py"
+
+def fetch(url)
+This function extracts the info from the input url page and all "next" pages by using the BeautifulSoup/requests package in python.
+It first fetches all content in the web page with input url, then extras paper title and name of author(s) by pure string manipulations.
+It works with "findnext" function to fetch next page(s) (if any).
+It will return a dict structure. Key is paper title, Value is list of name of author(s)
+
+def findnext(start)
+This function takes an input url "start" and return url to the next page (if any)
+It first fetches "navbar" element in the webpage and searches whether there is a url for "next page".
+If there is an url of "next page", it would return True and url. Otherwise, it would return False and None.
+
+def search(name):
+This function takes the name to be searched and returns the corresponding url in MathSciNet.
+It only involves string manipulation.
+
+def fetch_list():
+This function reads a local text file in which the name list is stored. It uses all three functions above and outputs a dict structure. Key is the author's name. Value is another dict which is the output of a fetch function. It would store this variable locally for further use.
+Notice: Local store means to save the usage of web fetch function
+
+def find_joint():
+It reads the output info of fetch_list and outputs the number of joint publications between any pair of authors. It involves for loop for iteration.

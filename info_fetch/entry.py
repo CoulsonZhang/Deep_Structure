@@ -1,9 +1,9 @@
 import utilities as u
-import common_references as c
-import paperinfo as p
+#import common_references as c
+#import paperinfo as p
 
 #1. read file (list of author txt file)
-#1.5 function auto correct name
+#1.5 function auto correct name (integrated)
 #2. Function to get info structure of all authors
 #3. Function to get info structure of all papers
 
@@ -16,13 +16,9 @@ def get_names(filename):
         data = file.read()
         names = data.split('\n')
     for i in range(len(names)):
-        names[i] = auto_correct(names[i])
-
+        names[i] = u.get_author_name(names[i])
     return names
-#1.5
-def auto_correct(name):
-    #auto check name in mathscinet website
-    return u.get_author_name(name)
+
 #2
 def fetch_author_info(name):
     result = []
@@ -39,7 +35,14 @@ def fetch_paper_info(name):
     return p.paper_info(name)
 
 
+if __name__ == "__main__":
+    filename = input('Please Put the filename which contains the authors name\n')
+    try:
+        authorname = get_names(filename)
+    except FileNotFoundError:
+        print("File Not found")
 
-auto_correct(' Gary J.')
+
+
 
 
