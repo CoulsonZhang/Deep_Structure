@@ -40,7 +40,7 @@ def upgma(distance_matrix):
         clade1 = clades[min_i]
         clade2 = clades[min_j]
         inner_count += 1
-        inner_clade = BaseTree.Clade(None, "")
+        inner_clade = BaseTree.Clade(None, "C" + str(inner_count))
         inner_clade.clades.append(clade1)
         inner_clade.clades.append(clade2)
         # assign branch length
@@ -64,7 +64,7 @@ def upgma(distance_matrix):
             if k != min_i and k != min_j:
                 dm[min_j, k] = (dm[min_i, k] + dm[min_j, k]) * 1.0 / 2
 
-        dm.names[min_j] = ""
+        dm.names[min_j] = "C" + str(inner_count)
 
         del dm[min_i]
     inner_clade.branch_length = 0
@@ -134,7 +134,7 @@ def nj(distance_matrix):
         clade1 = clades[min_i]
         clade2 = clades[min_j]
         inner_count += 1
-        inner_clade = BaseTree.Clade(None, "")
+        inner_clade = BaseTree.Clade(None, "I" + str(inner_count))
         inner_clade.clades.append(clade1)
         inner_clade.clades.append(clade2)
         # assign branch length
@@ -155,7 +155,7 @@ def nj(distance_matrix):
                     dm[min_i, k] + dm[min_j, k] - dm[min_i, min_j]
                 ) / 2.0
 
-        dm.names[min_j] = ""
+        dm.names[min_j] = "I" + str(inner_count)
         del dm[min_i]
 
     # set the last clade as one of the child of the inner_clade
