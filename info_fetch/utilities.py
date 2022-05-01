@@ -6,6 +6,8 @@ import time
 import ujson
 from itertools import combinations
 from itertools import permutations
+from collections import defaultdict
+import csv
 
 #This funtion take input of author's name and check author's formal name
 def get_author_name(name):
@@ -305,6 +307,45 @@ def citation_joint_name():
     with open('data/citation_joint_title', 'w') as file:
         ujson.dump(joint, file)
 
+def make_citation_pool():
+    with open('data/citations_source.json', 'r') as file:
+        data = ujson.load(file)
+
+    citePool = set()
+    citeAuthor = defaultdict(list)
+    result = defaultdict(int)
+    for author in data:
+        for citation in data[author]:
+            if citation:
+                citeAuthor[author].append(citation)
+                citePool.add(citation)
+
+    for author in data:
+        for cite in citePool:
+            times = citeAuthor[author].count(cite)
+            result[(author, cite)] += times
+
+    with open('data/cite_pool.json', 'w') as file:
+        ujson.dump(result, file)
+
+def make_ref_pool():
+    ref_dic = dict()
+    ref_pool = set()
+    result = defaultdict(int)
+    with open('data/references_data.csv') as file:
+        data = csv.reader(file)
+        for row in data:
+            ids = row[2].replace("'", '')[1:-1].split(', ')
+            ref_dic[row[1]] = ids
+            for id in ids:
+                ref_pool.add(id)
+    for author in ref_dic:
+        for ref in ref_pool:
+            times = ref_dic[author].count(ref)
+            result[(author, ref)] += times
+
+    with open('data/ref_pool.json', 'w') as file:
+        ujson.dump(result, file)
 
 
 
