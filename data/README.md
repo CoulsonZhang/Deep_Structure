@@ -32,3 +32,8 @@
 - This data represents how many time for any author has citation(s) for one specific paper.
 - For example, if A's paper has been citated by a paper called P. Then in the matrix, cell in the row A and column P has value of 1.
 - This dataset is NOT symmetrical. 
+
+### Reference Matrix
+- This data represents how many time for any author has reference(s) for one specific paper.
+- For example, if A's paper has been referenced by a paper called P. Then in the matrix, cell in the row A and column P has value of 1.
+- This dataset is NOT symmetrical. 
