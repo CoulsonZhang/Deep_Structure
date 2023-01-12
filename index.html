@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Faculty mentor: Yuliy Baryshnikov Grad student mentor: Sujeet Bhalerao Dev Patel, Peiyan Wu, Yizhi Zhang, Zheyu Zhang" />
+  <meta name="dcterms.date" content="2022-05-13" />
+  <title>Department’s deep structure</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Department’s deep structure</h1>
+<p class="author"><p>Faculty mentor: Yuliy Baryshnikov<br />
+Grad student mentor: Sujeet Bhalerao<br />
+Dev Patel, Peiyan Wu, Yizhi Zhang, Zheyu Zhang</p></p>
+<p class="date">May 13, 2022</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>The goal of this project was to make a Python program that accepts as
+input a list of mathematicians, say from a department at any
+institution, and detects intrinsic research clusters (i.e. groups of
+people working in close areas, publishing in the same journals etc.)
+within the department.</p>
+</div>
+</header>
+<h1 id="sec1">Introduction</h1>
+<p>What is the structure of the math department? The question is not as
+simple as it seems: the research group composition changes fast, and
+their impact on the global scale might be smaller or larger than it
+seems. The goal of this project is to detect research clusters in our
+math department. There are two parts in achieving this goal: data
+collection and clustering. For data collection, we extracted information
+for each paper for each faculty member such as references, citations,
+and classifications from MathSciNet. From this data, we generated
+matrices that were used for clustering algorithms. This clustering is
+based on data scraped from the online database MathSciNet using the
+Python programming language. The data we collected allowed us to define
+proximity measures (that is, a notion of how close faculty members are),
+of which we applied hierarchical clustering algorithms to gain insights
+into the research structure of our math department. Hierarchical
+clustering works by initially treating each observation as a separate
+cluster. Then, it repeatedly identifies two clusters that are closest
+together and merges the two most similar clusters. This iterative
+process continues until all the clusters are merged together. Finally,
+we aggregated and visualized the results of clustering using
+phylogenetic trees (dendrograms).</p>
+<p>This report is structured as follows. Section <a
+href="#DataCollection" data-reference-type="ref"
+data-reference="DataCollection">2</a> describes the process of data
+collection and lists all datasets generated from MathSciNet. This
+includes an example of a code snippet, and a sample submatrix of a full
+distance matrix for one of the datasets. Section <a href="#Clustering"
+data-reference-type="ref" data-reference="Clustering">3</a> illustrates
+the theory behind the clustering algorithms that were used, and includes
+a discussion of the necessary preprocessing of data. The method for
+combining results from different datasets into a unified result as a
+single consensus tree is also described. Section <a href="#results"
+data-reference-type="ref" data-reference="results">4</a> reports the
+research clusters that were found in the math department and the final
+result is stated in the form of a dendrogram. Section <a href="#concl"
+data-reference-type="ref" data-reference="concl">5</a> talks about the
+future directions of this project.</p>
+<h1 id="DataCollection">Data collection</h1>
+<p>We used python packages Selenium and BeautifulSoup to extract data
+from MathSciNet. Selenium helps automate browser actions such as clicks,
+while BeautifulSoup helps to find HTML elements in a given page. An
+example of a search result on MathSciNet for publications from a faculty
+member is given below. Each piece of information such as author name or
+classification code is associated with an HTML element that is used to
+extract the information. HTML elements are a set of tags and attributes
+that provide definitions to different parts of the web document. They
+tell the web browser how to display the different pieces of
+information.</p>
+<figure>
+<img src="IMG_0524.jpeg" alt="image" />
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<p>We extracted faculty names, references, citations, MathSciNet
+classification codes, and journal names for each publication of each
+faculty member in the department. Next, we generated similarity matrices
+(number of common journals, citations, references, etc). Finally, we
+also created matrices for SVD-based clustering method with respect to
+classification codes, references, and citations.</p>
+<p>The code snippet below is used to generate the references matrix
+describing the number of common references each pair of faculty have.
+First, we enter names of professors and starting year in the search bar.
+We then click on the first research paper for the author using the class
+name property. We use time.sleep(0.4) between each action to suspend
+execution of the code for 0.4 seconds in order to prevent an overload of
+requests in a small amount of time.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> professor <span class="kw">in</span> list_of_profs:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    driver.find_element_by_css_selector(<span class="st">&quot;input[type=&#39;radio&#39;][value=&#39;pubyear&#39;]&quot;</span>).click()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    select <span class="op">=</span> Select(driver.find_element_by_id(<span class="st">&#39;yrop&#39;</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    select.select_by_visible_text(<span class="st">&#39;&gt;&#39;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    driver.find_element_by_id(<span class="st">&quot;yearValue&quot;</span>).send_keys(<span class="st">&quot;2010&quot;</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    driver.find_element_by_name(<span class="st">&quot;s4&quot;</span>).send_keys(professor)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    driver.find_element_by_name(<span class="st">&quot;Submit&quot;</span>).click()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    driver.find_element_by_class_name(<span class="st">&quot;mrnum&quot;</span>).click()</span></code></pre></div>
+<p>Second, we find the HTML element for references and gather all
+references for all papers for one author. Each reference is listed as an
+‘MR’ or ‘ar’ code.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    listreferences <span class="op">=</span> []</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.2</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (check_exists_by_class_name()):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        soup <span class="op">=</span> BeautifulSoup(driver.page_source, <span class="st">&quot;html.parser&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        spans <span class="op">=</span> soup.find_all(<span class="st">&#39;a&#39;</span>, href <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> word <span class="kw">in</span> spans:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (word.get_text()[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;MR&quot;</span> <span class="kw">or</span> word.get_text()[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;ar&quot;</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                listreferences.append(word.get_text())</span></code></pre></div>
+<p>We keep on adding these references until there is no next paper for
+the author.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="va">True</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>: </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            driver.find_element_by_partial_link_text(<span class="st">&quot;Next&quot;</span>).click()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="fl">0.2</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (check_exists_by_class_name()):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                soup <span class="op">=</span> BeautifulSoup(driver.page_source, <span class="st">&quot;html.parser&quot;</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                time.sleep(<span class="fl">0.2</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                spans <span class="op">=</span> soup.find_all(<span class="st">&#39;a&#39;</span>, href <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                time.sleep(<span class="fl">0.2</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> word <span class="kw">in</span> spans:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> (word.get_text()[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;MR&quot;</span> <span class="kw">or</span> word.get_text()[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;ar&quot;</span>):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                        listreferences.append(word.get_text())</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            </span></code></pre></div>
+<p>Finally, we store the data in a dictionary with key professor and
+value of all of their references as MR codes.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    profdict[professor] <span class="op">=</span> listreferences</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<p>We return back to the home page, so we can repeat the process for the
+next professor.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    driver.find_element_by_link_text(<span class="st">&quot;Home&quot;</span>).click()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="fl">0.4</span>)</span></code></pre></div>
+<h2 id="list-of-datasets-generated">List of datasets generated</h2>
+<p>The following data sets were collected. A description of each is
+listed below. The first six matrices are distance matrices where the
+rows and columns are faculty names and each entry represents the
+strength of the relationship between each pair of faculty. The last two
+matrices are used for SVD clustering methods where the rows are faculty
+names while the columns are codes associated with citations, references,
+and classifications.</p>
+<p><strong>Collaboration Distance.</strong> "Collaboration distance" is
+obtained from a tool on MathSciNet. This distance represents minimumly
+how many papers away two authors are. For example, if A coauthored a
+paper with B, but A worked with C, C worked with D, and D worked with B,
+then the collaboration distance between A and B would be 3 (A-C-D-B).
+Similarly, collaboration distance between A and C is 1, between A and D
+is 2.<br />
+<strong>Number of Joint Publication.</strong> This data represents how
+many paper each pair of faculties co-authored. This dataset is
+symmetrical.<br />
+<strong>Number of Shared Citation.</strong> This data represents how
+many times each pair of faculties are cited in the same paper. For
+example, if there are 10 papers that cited both faculty A and B, then
+entry (A, B) of this dataset would be 10. This dataset is
+symmetrical.<br />
+<strong>Number of Directed Citation.</strong> This data represents how
+many times one faculty cited another faculty in all his/her
+publications. For example, if A cited B 10 times in all of A’s
+publications, then the entry (A, B) would be 10. This dataset is NOT
+symmetrical.<br />
+<strong>Number of Common Journal.</strong> This data represents how many
+papers each pair of faculties published in same journals. For example,
+if A published 3 papers in journal X and 4 papers in journal Y, while B
+published 2 papers in journal X and 5 papers in journal Y, then entry
+(A, B) of this dataset would be 3+2+4+5 = 14. This dataset is
+symmetrical.<br />
+<strong>Number of Common Reference.</strong> This data represents how
+many papers each pair of faculties both refered to in their publishings.
+For example, if A refered to paper x, y, z in her papers, and B refered
+to paper w, x, y in his papers, then entry (A, B) of this dataset would
+be 2. This dataset is symmetrical.<br />
+<strong>Citation Matrix.</strong> This data represents how many time for
+any author has citation(s) for one specific paper. For example, if A’s
+paper has been citated by a paper called P. Then in the matrix, cell in
+the row A and column P has value of 1. This dataset is NOT
+symmetrical.<br />
+<strong>Reference Matrix.</strong> This data represents how many time
+for any author has reference(s) for one specific paper. For example, if
+A’s paper has been referenced by a paper called P. Then in the matrix,
+cell in the row A and column P has value of 1. This dataset is NOT
+symmetrical.</p>
+<figure>
+<img src="colab_distance_matrix.png"
+alt="This is an example sub-matrix for collaboration distances. Each entry represents the number of papers between each pair of faculty." />
+<figcaption aria-hidden="true">This is an example sub-matrix for
+collaboration distances. Each entry represents the number of papers
+between each pair of faculty.</figcaption>
+</figure>
+<h1 id="Clustering">Clustering</h1>
+<h2 id="data-pre-processing">Data Pre-processing</h2>
+<p>Even without any processing, the raw data we extracted from
+MathSciNet naturally describes the similarity between mathematicians
+with respect to research areas. Take the number of shared citation as an
+example, the more two mathematicians are cited together, the more likely
+they work in the same or closely related areas. Thus, a reasonable
+distance measure for how closely mathematicians work together can simply
+be: <span class="math display">\[\begin{aligned}
+    d(a, b) \coloneqq \frac{1}{2^{s_{a, b}}}
+\end{aligned}\]</span></p>
+<p>Here, <span class="math inline">\(s_{a,b}\)</span> is the similarity
+measures between mathematicians <span class="math inline">\(a,
+b\)</span> represented by the data we extracted, and <span
+class="math inline">\(d(a, b)\)</span> is the distance that can be used
+for clustering.</p>
+<p>However, a problem with this simple approach is that different
+research areas can have vastly different research output. For example,
+in 2021, the number of reviewed publications on MathSciNet in spectral
+theory and eigenvalue problems is 422, while the number in random
+dynamical systems is only 102. As a result, our data can skew toward
+mathematicians in areas of high research output. That is, our simple
+approach will likely assign closer distances to mathematicians working
+in high output areas than those who work in lower output areas.</p>
+<p>To resolve this issue, we performed normalization on the data we
+collected to prevent biases in clustering. For each type of metric data
+we collected, we normalized the data with respect to the total number of
+corresponding metric of each mathematician. Take the number of shared
+citation as an example, we define the normalized similarity measure
+<span class="math inline">\(\hat{s}_{a, b}\)</span> as following: <span
+class="math display">\[\begin{aligned}
+    \hat{s}_{a,b} = \frac{s_{a, b}}{\sqrt{a_{\text{total}}\cdot
+b_{\text{total}}}}
+\end{aligned}\]</span></p>
+<p>Here, <span class="math inline">\(s_{a,b}\)</span> is the number of
+shared citation between mathematicians <span class="math inline">\(a,
+b\)</span>, and <span class="math inline">\(a_{\text{total}},
+b_{\text{total}}\)</span> are the total number of citations <span
+class="math inline">\(a, b\)</span> have respectively.</p>
+<p>After normalization on similarity measures, distances can be
+calculated using equation (1).</p>
+<h2 id="clustering-algorithm">Clustering Algorithm</h2>
+<p>We would like to perform clustering techniques on our data to uncover
+the intrinsic research structure within our math department. However,
+such structure is likely to exhibit a multiscale characteristic (Figure
+<a href="#fig:multiscale" data-reference-type="ref"
+data-reference="fig:multiscale">1</a>). For example, a group of
+mathematicians working on partial differential equations can form a
+valid cluster, but if we zoom in, there may be a finer cluster that
+works on representations of solutions, another on first-order equations,
+another on higher-order equation, and so on.</p>
+<figure>
+<img src="multiscale.png" id="fig:multiscale"
+alt="Data with multiscale structures [@carlsson]" />
+<figcaption aria-hidden="true">Data with multiscale structures <span
+class="citation" data-cites="carlsson">[@carlsson]</span></figcaption>
+</figure>
+<p>This makes standard clustering methods such as K-Mean unsuitable for
+our task, as they only return a fixed partition of data. Thus, the main
+clustering method we used on analyzing our data is agglomerative
+hierarchical clustering. Unlike standard clustering algorithms, this
+method returns a hierarchical decomposition of input data <span
+class="citation" data-cites="carlsson">[@carlsson]</span>. Roughly
+speaking, this is a method of clustering in which each observation
+starts in its own cluster, and pairs of clusters are merged as one moves
+up the hierarchy. The precise algorithm for merging clusters depends on
+the linkage criterion one uses, which is the functions that define
+distances between clusters. The linkage criteria we used is unweighted
+average linkage, also know as UPGMA:</p>
+<p>Given distance <span class="math inline">\(d\)</span>. For clusters
+<span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span>, <span
+class="math display">\[\begin{aligned}
+    D(A, B) = \frac{1}{|A|\cdot|B|} \sum_{a\in A}\sum_{b\in B} d(a, b)
+\end{aligned}\]</span></p>
+<p>Given a linkage criteria <span class="math inline">\(D(A, B)\)</span>
+that defines the distance between any pair of clusters <span
+class="math inline">\((A, B)\)</span>, the clustering algorithm is then
+described below:</p>
+<p>Algorithm:</p>
+<ol type="1">
+<li><p>Initialize all data points as clusters of one element.</p></li>
+<li><p>Compute distance <span class="math inline">\(D(A, B)\)</span>
+between all clusters.</p></li>
+<li><p>Find the shortest distance <span class="math inline">\(r\)</span>
+between any pair of clusters.</p></li>
+<li><p>For each pair of cluster <span class="math inline">\((A,
+B)\)</span> such that <span class="math inline">\(D(A, B) = r\)</span>,
+merge them into a single cluster.</p></li>
+<li><p>Save the current state labeled with <span
+class="math inline">\(r\)</span>.</p></li>
+<li><p>Repeat step 2-5 until every data point is merged into a single
+cluster.</p></li>
+</ol>
+<p>This algorithm produces an hierarchy of clusters, which can be
+represented as a tree (or dendrogram) of clusters.</p>
+<h2 id="tree-consensus">Tree Consensus</h2>
+<p>After performing hierarchical clustering on multiple sources of data,
+we would like to determine the cluster structure that is supported by
+multiple different sources. That is, we would like to combine the result
+trees obtained from multiple sources of data into one representative
+tree.</p>
+<p>To accomplish this, we deployed the majority rule consensus tree
+method. A majority rule tree contains exactly those clusters or splits
+that appear in more than half of the input trees <span class="citation"
+data-cites="bryant">[@bryant]</span>. A more detailed example of
+majority consensus tree can be found in <span class="citation"
+data-cites="bryant">[@bryant]</span>. This is implemented using
+Bio.Phylo<span class="citation"
+data-cites="biopython">[@biopython]</span>.</p>
+<h2 id="svd-based-clustering">SVD-based Clustering</h2>
+<p>We would also like to experiment with SVD-based clustering methods.
+Specifically, we want to apply singular value decomposition to the
+citation and reference matrices, and extract the most dominant principle
+components or features, then perform K-mean clustering on these features
+<span class="citation" data-cites="pca">[@pca]</span>. This can give us
+an insight into the department’s structure at some specific scale.</p>
+<h1 id="results">Results</h1>
+<p>We performed clustering using the aforementioned hierarchical
+clustering method on all the data we collected. All result trees can be
+found in Appendix A. From these results, we found that joint publication
+data is very sparse and only produces a few clusters, as it is rare for
+even mathematicians in the same areas to always work on the same papers.
+Common journal data gives a reasonable but not very accurate result, as
+many major journals cover a very broad range of topics. After comparing
+the rest of results with known research groups within our department, we
+determined that the clustering results from citations and references
+data are the most accurate.</p>
+<p>We then combined the results from normalized joint citation and
+common references data using majority consensus tree method (Figure <a
+href="#fig:consensus" data-reference-type="ref"
+data-reference="fig:consensus">2</a>). From this result, we see that
+most current research groups within our department are well identified.
+A few individuals are misplaced by our algorithm, but mainly due to
+reasons that are impossible for the algorithm to resolve, such as one
+changing area of research recently, or one only recently became an UIUC
+faculty.</p>
+<figure>
+<img src="consensus.png" id="fig:consensus"
+alt="Consensus tree from hierarchical clustering results of joint citation and common references data. The branch labels are MathSciNet classification codes (MSC) of the research areas that the corresponding sub-clusters published most in." />
+<figcaption aria-hidden="true">Consensus tree from hierarchical
+clustering results of joint citation and common references data. The
+branch labels are MathSciNet classification codes (MSC) of the research
+areas that the corresponding sub-clusters published most
+in.</figcaption>
+</figure>
+<h1 id="concl">Conclusion and future work</h1>
+<p>In this project, we created a program that successfully detected
+intrinsic research clusters within Department of Mathematics at
+University of Illinois at Urbana-Champaign. Moreover, since our final
+program doesn’t require any human labeling or selection, it can
+automatically produce similar results for any other U.S. institutions in
+MathSciNet’s database. This provides a very efficient way for
+administrations of institutions and prospective graduate students to
+discover and visualize the research landscape within their own
+department of mathematics. However, there are still a lot needs to be
+improved. We would like to make better data visualization for our
+result, and incorporate the MathSciNet classification into the
+visualization in a more elegant way. We would also like to extend this
+project to other fields such as physics and computer science research.
+Furthermore, we want to integrate the data collection and cluster
+analysis parts into a single package for a better user experience.
+Additionally, we can integrate other online databases such as zbMath
+(formerly Zentralblatt MATH) as additional data sources. Finally, we
+want to explore SVD-based clustering methods to obtain finer
+classifications on our data.</p>
+<h1 class="unnumbered" id="references">References</h1>
+<h1 id="appendix-result-dendrograms">Appendix: Result Dendrograms</h1>
+<figure>
+<img src="joint_pub.png"
+alt="Hierarchical clustering result from joint publication data" />
+<figcaption aria-hidden="true">Hierarchical clustering result from joint
+publication data</figcaption>
+</figure>
+<figure>
+<img src="dir_cite.png"
+alt="Hierarchical clustering result from direct citation data" />
+<figcaption aria-hidden="true">Hierarchical clustering result from
+direct citation data</figcaption>
+</figure>
+<figure>
+<img src="Normalized_Joint_Citation.png"
+alt="Hierarchical clustering result from shared citation data" />
+<figcaption aria-hidden="true">Hierarchical clustering result from
+shared citation data</figcaption>
+</figure>
+<figure>
+<img src="Normalized_Common_Journal.png"
+alt="Hierarchical clustering result from common journal data" />
+<figcaption aria-hidden="true">Hierarchical clustering result from
+common journal data</figcaption>
+</figure>
+<figure>
+<img src="Normalized_Common_References.png"
+alt="Hierarchical clustering result from common reference data" />
+<figcaption aria-hidden="true">Hierarchical clustering result from
+common reference data</figcaption>
+</figure>
+</body>
+</html>
