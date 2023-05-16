@@ -15,6 +15,9 @@ from selenium.webdriver.support.ui import Select
 import pandas as pd
 import numpy as np
 
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 list_of_profs = ["Ford, Kevin B.",
 "Tyson, Jeremy T.",
@@ -78,30 +81,38 @@ list_of_profs = ["Ford, Kevin B.",
 option = webdriver.ChromeOptions()
 toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
 option.add_argument("headless")
-base_path = os.path.dirname(os.path.abspath(__file__))
-drive_path = os.path.abspath(base_path + "/chromedriver 2")
-driver = webdriver.Chrome(drive_path)
+#base_path = os.path.dirname(os.path.abspath(__file__))
+#drive_path = os.path.abspath(base_path + "/chromedriver")
+#driver = webdriver.Chrome(drive_path)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get(toolsURL)
 time.sleep(0.2)
 
-# login
-driver.find_element_by_xpath("//*[@id='userNameInput']").click()
-time.sleep(0.2)
-driver.find_element_by_id("userNameInput").send_keys("devhp2@illinois.edu")
-time.sleep(0.2)
-driver.find_element_by_xpath("//*[@id='nextButton']").click()
-driver.find_element_by_id("passwordInput").send_keys("20Pr#tgn720Pr#t1gn7")
-time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything 
-driver.find_element_by_xpath("//*[@id='submitButton']").click()
-time.sleep(0.2)
-try:
-    element = WebDriverWait(driver, 15).until(
-    EC.presence_of_element_located((By.NAME, "s4"))
-)
-except:
-    driver.quit()
 
-time.sleep(0.3)
+# login
+driver.find_element_by_xpath("//*[@id='i0116']").click()
+time.sleep(0.2)
+driver.find_element_by_id("i0116").send_keys(c.username)
+time.sleep(0.2)
+
+driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
+
+time.sleep(0.5)
+
+driver.find_element_by_id("i0118").send_keys(c.password)
+
+time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything 
+
+
+driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
+time.sleep(0.2)
+#try:
+#    element = WebDriverWait(driver, 15).until(
+#    EC.presence_of_element_located((By.NAME, "s4"))
+#)
+#except:
+#    driver.quit()
+#time.sleep(0.3)
 
 
 #check if there is next paper
@@ -126,19 +137,45 @@ profdict = {}
 for proffessor in list_of_profs:
     #enter information (professor name and starting year)
     time.sleep(0.4)
-    driver.find_element_by_css_selector("input[type='radio'][value='pubyear']").click()
+    try:
+        element = WebDriverWait(driver, 10).until(
+           EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='radio'][value='pubyear']"))
+        )
+        element.click()
+    except:
+        print("Element not found")
     time.sleep(0.4)
-    select = Select(driver.find_element_by_id('yrop'))
-    time.sleep(0.4)
-    select.select_by_visible_text('>')
-    time.sleep(0.4)
-    driver.find_element_by_id("yearValue").send_keys("2010")
-    time.sleep(0.4)
-    driver.find_element_by_name("s4").send_keys(proffessor)
-    time.sleep(0.4)
-    driver.find_element_by_name("Submit").click()
-    time.sleep(0.4)
-    driver.find_element_by_class_name("mrnum").click()
+    
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yrop')))
+        select = Select(driver.find_element_by_id('yrop'))
+        select.select_by_visible_text('>')
+    except Exception as e:
+        print("Error while selecting from dropdown: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yearValue')))
+        driver.find_element_by_id("yearValue").send_keys("2010")
+    except Exception as e:
+        print("Error while entering year: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 's4')))
+        driver.find_element_by_name("s4").send_keys(proffessor)
+    except Exception as e:
+        print("Error while entering professor name: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 'Submit')))
+        driver.find_element_by_name("Submit").click()
+    except Exception as e:
+        print("Error while clicking submit: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'mrnum')))
+        driver.find_element_by_class_name("mrnum").click()
+    except Exception as e:
+        print("Error while clicking on mrnum: ", e)
 
     # get all references for all paper for one author
     listreferences = []
