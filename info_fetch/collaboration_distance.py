@@ -11,6 +11,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 from webdriver_manager.chrome import ChromeDriverManager
 
 # setup
@@ -42,6 +43,9 @@ time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything
 
 driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
 time.sleep(0.2)
+
+
+
 
 
 # go to collaboration tools section 
@@ -106,4 +110,5 @@ for i in range(len(faculty) - 1):
 
 
 pd.DataFrame(matrix).to_csv("faculty_collaboration_distance.csv")
+
 

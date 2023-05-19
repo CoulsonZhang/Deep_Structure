@@ -17,7 +17,9 @@ import numpy as np
 import re
 
 
+
 from webdriver_manager.chrome import ChromeDriverManager
+
 
 # list_of_profs = ["Ford, Kevin B.", "Tyson, Jeremy T."]
 
@@ -88,6 +90,7 @@ option.add_argument("headless")
 #drive_path = os.path.abspath(base_path + "/chromedriver")
 #driver = webdriver.Chrome(drive_path)
 driver = webdriver.Chrome(ChromeDriverManager().install())
+
 driver.get(toolsURL)
 time.sleep(0.2)
 
@@ -116,6 +119,7 @@ time.sleep(0.2)
 #except:
 #    driver.quit()
 #time.sleep(0.3)
+
 
 
 profdict = {}
