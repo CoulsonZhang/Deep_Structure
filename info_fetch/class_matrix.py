@@ -16,6 +16,9 @@ import pandas as pd
 import numpy as np
 import re
 
+
+from webdriver_manager.chrome import ChromeDriverManager
+
 # list_of_profs = ["Ford, Kevin B.", "Tyson, Jeremy T."]
 
 list_of_profs = ["Ford, Kevin B.",

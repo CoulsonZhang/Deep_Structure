@@ -15,7 +15,6 @@ from selenium.webdriver.support.ui import Select
 import pandas as pd
 import numpy as np
 
-from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
