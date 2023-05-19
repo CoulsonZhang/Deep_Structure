@@ -81,29 +81,38 @@ list_of_profs = ["Ford, Kevin B.",
 option = webdriver.ChromeOptions()
 toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
 option.add_argument("headless")
-base_path = os.path.dirname(os.path.abspath(__file__))
-drive_path = os.path.abspath(base_path + "/chromedriver 3")
-driver = webdriver.Chrome(drive_path)
+#base_path = os.path.dirname(os.path.abspath(__file__))
+#drive_path = os.path.abspath(base_path + "/chromedriver")
+#driver = webdriver.Chrome(drive_path)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get(toolsURL)
 time.sleep(0.2)
 
 
 # login
-driver.find_element_by_xpath("//*[@id='userNameInput']").click()
+driver.find_element_by_xpath("//*[@id='i0116']").click()
 time.sleep(0.2)
-driver.find_element_by_id("userNameInput").send_keys(c.username)
+driver.find_element_by_id("i0116").send_keys(c.username)
 time.sleep(0.2)
-driver.find_element_by_xpath("//*[@id='nextButton']").click()
-driver.find_element_by_id("passwordInput").send_keys(c.password)
+
+driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
+
+time.sleep(0.5)
+
+driver.find_element_by_id("i0118").send_keys(c.password)
+
 time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything 
-driver.find_element_by_xpath("//*[@id='submitButton']").click()
+
+
+driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
 time.sleep(0.2)
-try:
-    element = WebDriverWait(driver, 15).until(
-    EC.presence_of_element_located((By.NAME, "s4"))
-)
-except:
-    driver.quit()
+#try:
+#    element = WebDriverWait(driver, 15).until(
+#    EC.presence_of_element_located((By.NAME, "s4"))
+#)
+#except:
+#    driver.quit()
+#time.sleep(0.3)
 
 
 profdict = {}
