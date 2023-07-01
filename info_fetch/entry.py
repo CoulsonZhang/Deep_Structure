@@ -1,6 +1,6 @@
 import utilities as u
 #import common_references as c
-#import paperinfo as p
+import paperinfo as p
 
 #1. read file (list of author txt file)
 #1.5 function auto correct name (integrated)
@@ -39,6 +39,10 @@ if __name__ == "__main__":
     filename = input('Please Put the filename which contains the authors name\n')
     try:
         authorname = get_names(filename)
+        print(authorname)
+        for name in authorname:
+            print(fetch_author_info(name))  
+            print(fetch_paper_info(name))
     except FileNotFoundError:
         print("File Not found")
 
