@@ -1,89 +1,92 @@
-# Pseudocode for utilities.py
+- Import necessary libraries
+    - BeautifulSoup from bs4 for web scraping
+    - re for regular expressions, for text pattern searching
+    - combinations and permutations from itertools for generating combinations and permutations
+    - defaultdict from collections for creating dictionaries with default values
+    - requests for sending HTTP requests
+    - time for adding delay to prevent server overwhelm
+    - ujson for parsing JSON
+    - csv for working with CSV files
 
-**Importing Required Libraries:**
-1. Import the BeautifulSoup library for web scraping.
-2. Import the `re` module to use regular expressions.
-3. Import `combinations` and `permutations` from itertools module.
-4. Import the `requests` module for making HTTP requests.
-5. Import the `time` module to handle time-related tasks.
-6. Import `ujson` for dealing with JSON data.
-7. Import `defaultdict` from `collections` to work with default dictionaries.
-8. Import `csv` to work with CSV files.
+- Define a function to get the author's formal name from the link of their profile `get_author_name(name)`
+    - Construct the URL
+    - Make a GET request to the URL
+    - Parse the returned HTML content with BeautifulSoup
+    - Locate and return the author's formal name
 
-**Function: get_author_name(name)** (Checks author's formal name)
-1. Create a URL string using the name.
-2. Make a GET request to the URL and get HTML content.
-3. Parse HTML content using BeautifulSoup.
-4. Find the 'span' tag that has class "authorName important", extract the text, and return it.
-5. If the tag was not found, print the name and a warning.
+- Define a similar function to `get_author_name`, but instead it returns the author's id from the parsed content `get_author_id(name)`
+    - Construct the URL
+    - Make a GET request to the URL
+    - Parse the returned HTML content with BeautifulSoup
+    - Extract and return the author's ID from the parsed content
 
-**Function: get_author_id(name)** (Checks author's ID)
-1. This function is similar to `get_author_name`, but it extracts an 'id' from a 'title' tag in the HTML content. 
+- Define a function `fetch_citation(url)` to that handles the collection of paper citations
+    - Make a GET request to the URL
+    - Parse the returned HTML content with BeautifulSoup
+    - Cycle through the page 'headlines' to collect various data including title and citation info
+    - Check if there is next page using `findnext()` function and recurse if there is
 
-**Function: fetch_citation(url)** (Collects paper citation)
-1. Send a GET request to the URL to fetch the HTML content.
-2. Parse the HTML content using BeautifulSoup.
-3. For each 'div' with class "headline", extract the paper title and citation URL.
-4. If the citation text ends with "Citation\n" or "Citations\n", fetch citation data accordingly.
-5. After finishing processing all titles on the current page, check if there's a next page. If so, repeat the process for the next page. 
+- Define a function `fetch_title(url)` that fetches the titles from a page
+    - Make a GET request to the URL
+    - Parse the returned HTML content with BeautifulSoup
+    - Extract title info from each 'headline' on the page
+    - Recurse through next pages if they exist using the `findnext()` function
 
-**Function: fetch_title(url)** (Fetches titles on a page)
-1. Send a GET request to the URL to fetch the HTML content.
-2. Parse the content with BeautifulSoup.
-3. Find all 'div' tags with class "headline", and for each tag, fetch the paper title.
-4. Repeat this process for the next page if it exists.
+- Define a function `fetch_single_title(url)` that fetches a single paper title from a page
+    - Make a GET request to the URL
+    - Parse the returned HTML content with BeautifulSoup
+    - Extract and return the unique paper title from the parsed content
 
-**Function: fetch_single_title(url)** (Fetches a single title)
-1. This function works similarly to `fetch_title`, but it only fetches a single title.
+- Define a function `find_joint()`
+    - Open the JSON file containing the author's paper data
+    - Calculate the pairs of authors who have written together using the `combinations()` function
+    - Record the number of joint papers for each pair into a dictionary
+    - Store the results in a JSON file
 
-**Function: find_joint()**
-1. Open and load JSON data from a file.
-2. Use `combinations` to find all the pairs of authors.
-3. For each pair, calculate the intersection of the publications of the two authors and store it in a `joint` dictionary.
-4. Write the `joint` dictionary to a JSON file.
+- Define a function `fetch_list()` that reads author names from a text file and fetches their published papers
+    - Create a dictionary to hold author's papers
+    - For each author, fetch their published papers using the `fetch()` function
+    - Record each author's paper data in a JSON file
 
-**Function: fetch_list()**
-1. Open and read a text file containing the names of all authors.
-2. For each author name, fetch the publications and store them in a dictionary `result`.
-3. Write `result` to a JSON file.
+- Define a function `search(name)` that prepares the URL for searching
+    - Return the constructed URL string
 
-**Function: search(name)**
-1. Build a search URL using the name of the author.
+- Define a function `findnext(url)` that finds the URL of the 'next' button on the webpage
+    - Use BeautifulSoup to parse HTML from the input URL
+    - Extract and return the 'next' URL
 
-**Function: findnext(start)**
-1. This function finds the URL for the 'next' button.
+- Define a function `fetch(url)` that extracts information from an input URL page
+    - Follow a similar process as in `fetch_citation` but record different details
 
-**Function: fetch(url)**
-1. This function extracts information from the provided URL page. 
+- Define a function `find_citation()`
+    - Open the file containing author names
+    - Convert the author names into a list
+    - For each author name in the list, construct a search URL and fetch the citation data
+    - Store the citation data for each author in a dictionary and save it in a JSON file
 
-**Function: find_citation()**
-1. Open and read a text file containing the names of all authors.
-2. For each author name, fetch the citations and store them in a dictionary `result`.
-3. Write `result` to a JSON file.
+- Define a function `citation_joint()`
+    - Open the file containing fetched citation data
+    - Calculate the number of shared citations between all pairs of authors and store the results in a dictionary
+    - Save the resulting dictionary to a JSON file
 
-**Function: citation_joint()**
-1. Load JSON data from a file.
-2. Use `combinations` to find all the pairs of authors.
-3. For each pair, calculate the intersection of the publications of the two authors and store it in a `joint` dictionary.
-4. Write the `joint` dictionary to a JSON file.
+- Define a function `citation_directed()`
+    - Open the file containing fetched citation data
+    - Calculate how many times one author cited another for all pairs of authors
+    - Save the resulting dictionary in a JSON file
 
-**Function: citation_directed()**
-1. Load the citation source JSON file.
-2. Create dictionary with author as the key and a set of categorized citations as the value.
-3. Generate permutations (ordered combinations) for each pair of authors.
-4. Calculate how many times one author cites another's works and records this in a dictionary.
-5. Write the dictionary into a JSON file.
+- Define a function `citation_joint_name()`
+    - Open the file containing fetched citation data
+    - For each possible author pair, find and record the list of joint citations
+    - Save the resulting dictionary to a file
 
-**Function: citation_joint_name()**
-1. This function is a variation of the `citation_joint()` function, but it writes paper titles instead of counts into a JSON file.
+- Define a function `make_citation_pool()`
+    - Open the file containing fetched citation data
+    - For each author, create a list of their cited papers and a set of all their citations
+    - Count how many times each author cited each paper
+    - Save the resulting dictionary to a JSON file
 
-**Function: make_citation_pool()**
-1. Load the `citations_source.json` file.
-2. Create a dictionary with author as key and a set of author's publication as the value.
-3. Prepare the logarithmic base of each citation.
-4. Store these value in a pool (JSON file). 
-
-**Function: make_ref_pool()**
-1. Open and read data from a CSV file.
-2. Prepare the logarithmic base of each reference.
-3. Store these values in a pool (JSON file).
+- Define a function `make_ref_pool()`
+    - Open the CSV file containing reference data
+    - Create a dictionary where each author is linked to all their cited paper IDs
+    - Calculate the number of times each author made each reference
+    - Save the resulting dictionary to a JSON file
