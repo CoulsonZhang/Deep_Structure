@@ -12,26 +12,41 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 # setup
 option = webdriver.ChromeOptions()
-toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/freeTools.html?version=2"
+toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
 option.add_argument("headless")
-base_path = os.path.dirname(os.path.abspath(__file__))
-drive_path = os.path.abspath(base_path + "/chromedriver 2")
-driver = webdriver.Chrome(drive_path)
+#base_path = os.path.dirname(os.path.abspath(__file__))
+#drive_path = os.path.abspath(base_path + "/chromedriver")
+#driver = webdriver.Chrome(drive_path)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get(toolsURL)
 time.sleep(0.2)
 
+
 # login
-driver.find_element_by_xpath("//*[@id='userNameInput']").click()
+driver.find_element_by_xpath("//*[@id='i0116']").click()
 time.sleep(0.2)
-driver.find_element_by_id("userNameInput").send_keys("devhp2@illinois.edu")
+driver.find_element_by_id("i0116").send_keys(c.username)
 time.sleep(0.2)
-driver.find_element_by_xpath("//*[@id='nextButton']").click()
-driver.find_element_by_id("passwordInput").send_keys("20Pr#tgn720Pr#t1gn7")
+
+driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
+
+time.sleep(0.5)
+
+driver.find_element_by_id("i0118").send_keys(c.password)
+
 time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything 
-driver.find_element_by_xpath("//*[@id='submitButton']").click()
+
+
+driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
 time.sleep(0.2)
+
+
+
+
 
 # go to collaboration tools section 
 driver.find_element_by_id("tab2link").click()

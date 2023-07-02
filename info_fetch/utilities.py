@@ -11,7 +11,7 @@ import csv
 
 #This funtion take input of author's name and check author's formal name
 def get_author_name(name):
-    url = 'https://mathscinet.ams.org/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
+    url = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
     data = requests.get(url).content
     content = BeautifulSoup(data, 'html.parser')
     #identify = content.find('title').getText().split(' ')[-1].replace('\n','')
@@ -19,12 +19,15 @@ def get_author_name(name):
     if result_name:
         return result_name.getText()
     else:
+        print(name)
         print("Multiple name possible, please re-check your input")
         return None
 
+base_url = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
+
 #This funtion take input of author's name and check author's id
 def get_author_id(name):
-    url = 'https://mathscinet.ams.org/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
+    url = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
     data = requests.get(url).content
     content = BeautifulSoup(data, 'html.parser')
     identify = content.find('title').getText().split(' ')[-1].replace('\n','')
@@ -50,12 +53,12 @@ def fetch_citation(url):
             menu_link.append(i['href'])
 
         time.sleep(3)
-        #citation_page = 'https://mathscinet.ams.org/' + menu_link[-1] if (citation.getText().endswith("Citations\n") or citation.getText().endswith("Citation\n")) else None
+        #citation_page = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/' + menu_link[-1] if (citation.getText().endswith("Citations\n") or citation.getText().endswith("Citation\n")) else None
         if  citation.getText().endswith("Citation\n"):
-            citation_page = 'https://mathscinet.ams.org/' + menu_link[-1]
+            citation_page = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/' + menu_link[-1]
             cite[title] = fetch_single_title(citation_page)
         elif citation.getText().endswith("Citations\n"):
-            citation_page = 'https://mathscinet.ams.org/' + menu_link[-1]
+            citation_page = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/' + menu_link[-1]
             cite[title] = fetch_title(citation_page)
         else:
             cite[title] = None
@@ -146,14 +149,14 @@ def fetch_list():
 
 #This function find the url for searching result of input name
 def search(name):
-    first = 'https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4='
+    first = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/mathscinet/search/publications.html?pg4=AUCN&s4='
     second = '&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=ANDdr=pubyear&yrop=gt&arg3=2010&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
     return first + name + second
 
 
 #This function find the url of "next" button
 def findnext(start):
-    # start = 'https://mathscinet.ams.org//mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Kleinberg%2C%20Jon&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=81'
+    # start = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet//mathscinet/search/publications.html?arg3=&co4=AND&co5=AND&co6=AND&co7=AND&dr=all&pg4=AUCN&pg5=TI&pg6=PC&pg7=SE&pg8=ET&review_format=pdf&s4=Kleinberg%2C%20Jon&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=pdf&yearRangeFirst=&yearRangeSecond=&yrop=eq&r=81'
     time.sleep(0.5)
     data = requests.get(start).content
     content = BeautifulSoup(data, 'html.parser')
@@ -176,7 +179,7 @@ def findnext(start):
             return False, None
         else:
             next = pages.findAll('span', {"class": "PageLink"})[-1]
-            link = 'https://mathscinet.ams.org/' + next.find('a', href=True)['href']
+            link = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/' + next.find('a', href=True)['href']
             # print(link)
             return True, link
 
