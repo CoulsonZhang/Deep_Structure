@@ -18,6 +18,10 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+
 
 #sample input
 author_name = 'Ford, Kevin'
@@ -250,10 +254,15 @@ def get_author_id(author_name):
     
 def paper_info(name):
     access_author(name)
+    print("Done accessing author \n \n \n")
     author_id = get_author_id(name)
+    print("Done getting author id\n \n ")
     titles = get_titles()
+    print("Done getting titles\n \n ")
     references = get_references(name)
+    print("Done getting references\n \n ")
     journals = get_journals(name)
+    print("Done getting journals\n \n ")
 
     paperdict = {}
 
@@ -283,10 +292,84 @@ def paper_info(name):
 # references = get_references(author_name)
 # print(references)
 # print(get_titles)
+#print(paper_info(author_name))
 
-print(paper_info(author_name))
 # print(paper_info(author_name))
 # # driver.quit()
 
 
     
+prof_list = ["Ford, Kevin B.",
+"Tyson, Jeremy T.",
+"Hirani, Anil N.",
+"Katz, Sheldon H.",
+"Albin, Pierre",
+"Dunfield, Nathan M.",
+"Kostochka, Alexandr V.",
+"Kedem, Rinat",
+"Song, Renming",
+"Dodd, Christopher",
+"Duursma, Iwan Maynard",
+"McCarthy, Randy",
+"Rezk, Charles W.",
+"Fernandes, Rui Loja",
+"Mineyev, Igor",
+"Dutta, Sankar Prasad",
+"Yong, Alexander T. F.",
+"Tolman, Susan",
+"Erdoğan, Mehmet Burak",
+"Junge, Marius",
+"Hur, Vera Mikyoung",
+"Stojanoska, Vesna",
+"Ahlgren, Scott D.",
+"Bradlow, Steven Benjamin",
+"Rapti, Zoi",
+"Sowers, Richard B.",
+"Balogh, József",
+"Kutzarova, Denka N.",
+"Zaharescu, Alexandru",
+"La Nave, Gabriele",
+"Ando, Matthew",
+"Berwick-Evans, Daniel",
+"DeVille, R. E. Lee",
+"Boca, Florin-Petre",
+"Thorner, Jesse",
+"Zharnitsky, Vadim",
+"Lerman, Eugene M.",
+"Reznick, Bruce",
+"Dey, Partha Sarathi",
+"Hinkkanen, Aimo",
+"Nikolaev, Igor G.",
+"Pascaleff, James Thomas",
+"Bronski, Jared C.",
+"Feng, Runhuan",
+"Haboush, William J.",
+"Baryshnikov, Yuliy M.",
+"Kirr, Eduard",
+"Oikhberg, Timur",
+"Leditzky, Felix",
+"Kirkpatrick, Kay Lene",
+"Jing, Xiaochen",
+"Tzirakis, Nikolaos",
+"Kerman, Ely",
+"Di Francesco, Philippe",
+"Laugesen, Richard Snyder",
+"Heller, Jeremiah Ben",
+"Guzman, Rosemary K."
+"Jing, Xiaochen"
+"Liu, Yuan"
+"Quan, Zhiyu"
+"Fadina,Tolulope"
+"Rasmussen, Jacob" 
+"Rasmussen, Sarah Dean"
+"Janda, Felix"
+"Cooney, Daniel B"
+"Hung, Pei-Kun"
+"Young, Amanda"
+"Wu, Xuan"]
+
+for prof in prof_list:
+    print(prof)
+    print("\n \n ")
+    print(paper_info(prof))
+    print("\n \n \n")
