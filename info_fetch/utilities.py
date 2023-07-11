@@ -16,6 +16,7 @@ def get_author_name(name):
     content = BeautifulSoup(data, 'html.parser')
     #identify = content.find('title').getText().split(' ')[-1].replace('\n','')
     result_name = content.find('span', {"class": "authorName important"})
+    print(result_name)
     if result_name:
         return result_name.getText()
     else:

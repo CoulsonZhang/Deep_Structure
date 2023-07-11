@@ -24,7 +24,7 @@ author_name = 'Ford, Kevin'
 
 # setup
 option = webdriver.ChromeOptions()
-toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
+toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/index.html"
 option.add_argument("headless")
 #base_path = os.path.dirname(os.path.abspath(__file__))
 #drive_path = os.path.abspath(base_path + "/chromedriver")
@@ -50,30 +50,53 @@ time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything
 
 
 driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
-time.sleep(0.2)
-try:
-    element = WebDriverWait(driver, 15).until(
-    EC.presence_of_element_located((By.NAME, "s4"))
-)
-except:
-    driver.quit()
+time.sleep(2)
+#try:
+#    element = WebDriverWait(driver, 15).until(
+#    EC.presence_of_element_located((By.NAME, "s4"))
+#)
+#except:
+#    driver.quit()
+#time.sleep(0.3)
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
-time.sleep(0.3)
+
+
 
 def access_author(author_name):
-    time.sleep(0.4)
-    driver.find_element_by_css_selector("input[type='radio'][value='pubyear']").click()
-    time.sleep(0.4)
-    select = Select(driver.find_element_by_id('yrop'))
-    time.sleep(0.4)
-    select.select_by_visible_text('>')
-    time.sleep(0.4)
-    driver.find_element_by_id("yearValue").send_keys("2010")
-    time.sleep(0.4)
-    driver.find_element_by_name("s4").send_keys(author_name)
-    time.sleep(0.4)
-    driver.find_element_by_name("Submit").click()
-    time.sleep(0.4)
+    try:
+        element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='radio'][value='pubyear']"))
+        )
+        element.click()
+    except Exception as e:
+        print("Error occurred: ", e)
+        
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yrop')))
+        select = Select(driver.find_element_by_id('yrop'))
+        select.select_by_visible_text('>')
+    except Exception as e:
+        print("Error while selecting from dropdown: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yearValue'))).send_keys("2010")
+    except Exception as e:
+        print("Error while entering year: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 's4'))).send_keys(author_name)
+    except Exception as e:
+        print("Error while entering author name: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.NAME, 'Submit'))).click()
+    except Exception as e:
+        print("Error while submitting: ", e)
+
 
 def check_exists_by_class_name():
     try:
@@ -261,7 +284,7 @@ def paper_info(name):
 # print(references)
 # print(get_titles)
 
-
+print(paper_info(author_name))
 # print(paper_info(author_name))
 # # driver.quit()
 
