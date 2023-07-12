@@ -16,7 +16,7 @@ import utilities as u
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-
+import selenium_utilities as su
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -254,19 +254,19 @@ def get_author_id(author_name):
     
 def paper_info(name):
     access_author(name)
-    print("Done accessing author \n \n \n")
-    author_id = get_author_id(name)
-    print("Done getting author id\n \n ")
+    print("Done accessing author \n \n")
+    author_id = su.get_author_id(name)
+    print("Done getting author id\n ")
     titles = get_titles()
-    print("Done getting titles\n \n ")
+    print("Done getting titles\n ")
     references = get_references(name)
-    print("Done getting references\n \n ")
+    print("Done getting references\n ")
     journals = get_journals(name)
-    print("Done getting journals\n \n ")
+    print("Done getting journals\n ")
 
     paperdict = {}
 
-    citationdict = u.fetch_citation(u.search(name))
+    citationdict = su.fetch_citation(su.search(name))
     print(citationdict)
 
 
@@ -292,7 +292,7 @@ def paper_info(name):
 # references = get_references(author_name)
 # print(references)
 # print(get_titles)
-#print(paper_info(author_name))
+print(paper_info(author_name))
 
 # print(paper_info(author_name))
 # # driver.quit()
@@ -370,6 +370,6 @@ prof_list = ["Ford, Kevin B.",
 
 for prof in prof_list:
     print(prof)
-    print("\n \n ")
+    print("\n ")
     print(paper_info(prof))
-    print("\n \n \n")
+    print("\n ")
