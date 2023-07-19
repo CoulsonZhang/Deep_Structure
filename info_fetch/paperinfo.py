@@ -16,7 +16,7 @@ import utilities as u
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-import selenium_utilities as su
+import selenium_utilities_funcs as su
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -253,7 +253,7 @@ def get_author_id(author_name):
     return author_id
     
 def paper_info(name):
-    access_author(name)
+    su.search(name)
     print("Done accessing author \n \n")
     author_id = su.get_author_id(name)
     print("Done getting author id\n ")
