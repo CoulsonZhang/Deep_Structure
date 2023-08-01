@@ -4,6 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import credential as c
 import time
+import json
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,9 +15,10 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
-
-#sample input
-author_name = 'Ford, Kevin'
+from bs4 import BeautifulSoup
+import re
+import time
+start_time = time.time()
 
 # setup
 option = webdriver.ChromeOptions()
@@ -46,53 +49,27 @@ time.sleep(5)
 
 
 
-def get_author_name(name):
-    # Desired URL
-    desired_url = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/index.html"
-    print("Finding author name for " + name + "...")
-    try:
-        # Wait until URL is the desired URL
-        WebDriverWait(driver, 50).until(lambda d: d.current_url == desired_url)
-    except TimeoutException:
-        print("Loading took too much time!-Try again")
-        return None
-
-    url = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
-    time.sleep(3)
-
-    driver.execute_script("window.open('');")
-
-    driver.switch_to.window(driver.window_handles[1])
-
-    driver.get(url)
-
-    time.sleep(5)
-    try:
-        result_name = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "span.authorName.important"))
-        )
-        #print(result_name.text)
-        result_text = result_name.text
-    except:
-        print(name)
-        print("Multiple name possible, please re-check your input")
-        result_text = None
-
-    driver.close()
-
-    driver.switch_to.window(driver.window_handles[0])
-    print(f"Done finding name for {name} \n")
-    return result_text
 
 
 
 def fetch_title(url):
     print("fetching title...")
-    time.sleep(5)
+    time.sleep(1)
     driver.execute_script("window.open('');")
     driver.switch_to.window(driver.window_handles[-1])
     driver.get(url)
-    time.sleep(5)
+    time.sleep(1)
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    paper_id_from_title = soup.title.string
+    result = re.search(r"(\d+)", paper_id_from_title)
+
+    mr_number = None
+    if result:
+        mr_number = "MR" + result.group(1)
+    print("Fetching citations for paper with ID:")
+    print(mr_number)
+
 
     titles = []
 
@@ -102,10 +79,14 @@ def fetch_title(url):
 
     for head in heads:
         # fetch the title in this paper
-        title = head.find_element_by_css_selector('span.title').text
-        titles.append(title)
+        title_element = head.find_element_by_css_selector('span.title')
+        title = title_element.text if title_element else None
 
-    print("Check/Go next page")
+        # fetch the MR number in this paper
+        mrnum_element = head.find_element_by_css_selector('strong')
+        mrnum_of_cite = mrnum_element.text if mrnum_element else None
+
+        titles.append((title, mrnum_of_cite))
 
     driver.close()
 
@@ -116,54 +97,54 @@ def fetch_title(url):
 
 def fetch_single_title(url):
     print("fetching single title...")
-    time.sleep(5)
+    time.sleep(1)
     driver.execute_script("window.open('');")
     time
     driver.switch_to.window(driver.window_handles[-1])
     driver.get(url)
-    time.sleep(5)
+    time.sleep(1)
+
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    paper_id_from_title = soup.title.string
+    result = re.search(r"(\d+)", paper_id_from_title)
+
+    mr_number = None
+    if result:
+        mr_number = "MR" + result.group(1)
+    print("Fetching citations for paper with ID:")
+    print(mr_number)
+
 
     title_element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "span.title"))
     )
             
+
     title = title_element.text
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+
+    headline_div = soup.find('div', class_='headline')
+
+    mrnum_element = headline_div.find('strong') if headline_div else None
+
+    mrnum_of_cite = mrnum_element.string if mrnum_element else None
 
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     print("Done fetching single title \n")
-    return [title]
-
-
-def get_author_id(name):
-    print("Getting author ID for " + name + "...")
-    url = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/search/authors.html?authorName={}&Submit=Search'.format(name)
-    
-    time.sleep(5)
-    driver.execute_script("window.open('');")
-
-    driver.switch_to.window(driver.window_handles[1])
-
-    driver.get(url)
-    time.sleep(3)
-    identify = driver.title.split(' ')[-1].strip()
-
-    print("title is " + driver.title)
-    print(f"author ID for {name} is " + identify)
-
-    driver.close()
-
-    driver.switch_to.window(driver.window_handles[0])
-    print("Done getting author ID \n")
-    return identify
-
+    return [(title,mrnum_of_cite)]
 
 
 def fetch_citation(url):
     print("fetching citation...")
+    WebDriverWait(driver, timeout=30).until(lambda d: d.current_url.startswith("https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/"))
 
     driver.get(url)
-    time.sleep(5)
+    time.sleep(1)
+
+
     cite = {}  # dict for storing the paper citation page (for citation)
 
     heads = WebDriverWait(driver, 10).until(
@@ -174,6 +155,11 @@ def fetch_citation(url):
         # fetch the title in this paper
         title = head.find_element_by_css_selector('span.title').text
 
+        # fetch the MR number
+        mrnum_element = head.find_element_by_css_selector('a.mrnum')
+        mrnum = mrnum_element.text.strip()
+        paper_current = (title, mrnum)
+        
         print('processing paper for fetch_citation: {}'.format(title))
 
         # fetch the url for detail page & citation page
@@ -185,31 +171,43 @@ def fetch_citation(url):
         citation_page = menu_links[-1].get_attribute('href')
                     
         if "Citations" in last_link_text:
-            cite[title] = fetch_title(citation_page)
-            print(fetch_title(citation_page))
-            print("multiple citation \n")
+            cite[mrnum] = fetch_title(citation_page)
+            print("Detected multiple citations \n")
         elif "Citation" in last_link_text:
-            cite[title] = fetch_single_title(citation_page)
-            print(fetch_single_title(citation_page))
-            print("single citation \n")
+            cite[mrnum] = fetch_single_title(citation_page)
+            print("Detected single citation \n")
         else:
-            cite[title] = None
-
-    print("Check/Go next page")
+            cite[mrnum] = None
+        time_elapsed = time.time() - start_time
+        print(f'Time elapsed so far: {time_elapsed/60} minutes')
     print("Done fetching citation \n \n")
     return cite
 
 
 
-def search(name):
-    first = 'https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/publications.html?pg4=AUCN&s4='
-    second = '&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=SE&s7=&co7=ANDdr=pubyear&yrop=gt&arg3=2010&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=pdf&Submit=Search'
-    return first + name + second
+def search_for_pubs(authorID):
+    return "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/publications.html?pg1=INDI&s1="+authorID+"&sort=Newest&vfpref=pdf&r=1&extend=1"
+
+#author_ID_for_search = '1054758' #Felix Leditzky
+
+path = os.getcwd()
+
+with open(path + '/data/author_ids.json', 'r') as f:
+    data = json.load(f)
+
+
+for author_name, author_ID in data.items():
+    cite = fetch_citation(search_for_pubs(author_ID))
+    with open(f'data/citations/{author_name.replace(" ", "").replace(".","").replace(",","")}.json', 'w') as f:
+        json.dump(cite, f)
 
 
 
-author_name_for_search = get_author_name(author_name)
 
-print(get_author_id(author_name))
+end_time = time.time()
+total_time = end_time - start_time
+hours, remainder = divmod(total_time, 3600)
+minutes, seconds = divmod(remainder, 60)
 
-#print(fetch_citation(search(author_name_for_search)))
+print(f"Total run time: {int(hours)} hours, {int(minutes)} minutes, {int(seconds)} seconds")
+

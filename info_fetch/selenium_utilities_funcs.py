@@ -19,7 +19,7 @@ from selenium.common.exceptions import TimeoutException
 option = webdriver.ChromeOptions()
 toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/index.html"
 option.add_argument("headless")
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.90").install())
 
 
 def get_author_name(name):
