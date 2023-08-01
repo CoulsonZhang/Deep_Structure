@@ -7,16 +7,19 @@ import credential as c
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 import numpy as np
+import json
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.support.ui import Select
 import pandas as pd
 import numpy as np
-
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.expected_conditions import url_to_be
 
+import time
+start_time = time.time()
 
 list_of_profs = ["Ford, Kevin B.",
 "Tyson, Jeremy T.",
@@ -48,7 +51,6 @@ list_of_profs = ["Ford, Kevin B.",
 "Kutzarova, Denka N.",
 "Zaharescu, Alexandru",
 "La Nave, Gabriele",
-"Ando, Matthew",
 "Berwick-Evans, Daniel",
 "DeVille, R. E. Lee",
 "Boca, Florin-Petre",
@@ -68,29 +70,39 @@ list_of_profs = ["Ford, Kevin B.",
 "Oikhberg, Timur",
 "Leditzky, Felix",
 "Kirkpatrick, Kay Lene",
-"Jing, Xiaochen",
 "Tzirakis, Nikolaos",
 "Kerman, Ely",
 "Di Francesco, Philippe",
 "Laugesen, Richard Snyder",
 "Heller, Jeremiah Ben",
-"Guzman, Rosemary K."]
+"Guzman, Rosemary K.",
+"Jing, Xiaochen",
+"Liu, Yuan",
+"Quan, Zhiyu",
+"Fadina, Tolulope",
+"Rasmussen, Jacob",
+"Rasmussen, Sarah Dean",
+"Janda, Felix",
+"Cooney, Daniel B",
+"Hung, Pei-Ken",
+"Young, Amanda",
+"Wu, Xuan"]
 
 # setup
 option = webdriver.ChromeOptions()
-toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
+toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet"
 option.add_argument("headless")
 #base_path = os.path.dirname(os.path.abspath(__file__))
 #drive_path = os.path.abspath(base_path + "/chromedriver")
 #driver = webdriver.Chrome(drive_path)
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.90").install())
 driver.get(toolsURL)
-time.sleep(0.2)
+time.sleep(1)
 
 
 # login
 driver.find_element_by_xpath("//*[@id='i0116']").click()
-time.sleep(0.2)
+time.sleep(0.5)
 driver.find_element_by_id("i0116").send_keys(c.username)
 time.sleep(0.2)
 
@@ -104,7 +116,7 @@ time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything
 
 
 driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
-time.sleep(0.2)
+time.sleep(15)
 #try:
 #    element = WebDriverWait(driver, 15).until(
 #    EC.presence_of_element_located((By.NAME, "s4"))
@@ -113,62 +125,58 @@ time.sleep(0.2)
 #    driver.quit()
 #time.sleep(0.3)
 
+time_elapsed = time.time() - start_time
+print(f'Time elapsed so far: {time_elapsed} seconds')
 
 #check if there is next paper
+
+
 def check_exists_by_partial_link_text():
     try:
-        driver.find_element_partial_link_text("Next")
+        element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, "Next")))
+        return True
     except:
         return False
-    return True
+
 
 #check if there is reference list for each author
-def check_exists_by_class_name():
+def check_refs_exist():
     try:
-        driver.find_element_by_class_name("reflist")
+        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "reflist")))
+        return True
     except:
         return False
-    return True
 
 
 profdict = {}
 
-for proffessor in list_of_profs:
+# Load the author id dictionary
+with open('data/author_ids.json', 'r') as f:
+    author_ids = json.load(f)
+
+
+for prof in list_of_profs:
     #enter information (professor name and starting year)
+    print("Now searching for " + prof + "'s references, " + str(list_of_profs.index(prof)) + "/" + str(len(list_of_profs)) + " profs")
     time.sleep(0.4)
-    try:
-        element = WebDriverWait(driver, 10).until(
-           EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='radio'][value='pubyear']"))
-        )
-        element.click()
-    except:
-        print("Element not found")
-    time.sleep(0.4)
+
+    # Get the author_id from the dictionary. If it's not there, skip this author.
+    if prof in author_ids:
+        author_id = author_ids[prof]
+        print("Found author_id", author_id)
+
+    # Construct the URL
+    pubs_url = f"https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/publications.html?pg1=INDI&s1={author_id}"
+
+    time.sleep(1)
     
-    try:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yrop')))
-        select = Select(driver.find_element_by_id('yrop'))
-        select.select_by_visible_text('>')
-    except Exception as e:
-        print("Error while selecting from dropdown: ", e)
+    WebDriverWait(driver, timeout=30).until(url_to_be(toolsURL))
 
-    try:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yearValue')))
-        driver.find_element_by_id("yearValue").send_keys("2010")
-    except Exception as e:
-        print("Error while entering year: ", e)
-
-    try:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 's4')))
-        driver.find_element_by_name("s4").send_keys(proffessor)
-    except Exception as e:
-        print("Error while entering professor name: ", e)
-
-    try:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 'Submit')))
-        driver.find_element_by_name("Submit").click()
-    except Exception as e:
-        print("Error while clicking submit: ", e)
+    if driver.current_url == toolsURL:
+        driver.execute_script("window.open('');")
+        driver.switch_to.window(driver.window_handles[-1])
+        time.sleep(1)
+    driver.get(pubs_url)
 
     try:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'mrnum')))
@@ -177,22 +185,30 @@ for proffessor in list_of_profs:
         print("Error while clicking on mrnum: ", e)
 
     # get all references for all paper for one author
+    paper_number = 1
     listreferences = []
+    listofpapertitles = []
+    listofjournals = []
+
     time.sleep(0.2)
-    if (check_exists_by_class_name()):
+    if (check_refs_exist()):
         soup = BeautifulSoup(driver.page_source, "html.parser")
         spans = soup.find_all('a', href = True)
+        print("Getting references for first paper")
         for word in spans:
             if (word.get_text()[0:2] == "MR" or word.get_text()[0:2] == "ar"):
                 listreferences.append(word.get_text())
-
     #keep on adding references until there is no next paper
+
     while (True):
         time.sleep(0.2)
         try: 
+            paper_number += 1
+            time_elapsed = time.time() - start_time
+            print(f"Time elapsed: {time_elapsed / 60} minutes. Retrieving references for paper number {paper_number} of {prof}...")
             driver.find_element_by_partial_link_text("Next").click()
             time.sleep(0.2)
-            if (check_exists_by_class_name()):
+            if (check_refs_exist()):
                 time.sleep(0.4)
                 soup = BeautifulSoup(driver.page_source, "html.parser")
                 time.sleep(0.2)
@@ -205,36 +221,49 @@ for proffessor in list_of_profs:
         except:
             break
     #dictionary with key professor and value of all of their references
-    profdict[proffessor] = listreferences
-    time.sleep(0.4)
+    profdict[prof] = listreferences
+    with open(f'data/common_references/{prof}_references.json', 'w') as f:
+        json.dump(listreferences, f)
 
+    time.sleep(1)
     #go back to home
-    driver.find_element_by_link_text("Home").click()
+    driver.close()
+    time.sleep(1)
+    driver.get(toolsURL)
     time.sleep(0.4)
+    print("Done searching for " + prof + "'s references \n")
 
 
 
-df = pd.read_csv("namesofprofessors.csv")
-faculty = df['professornames'].tolist()
+
+with open('data/common_references/profdict_common_refs_2023.json', 'w') as f:
+    json.dump(profdict, f)
 
 #returns length of the intersection of two reference lists of two authors
 def common_reference(author1, author2):
-    listOne = profdict.get(list_of_profs[faculty.index(author1)])
-    listTwo = profdict.get(list_of_profs[faculty.index(author2)])
+    listOne = profdict.get(list_of_profs[list_of_profs.index(author1)])
+    listTwo = profdict.get(list_of_profs[list_of_profs.index(author2)])
 
     lengthNumber = len(list(set(listOne).intersection(set(listTwo))))
     return lengthNumber
 
 
-matrix = np.zeros((len(faculty), len(faculty)))
+matrix = np.zeros((len(list_of_profs), len(list_of_profs)))
 
-for i in range(len(faculty)):
-    for j in range(len(faculty)):
-        matrix[i][j] = common_reference(faculty[i], faculty[j])
+for i in range(len(list_of_profs)):
+    for j in range(len(list_of_profs)):
+        matrix[i][j] = common_reference(list_of_profs[i], list_of_profs[j])
 
 
 #convert matrix to csv file
-pd.DataFrame(matrix).to_csv("common_references.csv")
+df = pd.DataFrame(matrix, index=list_of_profs, columns=list_of_profs)
+df.to_csv("data/common_references/common_references_2023.csv")
 
-print(len(list_of_profs))
-print(len(faculty))
+
+
+end_time = time.time()
+total_time = end_time - start_time
+hours, remainder = divmod(total_time, 3600)
+minutes, seconds = divmod(remainder, 60)
+
+print(f"Total run time: {int(hours)} hours, {int(minutes)} minutes, {int(seconds)} seconds")

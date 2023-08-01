@@ -84,7 +84,7 @@ list_of_profs = ["Ford, Kevin B.",
 
 # setup
 option = webdriver.ChromeOptions()
-toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
+toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/index.html"
 option.add_argument("headless")
 #base_path = os.path.dirname(os.path.abspath(__file__))
 #drive_path = os.path.abspath(base_path + "/chromedriver")
@@ -112,13 +112,7 @@ time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything
 
 driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
 time.sleep(0.2)
-#try:
-#    element = WebDriverWait(driver, 15).until(
-#    EC.presence_of_element_located((By.NAME, "s4"))
-#)
-#except:
-#    driver.quit()
-#time.sleep(0.3)
+
 
 
 
@@ -152,8 +146,8 @@ for professor in list_of_profs:
     # traverse list
     codes =[]
     for lnk in lnks:
-        if ((lnk.get_attribute('href') is not None) and ('https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/search/mscdoc.html?code=' in lnk.get_attribute('href'))):
-            code = lnk.get_attribute('href').replace('https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/search/mscdoc.html?code=', '')
+        if ((lnk.get_attribute('href') is not None) and ('https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/mscdoc.html?code=' in lnk.get_attribute('href'))):
+            code = lnk.get_attribute('href').replace('https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/mscdoc.html?code=', '')
             codes.append(code)
         time.sleep(0.2)
     

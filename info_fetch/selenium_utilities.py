@@ -21,7 +21,7 @@ author_name = 'Ford, Kevin'
 option = webdriver.ChromeOptions()
 toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/index.html"
 option.add_argument("headless")
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.90").install())
 driver.get(toolsURL)
 time.sleep(0.2)
 
@@ -212,4 +212,4 @@ author_name_for_search = get_author_name(author_name)
 
 print(get_author_id(author_name))
 
-print(fetch_citation(search(author_name_for_search)))
+#print(fetch_citation(search(author_name_for_search)))

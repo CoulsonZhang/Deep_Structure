@@ -33,7 +33,7 @@ option.add_argument("headless")
 #base_path = os.path.dirname(os.path.abspath(__file__))
 #drive_path = os.path.abspath(base_path + "/chromedriver")
 #driver = webdriver.Chrome(drive_path)
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.90").install())
 driver.get(toolsURL)
 time.sleep(0.2)
 
@@ -285,7 +285,7 @@ def paper_info(name):
         paperdict[titles[i]] = list_of_info
         
 
-
+    
     return (paperdict)
 
 
