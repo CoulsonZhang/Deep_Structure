@@ -148,7 +148,7 @@ def check_refs_exist():
         return False
 
 
-profdict = {}
+data = {}
 
 # Load the author id dictionary
 with open('data/author_ids.json', 'r') as f:
@@ -161,10 +161,11 @@ for prof in list_of_profs:
     time.sleep(0.4)
 
     # Get the author_id from the dictionary. If it's not there, skip this author.
-    if prof in author_ids:
+    if prof in author_ids.keys():
         author_id = author_ids[prof]
         print("Found author_id", author_id)
 
+    data[prof] = {"AuthorID": author_id, "Papers": {}}
     # Construct the URL
     pubs_url = f"https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/publications.html?pg1=INDI&s1={author_id}"
 
@@ -245,16 +246,27 @@ for prof in list_of_profs:
         for word in spans:
             if (word.get_text()[0:2] == "MR" or word.get_text()[0:2] == "ar"):
                 listreferences.append(word.get_text())
-    #keep on adding references until there is no next paper
+    #print("Done getting references for first paper \n", listreferences)
+
+    data[prof]["Papers"][paper_id] = {
+        "Title": paper_title,
+        "PaperID": paper_id, 
+        "Authors": authors,
+        "Journal_Name": journal_name,
+        "Publication_Year": pub_year,
+        "References": listreferences,
+        "Codes": codes
+    }
 
     while (True):
         time.sleep(0.2)
         try: 
             paper_number += 1
+            listreferences = []
             time_elapsed = time.time() - start_time
             print(f"Time elapsed: {time_elapsed / 60} minutes. Retrieving references for paper number {paper_number} of {prof}...")
             driver.find_element_by_partial_link_text("Next").click()
-            time.sleep(0.2)
+            time.sleep(1)
             headline = soup.find('div', {'class': 'headline'})
 
             # Extract the paper title
@@ -309,46 +321,39 @@ for prof in list_of_profs:
                     if (word.get_text()[0:2] == "MR" or word.get_text()[0:2] == "ar"):
                         listreferences.append(word.get_text())
                 time.sleep(0.4)
+            print("Done getting references for paper number " + str(paper_number) + " of " + prof + "\n", listreferences)
+            data[prof]["Papers"][paper_id] = {
+                "Title": paper_title,
+                "PaperID": paper_id, 
+                "Authors": authors,
+                "Journal_Name": journal_name,
+                "Publication_Year": pub_year,
+                "References": listreferences,
+                "Codes": codes
+            }
         except:
             break
-    #dictionary with key professor and value of all of their references
-    profdict[prof] = listreferences
-    with open(f'data/common_references/{prof}_references.json', 'w') as f:
-        json.dump(listreferences, f)
+
+
+    with open(f'data/papers/{prof.replace(",","").replace(" ","").replace(".","")}_papers.json', 'w') as f:
+        json.dump(data[prof], f)
+
 
     time.sleep(1)
     #go back to home
     driver.close()
-    time.sleep(1)
+    driver.switch_to.window(driver.window_handles[0])
+    time.sleep(2)
     driver.get(toolsURL)
     time.sleep(0.4)
     print("Done searching for " + prof + "'s references \n")
 
 
 
-
-with open('data/common_references/profdict_common_refs_2023.json', 'w') as f:
-    json.dump(profdict, f)
-
-#returns length of the intersection of two reference lists of two authors
-def common_reference(author1, author2):
-    listOne = profdict.get(list_of_profs[list_of_profs.index(author1)])
-    listTwo = profdict.get(list_of_profs[list_of_profs.index(author2)])
-
-    lengthNumber = len(list(set(listOne).intersection(set(listTwo))))
-    return lengthNumber
+with open('data/papers/all_authors_papers.json', 'w') as f:
+    json.dump(data, f)
 
 
-matrix = np.zeros((len(list_of_profs), len(list_of_profs)))
-
-for i in range(len(list_of_profs)):
-    for j in range(len(list_of_profs)):
-        matrix[i][j] = common_reference(list_of_profs[i], list_of_profs[j])
-
-
-#convert matrix to csv file
-df = pd.DataFrame(matrix, index=list_of_profs, columns=list_of_profs)
-df.to_csv("data/common_references/common_references_2023.csv")
 
 end_time = time.time()
 total_time = end_time - start_time
@@ -356,3 +361,6 @@ hours, remainder = divmod(total_time, 3600)
 minutes, seconds = divmod(remainder, 60)
 
 print(f"Total run time: {int(hours)} hours, {int(minutes)} minutes, {int(seconds)} seconds")
+
+
+
