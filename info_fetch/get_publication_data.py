@@ -88,6 +88,8 @@ list_of_profs = ["Ford, Kevin B.",
 "Young, Amanda",
 "Wu, Xuan"]
 
+# list_of_profs = ["Leditzky, Felix"]
+
 # setup
 option = webdriver.ChromeOptions()
 toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet"
@@ -156,17 +158,16 @@ with open('data/author_ids.json', 'r') as f:
 
 
 for prof in list_of_profs:
-    #enter information (professor name and starting year)
     print("Now searching for " + prof + "'s references, " + str(list_of_profs.index(prof)) + "/" + str(len(list_of_profs)) + " profs")
     time.sleep(0.4)
 
-    # Get the author_id from the dictionary. If it's not there, skip this author.
+
     if prof in author_ids.keys():
         author_id = author_ids[prof]
         print("Found author_id", author_id)
 
     data[prof] = {"AuthorID": author_id, "Papers": {}}
-    # Construct the URL
+
     pubs_url = f"https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/publications.html?pg1=INDI&s1={author_id}"
 
     time.sleep(1)
@@ -185,7 +186,7 @@ for prof in list_of_profs:
     except Exception as e:
         print("Error while clicking on mrnum: ", e)
 
-    # get all references for all paper for one author
+
     paper_number = 1
     listreferences = []
     listofpapertitles = []
@@ -196,6 +197,7 @@ for prof in list_of_profs:
     soup = BeautifulSoup(driver.page_source, 'html.parser')
 
     headline = soup.find('div', {'class': 'headline'})
+    # print(headline.prettify())
 
     # Extract the paper title
     paper_title_element = headline.find('span', {'class': 'title'})
@@ -220,8 +222,13 @@ for prof in list_of_profs:
     if year_element and year_element.text.isdigit():
         pub_year = year_element.text
 
-    # find the a tag
-    code_element = headline.find('a', href=re.compile('/mathscinet/2006/mathscinet/search/mscdoc.html?code='))
+    # find the a tag that has classification codes
+    all_a_tags = headline.find_all('a')
+    for a_tag in all_a_tags:
+        href = a_tag.get('href')
+        if href and "/mathscinet/2006/mathscinet/search/mscdoc.html?code=" in href:
+            code_element = a_tag
+            break
     if code_element:
         codes_url = code_element['href']
         codes = codes_url.split('=')[-1]
@@ -262,12 +269,18 @@ for prof in list_of_profs:
         time.sleep(0.2)
         try: 
             paper_number += 1
+
             listreferences = []
+
             time_elapsed = time.time() - start_time
-            print(f"Time elapsed: {time_elapsed / 60} minutes. Retrieving references for paper number {paper_number} of {prof}...")
+            print(f"Time elapsed: {time_elapsed / 60} minutes. Retrieving data for paper number {paper_number} of {prof}...")
             driver.find_element_by_partial_link_text("Next").click()
             time.sleep(1)
+            soup = BeautifulSoup(driver.page_source, 'html.parser')
+
+            time.sleep(2)
             headline = soup.find('div', {'class': 'headline'})
+            time.sleep(2)
 
             # Extract the paper title
             paper_title_element = headline.find('span', {'class': 'title'})
@@ -293,7 +306,12 @@ for prof in list_of_profs:
                 pub_year = year_element.text
 
             # find the a tag
-            code_element = headline.find('a', href=re.compile('/mathscinet/2006/mathscinet/search/mscdoc.html?code='))
+            all_a_tags = headline.find_all('a')
+            for a_tag in all_a_tags:
+                href = a_tag.get('href')
+                if href and "/mathscinet/2006/mathscinet/search/mscdoc.html?code=" in href:
+                    code_element = a_tag
+                    break
             if code_element:
                 codes_url = code_element['href']
                 codes = codes_url.split('=')[-1]
@@ -326,11 +344,10 @@ for prof in list_of_profs:
                 "Title": paper_title,
                 "PaperID": paper_id, 
                 "Authors": authors,
-                "Journal_Name": journal_name,
+                "Journal_Name": [journal_name, journal_id],
                 "Publication_Year": pub_year,
                 "References": listreferences,
-                "Codes": codes
-            }
+                "Codes": codes}
         except:
             break
 
