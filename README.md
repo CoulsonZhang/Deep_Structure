@@ -20,15 +20,43 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
         * "References": A list of the MathSciNet IDs of papers that are referenced by the paper in question. If there are no references, this list can be empty.
         * "Codes": The classification codes for the paper.
     - For example: 
-    > "Papers": {"MR4195744": \
-            {"Title": "Long gaps in sieved sets.",\
-             "PaperID": "MR4195744", \
-            "Authors": [["Ford, Kevin", "325647"], ["Konyagin, Sergei", "188475"], ["Maynard, James", "1007204"], ["Pomerance, Carl", "140915"], ["Tao, Terence", "361755"]], \
-            "Journal_Name": ["J. Eur. Math. Soc. (JEMS)", '5961'],\
-            "Publication_Year": "2021",\
-             "References": ["MR4592874", "MR3718451", "MR0148632", "MR2200366", "MR3718451", "MR2647984", "MR0424730", "MR0404173", "MR0447191", "MR1511191", "MR3742457", "MR1512273", "MR1550517", "MR4195744"],\
-             "Codes": "11N35,(11B05,11N32)"}, #end of dictionary for one paper...\
-              "MR4588563": {"Title": and so on}}...
+    ```json
+    {
+        "Papers": {
+            "MR4195744": {
+                "Title": "Long gaps in sieved sets.",
+                "PaperID": "MR4195744",
+                "Authors": [
+                    ["Ford, Kevin", "325647"],
+                    ["Konyagin, Sergei", "188475"],
+                    ["Maynard, James", "1007204"],
+                    ["Pomerance, Carl", "140915"],
+                    ["Tao, Terence", "361755"]
+                ],
+                "Journal_Name": ["J. Eur. Math. Soc. (JEMS)", "5961"],
+                "Publication_Year": "2021",
+                "References": [
+                    "MR4592874",
+                    "MR3718451",
+                    "MR0148632",
+                    "MR2200366",
+                    "MR3718451",
+                    "MR2647984",
+                    "MR0424730",
+                    "MR0404173",
+                    "MR0447191",
+                    "MR1511191",
+                    "MR3742457",
+                    "MR1512273",
+                    "MR1550517",
+                    "MR4195744"
+                ],
+                "Codes": "11N35,(11B05,11N32)"
+            },
+            "MR4588563": { 
+                "Title": "..." }
+        }
+    }
 
 - `info_fetch/using_stored_data.py` shows how to use one of these files for each faculty member to obtain relevant data (list of coauthors, list of journals published in, years published in, list of references).
 
