@@ -15,7 +15,7 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
         * "Title": The title of the paper.
         * "PaperID": The MathSciNet ID of the paper.
         * "Authors": A list of pairs, where each pair contains an author's name and their MathSciNet ID.
-        * "Journal_Name": The name of the journal the paper was published in.
+        * "Journal_Name": The name of the journal the paper was published in and the journal ID, as a list.
         * "Publication_Year": The year the paper was published.
         * "References": A list of the MathSciNet IDs of papers that are referenced by the paper in question. If there are no references, this list can be empty.
         * "Codes": The classification codes for the paper.
@@ -24,7 +24,7 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
             {"Title": "Long gaps in sieved sets.",\
              "PaperID": "MR4195744", \
             "Authors": [["Ford, Kevin", "325647"], ["Konyagin, Sergei", "188475"], ["Maynard, James", "1007204"], ["Pomerance, Carl", "140915"], ["Tao, Terence", "361755"]], \
-            "Journal_Name": "J. Eur. Math. Soc. (JEMS)",\
+            "Journal_Name": ["J. Eur. Math. Soc. (JEMS)", '5961'],\
             "Publication_Year": "2021",\
              "References": ["MR4592874", "MR3718451", "MR0148632", "MR2200366", "MR3718451", "MR2647984", "MR0424730", "MR0404173", "MR0447191", "MR1511191", "MR3742457", "MR1512273", "MR1550517", "MR4195744"],\
              "Codes": "11N35,(11B05,11N32)"}, #end of dictionary for one paper...\
