@@ -219,8 +219,13 @@ for prof in list_of_profs:
     if year_element and year_element.text.isdigit():
         pub_year = year_element.text
 
-    # find the a tag
-    code_element = headline.find('a', href=re.compile('/mathscinet/2006/mathscinet/search/mscdoc.html?code='))
+    # find the a tag that has classification codes
+    all_a_tags = headline.find_all('a')
+    for a_tag in all_a_tags:
+        href = a_tag.get('href')
+        if href and "/mathscinet/2006/mathscinet/search/mscdoc.html?code=" in href:
+            code_element = a_tag
+            break
     if code_element:
         codes_url = code_element['href']
         codes = codes_url.split('=')[-1]
@@ -280,8 +285,13 @@ for prof in list_of_profs:
             if year_element and year_element.text.isdigit():
                 pub_year = year_element.text
 
-            # find the a tag
-            code_element = headline.find('a', href=re.compile('/mathscinet/2006/mathscinet/search/mscdoc.html?code='))
+            # find the a tag that has classification codes
+            all_a_tags = headline.find_all('a')
+            for a_tag in all_a_tags:
+                href = a_tag.get('href')
+                if href and "/mathscinet/2006/mathscinet/search/mscdoc.html?code=" in href:
+                    code_element = a_tag
+                    break
             if code_element:
                 codes_url = code_element['href']
                 codes = codes_url.split('=')[-1]
@@ -319,6 +329,7 @@ for prof in list_of_profs:
     time.sleep(1)
     #go back to home
     driver.close()
+    driver.switch_to.window(driver.window_handles[0])
     time.sleep(1)
     driver.get(toolsURL)
     time.sleep(0.4)

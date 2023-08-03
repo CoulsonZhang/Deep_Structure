@@ -360,7 +360,7 @@ for prof in list_of_profs:
     #go back to home
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
-    time.sleep(2)
+    time.sleep(1)
     driver.get(toolsURL)
     time.sleep(0.4)
     print("Done searching for " + prof + "'s references \n")
