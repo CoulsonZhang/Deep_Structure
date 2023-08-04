@@ -23,6 +23,7 @@ def get_data(author_id, file):
         co_authors = [author[0] for paper in data['Papers'].values() for author in paper['Authors'] if author[1] != author_id] #change author[0] to author[1] if you want author IDs instead of names
         unique_co_authors = list(set(co_authors))
         print('Coauthors:', unique_co_authors)
+        print("Number of coauthors:", len(unique_co_authors))
         print("\n \n \n")
 
         # List of references with duplicates removed
