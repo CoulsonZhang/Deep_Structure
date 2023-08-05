@@ -88,7 +88,7 @@ start_time = time.time()
 # "Young, Amanda",
 # "Wu, Xuan"]
 
-list_of_profs = ["Yong, Alexander T. F."]
+list_of_profs = ["Li, Xiaochun"]
 
 # setup
 option = webdriver.ChromeOptions()
