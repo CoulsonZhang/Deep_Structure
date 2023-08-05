@@ -16,6 +16,10 @@ import utilities as u
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+import selenium_utilities_funcs as su
+
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 
@@ -24,12 +28,12 @@ author_name = 'Ford, Kevin'
 
 # setup
 option = webdriver.ChromeOptions()
-toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/index.html"
+toolsURL = "https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/index.html"
 option.add_argument("headless")
 #base_path = os.path.dirname(os.path.abspath(__file__))
 #drive_path = os.path.abspath(base_path + "/chromedriver")
 #driver = webdriver.Chrome(drive_path)
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.90").install())
 driver.get(toolsURL)
 time.sleep(0.2)
 
@@ -50,30 +54,53 @@ time.sleep(0.2) # wait 0.2 seconds, waiting for the program to get everything
 
 
 driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
-time.sleep(0.2)
-try:
-    element = WebDriverWait(driver, 15).until(
-    EC.presence_of_element_located((By.NAME, "s4"))
-)
-except:
-    driver.quit()
+time.sleep(2)
+#try:
+#    element = WebDriverWait(driver, 15).until(
+#    EC.presence_of_element_located((By.NAME, "s4"))
+#)
+#except:
+#    driver.quit()
+#time.sleep(0.3)
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
-time.sleep(0.3)
+
+
 
 def access_author(author_name):
-    time.sleep(0.4)
-    driver.find_element_by_css_selector("input[type='radio'][value='pubyear']").click()
-    time.sleep(0.4)
-    select = Select(driver.find_element_by_id('yrop'))
-    time.sleep(0.4)
-    select.select_by_visible_text('>')
-    time.sleep(0.4)
-    driver.find_element_by_id("yearValue").send_keys("2010")
-    time.sleep(0.4)
-    driver.find_element_by_name("s4").send_keys(author_name)
-    time.sleep(0.4)
-    driver.find_element_by_name("Submit").click()
-    time.sleep(0.4)
+    try:
+        element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='radio'][value='pubyear']"))
+        )
+        element.click()
+    except Exception as e:
+        print("Error occurred: ", e)
+        
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yrop')))
+        select = Select(driver.find_element_by_id('yrop'))
+        select.select_by_visible_text('>')
+    except Exception as e:
+        print("Error while selecting from dropdown: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yearValue'))).send_keys("2010")
+    except Exception as e:
+        print("Error while entering year: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 's4'))).send_keys(author_name)
+    except Exception as e:
+        print("Error while entering author name: ", e)
+
+    try:
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.NAME, 'Submit'))).click()
+    except Exception as e:
+        print("Error while submitting: ", e)
+
 
 def check_exists_by_class_name():
     try:
@@ -226,15 +253,20 @@ def get_author_id(author_name):
     return author_id
     
 def paper_info(name):
-    access_author(name)
-    author_id = get_author_id(name)
+    su.search(name)
+    print("Done accessing author \n \n")
+    author_id = su.get_author_id(name)
+    print("Done getting author id\n ")
     titles = get_titles()
+    print("Done getting titles\n ")
     references = get_references(name)
+    print("Done getting references\n ")
     journals = get_journals(name)
+    print("Done getting journals\n ")
 
     paperdict = {}
 
-    citationdict = u.fetch_citation(u.search(name))
+    citationdict = su.fetch_citation(su.search(name))
     print(citationdict)
 
 
@@ -253,17 +285,91 @@ def paper_info(name):
         paperdict[titles[i]] = list_of_info
         
 
-
+    
     return (paperdict)
 
 
 # references = get_references(author_name)
 # print(references)
 # print(get_titles)
-
+print(paper_info(author_name))
 
 # print(paper_info(author_name))
 # # driver.quit()
 
 
     
+prof_list = ["Ford, Kevin B.",
+"Tyson, Jeremy T.",
+"Hirani, Anil N.",
+"Katz, Sheldon H.",
+"Albin, Pierre",
+"Dunfield, Nathan M.",
+"Kostochka, Alexandr V.",
+"Kedem, Rinat",
+"Song, Renming",
+"Dodd, Christopher",
+"Duursma, Iwan Maynard",
+"McCarthy, Randy",
+"Rezk, Charles W.",
+"Fernandes, Rui Loja",
+"Mineyev, Igor",
+"Dutta, Sankar Prasad",
+"Yong, Alexander T. F.",
+"Tolman, Susan",
+"Erdoğan, Mehmet Burak",
+"Junge, Marius",
+"Hur, Vera Mikyoung",
+"Stojanoska, Vesna",
+"Ahlgren, Scott D.",
+"Bradlow, Steven Benjamin",
+"Rapti, Zoi",
+"Sowers, Richard B.",
+"Balogh, József",
+"Kutzarova, Denka N.",
+"Zaharescu, Alexandru",
+"La Nave, Gabriele",
+"Ando, Matthew",
+"Berwick-Evans, Daniel",
+"DeVille, R. E. Lee",
+"Boca, Florin-Petre",
+"Thorner, Jesse",
+"Zharnitsky, Vadim",
+"Lerman, Eugene M.",
+"Reznick, Bruce",
+"Dey, Partha Sarathi",
+"Hinkkanen, Aimo",
+"Nikolaev, Igor G.",
+"Pascaleff, James Thomas",
+"Bronski, Jared C.",
+"Feng, Runhuan",
+"Haboush, William J.",
+"Baryshnikov, Yuliy M.",
+"Kirr, Eduard",
+"Oikhberg, Timur",
+"Leditzky, Felix",
+"Kirkpatrick, Kay Lene",
+"Jing, Xiaochen",
+"Tzirakis, Nikolaos",
+"Kerman, Ely",
+"Di Francesco, Philippe",
+"Laugesen, Richard Snyder",
+"Heller, Jeremiah Ben",
+"Guzman, Rosemary K."
+"Jing, Xiaochen"
+"Liu, Yuan"
+"Quan, Zhiyu"
+"Fadina,Tolulope"
+"Rasmussen, Jacob" 
+"Rasmussen, Sarah Dean"
+"Janda, Felix"
+"Cooney, Daniel B"
+"Hung, Pei-Kun"
+"Young, Amanda"
+"Wu, Xuan"]
+
+for prof in prof_list:
+    print(prof)
+    print("\n ")
+    print(paper_info(prof))
+    print("\n ")
