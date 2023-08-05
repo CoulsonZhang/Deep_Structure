@@ -88,7 +88,14 @@ start_time = time.time()
 # "Young, Amanda",
 # "Wu, Xuan"]
 
-list_of_profs = ["Li, Xiaochun"]
+#list_of_profs = ["Li, Xiaochun"]
+
+path = os.getcwd()
+
+with open(path + '/data/author_ids.json', 'r') as f:
+    author_ids = json.load(f)
+
+list_of_profs = list(author_ids.keys())
 
 # setup
 option = webdriver.ChromeOptions()
@@ -152,9 +159,7 @@ def check_refs_exist():
 
 data = {}
 
-# Load the author id dictionary
-with open('data/author_ids.json', 'r') as f:
-    author_ids = json.load(f)
+
 
 
 for prof in list_of_profs:
