@@ -21,74 +21,74 @@ import re
 import time
 start_time = time.time()
 
-list_of_profs = ["Ford, Kevin B.",
-"Tyson, Jeremy T.",
-"Hirani, Anil N.",
-"Katz, Sheldon H.",
-"Albin, Pierre",
-"Dunfield, Nathan M.",
-"Kostochka, Alexandr V.",
-"Kedem, Rinat",
-"Song, Renming",
-"Dodd, Christopher",
-"Duursma, Iwan Maynard",
-"McCarthy, Randy",
-"Rezk, Charles W.",
-"Fernandes, Rui Loja",
-"Mineyev, Igor",
-"Dutta, Sankar Prasad",
-"Yong, Alexander T. F.",
-"Tolman, Susan",
-"Erdoğan, Mehmet Burak",
-"Junge, Marius",
-"Hur, Vera Mikyoung",
-"Stojanoska, Vesna",
-"Ahlgren, Scott D.",
-"Bradlow, Steven Benjamin",
-"Rapti, Zoi",
-"Sowers, Richard B.",
-"Balogh, József",
-"Kutzarova, Denka N.",
-"Zaharescu, Alexandru",
-"La Nave, Gabriele",
-"Berwick-Evans, Daniel",
-"DeVille, R. E. Lee",
-"Boca, Florin-Petre",
-"Thorner, Jesse",
-"Zharnitsky, Vadim",
-"Lerman, Eugene M.",
-"Reznick, Bruce",
-"Dey, Partha Sarathi",
-"Hinkkanen, Aimo",
-"Nikolaev, Igor G.",
-"Pascaleff, James Thomas",
-"Bronski, Jared C.",
-"Feng, Runhuan",
-"Haboush, William J.",
-"Baryshnikov, Yuliy M.",
-"Kirr, Eduard",
-"Oikhberg, Timur",
-"Leditzky, Felix",
-"Kirkpatrick, Kay Lene",
-"Tzirakis, Nikolaos",
-"Kerman, Ely",
-"Di Francesco, Philippe",
-"Laugesen, Richard Snyder",
-"Heller, Jeremiah Ben",
-"Guzman, Rosemary K.",
-"Jing, Xiaochen",
-"Liu, Yuan",
-"Quan, Zhiyu",
-"Fadina, Tolulope",
-"Rasmussen, Jacob",
-"Rasmussen, Sarah Dean",
-"Janda, Felix",
-"Cooney, Daniel B",
-"Hung, Pei-Ken",
-"Young, Amanda",
-"Wu, Xuan"]
+# list_of_profs = ["Ford, Kevin B.",
+# "Tyson, Jeremy T.",
+# "Hirani, Anil N.",
+# "Katz, Sheldon H.",
+# "Albin, Pierre",
+# "Dunfield, Nathan M.",
+# "Kostochka, Alexandr V.",
+# "Kedem, Rinat",
+# "Song, Renming",
+# "Dodd, Christopher",
+# "Duursma, Iwan Maynard",
+# "McCarthy, Randy",
+# "Rezk, Charles W.",
+# "Fernandes, Rui Loja",
+# "Mineyev, Igor",
+# "Dutta, Sankar Prasad",
+# "Yong, Alexander T. F.",
+# "Tolman, Susan",
+# "Erdoğan, Mehmet Burak",
+# "Junge, Marius",
+# "Hur, Vera Mikyoung",
+# "Stojanoska, Vesna",
+# "Ahlgren, Scott D.",
+# "Bradlow, Steven Benjamin",
+# "Rapti, Zoi",
+# "Sowers, Richard B.",
+# "Balogh, József",
+# "Kutzarova, Denka N.",
+# "Zaharescu, Alexandru",
+# "La Nave, Gabriele",
+# "Berwick-Evans, Daniel",
+# "DeVille, R. E. Lee",
+# "Boca, Florin-Petre",
+# "Thorner, Jesse",
+# "Zharnitsky, Vadim",
+# "Lerman, Eugene M.",
+# "Reznick, Bruce",
+# "Dey, Partha Sarathi",
+# "Hinkkanen, Aimo",
+# "Nikolaev, Igor G.",
+# "Pascaleff, James Thomas",
+# "Bronski, Jared C.",
+# "Feng, Runhuan",
+# "Haboush, William J.",
+# "Baryshnikov, Yuliy M.",
+# "Kirr, Eduard",
+# "Oikhberg, Timur",
+# "Leditzky, Felix",
+# "Kirkpatrick, Kay Lene",
+# "Tzirakis, Nikolaos",
+# "Kerman, Ely",
+# "Di Francesco, Philippe",
+# "Laugesen, Richard Snyder",
+# "Heller, Jeremiah Ben",
+# "Guzman, Rosemary K.",
+# "Jing, Xiaochen",
+# "Liu, Yuan",
+# "Quan, Zhiyu",
+# "Fadina, Tolulope",
+# "Rasmussen, Jacob",
+# "Rasmussen, Sarah Dean",
+# "Janda, Felix",
+# "Cooney, Daniel B",
+# "Hung, Pei-Ken",
+# "Young, Amanda",
+# "Wu, Xuan"]
 
-# list_of_profs = ["Leditzky, Felix"]
+list_of_profs = ["Yong, Alexander T. F."]
 
 # setup
 option = webdriver.ChromeOptions()
@@ -144,7 +144,7 @@ def check_exists_by_partial_link_text():
 #check if there is reference list for each author
 def check_refs_exist():
     try:
-        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "reflist")))
+        WebDriverWait(driver, 2.5).until(EC.presence_of_element_located((By.CLASS_NAME, "reflist")))
         return True
     except:
         return False
@@ -277,10 +277,8 @@ for prof in list_of_profs:
             driver.find_element_by_partial_link_text("Next").click()
             time.sleep(1)
             soup = BeautifulSoup(driver.page_source, 'html.parser')
-
-            time.sleep(2)
             headline = soup.find('div', {'class': 'headline'})
-            time.sleep(2)
+            time.sleep(1)
 
             # Extract the paper title
             paper_title_element = headline.find('span', {'class': 'title'})
@@ -356,19 +354,19 @@ for prof in list_of_profs:
         json.dump(data[prof], f)
 
 
-    time.sleep(1)
+    time.sleep(0.4)
     #go back to home
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
-    time.sleep(1)
+    time.sleep(0.4)
     driver.get(toolsURL)
     time.sleep(0.4)
     print("Done searching for " + prof + "'s references \n")
 
 
 
-with open('data/papers/all_authors_papers.json', 'w') as f:
-    json.dump(data, f)
+# with open('data/papers/all_authors_papers.json', 'w') as f:
+#     json.dump(data, f)
 
 
 
