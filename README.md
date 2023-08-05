@@ -57,7 +57,10 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
                 "Title": "..." }
         }
     }
+    ```
 
+    - The classification code for each paper is stored as a single string, so extracting the primary secondary classification codes requires some string manipulation. 
+    
 - `info_fetch/using_stored_data.py` shows how to use one of these files for each faculty member to obtain relevant data (list of coauthors, list of journals published in, years published in, list of references).
 
 - `info_fetch/get_citations.py` collects, for each faculty member, all papers that have cited their publications. Results are stored as a dictionary for each faculty member in `data/citations/` as  `{name}_citations.json`. The key is the MR number of the paper, and the value is a list of papers (each paper is itself represented as a list with two elements, first the title, second the MR number) that have cited the paper in the key.
