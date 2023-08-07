@@ -217,8 +217,8 @@ with open(path + '/data/author_ids.json', 'r') as f:
 #         json.dump(cite, f)
 
 
-cite = fetch_citation(search_for_pubs("1342710"))
-with open(f'data/citations/{"Liu, Yuan".replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
+cite = fetch_citation(search_for_pubs("1216581"))
+with open(f'data/citations/{"Wei, Wei".replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
     json.dump(cite, f)
 
 
