@@ -5,15 +5,11 @@ import requests
 from bs4 import BeautifulSoup
 import credential as c
 from selenium.webdriver.common.keys import Keys
-import pandas as pd
-import numpy as np
 import json
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-import pandas as pd
-import numpy as np
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.expected_conditions import url_to_be
@@ -88,14 +84,14 @@ start_time = time.time()
 # "Young, Amanda",
 # "Wu, Xuan"]
 
-#list_of_profs = ["Li, Xiaochun"]
+list_of_profs = ["Liu, Yuan"]
 
 path = os.getcwd()
 
 with open(path + '/data/author_ids.json', 'r') as f:
     author_ids = json.load(f)
 
-list_of_profs = list(author_ids.keys())
+# list_of_profs = list(author_ids.keys())
 
 # setup
 option = webdriver.ChromeOptions()
