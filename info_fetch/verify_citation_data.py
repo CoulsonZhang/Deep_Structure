@@ -1,11 +1,6 @@
 import json
 import os
 
-path = os.getcwd()
-
-import os
-import json
-
 directory = './data/citations/'
 
 
