@@ -1,11 +1,12 @@
-# Department's Deep Structure
-IGL Spring 2022: Department's Deep Structure
+# IGL Spring 2022: Department's Deep Structure
+This repository contains code for the [Illinois Geometry Lab](https://math.illinois.edu/research/igl) project "Department's Deep Structure" from Spring 2022. A description of the project can be found [here](https://ymb.web.illinois.edu/teaching/igl-projects-s22/).
 
+Briefly, the code in this repository collects data about publications by math faculty from [MathSciNet](https://mathscinet.ams.org/mathscinet/index.html) and uses it to cluster the department faculty into research areas using hierarchical clustering. 
 
-https://ymb.web.illinois.edu/teaching/igl-projects-s22/
 
 
 ## Files
+There are two main python scripts that fetch data: `get_publication_data.py` and `get_citations.py`.
 
 - `info_fetch/get_publication_data.py` collects, for each faculty member, all papers published by that faculty member, the journal the paper was published in, the year of publication, the classification codes for that paper, the authors of the paper, and the MathSciNet ID of the paper. The collected data is stored in `data/papers/`. Results are stored as a nested dictionary with the following structure:
 
@@ -60,10 +61,25 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
     ```
 
     - The classification code for each paper is stored as a single string, so extracting the primary secondary classification codes requires some string manipulation. 
-    
-- `info_fetch/using_stored_data.py` shows how to use one of these files for each faculty member to obtain relevant data (list of coauthors, list of journals published in, years published in, list of references).
 
-- `info_fetch/get_citations.py` collects, for each faculty member, all papers that have cited their publications. Results are stored as a dictionary for each faculty member in `data/citations/` as  `{name}_citations.json`. The key is the MR number of the paper, and the value is a list of papers (each paper is itself represented as a list with two elements, first the title, second the MR number) that have cited the paper in the key.
+- `info_fetch/get_citations.py` collects, for each faculty member, all papers that have cited their publications. Results are stored as a dictionary for each faculty member in `data/citations/` as  `{name}_citations.json`. The key is the MR number of the paper, and the value is a list of papers (each paper is itself represented as a list with two elements, first the title, second the MR number) that have cited the paper in the key. For example:
+
+```json
+{
+    "MR4524115": [
+        ["Relations among Ramanujan-type congruences II: Ramanujan-type congruences in half-integral weights.", "MR4587277"], 
+        ["Congruence relations for\nr\n-colored partitions.", "MR4569268"]
+    ],     
+
+    "MR4039543": 
+        [...]
+```
+    
+- `info_fetch/using_stored_data.py` shows how to use the data obtained from `get_publication_data.py` for each faculty member to extract relevant information (list of coauthors, list of journals published in, list of papers referenced etc.).
+
+- Before you run either `get_publication_data.py` or `get_citations.py`, make sure to update `credential.py` with your netID and password.
+
+#### Some other files:
 
 - `info_fetch/common_references.py` collects all papers (using their ID on MathSciNet) referenced by each faculty member and stores them as json files in `data/common_references/` (both for individuals in files of the form `{name}_references.json` and all together in `profdict_common_refs_2023.json`). 
 
@@ -73,7 +89,10 @@ https://ymb.web.illinois.edu/teaching/igl-projects-s22/
 
 - `info_fetch/get_author_ids.py` collects the MathSciNet ID for each faculty member. Results are stored in `data/dict_of_author_ids.json`. When there are multiple authors with the same name, the author ID has to be corrected by hand.
 
+- The folder `Clustering` has code that carries out hierarchical clustering using the collected data and produces dendrograms, one for each distance measure based on publication data collected. There is also code for making consensus trees, which combines the results of clustering using different distance measures.
 
+## Poster
 
+The poster from Spring 2022 is below. 
 
-
+![image](https://github.com/sujeet-bhalerao/Deep_Structure/blob/main/Image/poster.png)

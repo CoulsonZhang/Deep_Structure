@@ -216,10 +216,13 @@ with open(path + '/data/author_ids.json', 'r') as f:
 #     with open(f'data/citations/{author_name.replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
 #         json.dump(cite, f)
 
+authorIDlist= ["189281", "221040"]
+authorNameList = ["Tumanov, Alexander", "Ivanonv, Sergei V."]
 
-cite = fetch_citation(search_for_pubs("1216581"))
-with open(f'data/citations/{"Wei, Wei".replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
-    json.dump(cite, f)
+for authorID, authorName in zip(authorIDlist, authorNameList):
+    cite = fetch_citation(search_for_pubs(authorID=authorID))
+    with open(f'data/citations/{authorName.replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
+        json.dump(cite, f)
 
 
 end_time = time.time()

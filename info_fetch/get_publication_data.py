@@ -84,7 +84,7 @@ start_time = time.time()
 # "Young, Amanda",
 # "Wu, Xuan"]
 
-list_of_profs = ["Wei, Wei"]
+list_of_profs = ["Ivanov, Sergei V.", "Tumanov, Alexander"]
 
 path = os.getcwd()
 
