@@ -72,7 +72,9 @@ There are two main python scripts that fetch data: `get_publication_data.py` and
     ],     
 
     "MR4039543": 
-        [...]
+        [
+            ...
+        ]
 ```
     
 - `info_fetch/using_stored_data.py` shows how to use the data obtained from `get_publication_data.py` for each faculty member to extract relevant information (list of coauthors, list of journals published in, list of papers referenced etc.).
@@ -86,6 +88,7 @@ There are two main python scripts that fetch data: `get_publication_data.py` and
 - `info_fetch/get_coauthors.py` collects, for each faculty member, all coauthors and their MathSciNet ID. Results are stored in `data/dict_of_coauthors.json`.
 
 * Both `info_fetch/get_coauthors.py` and `info_fetch/common_references.py` are subsumed by `info_fetch/get_publication_data.py`.
+
 
 - `info_fetch/get_author_ids.py` collects the MathSciNet ID for each faculty member. Results are stored in `data/dict_of_author_ids.json`. When there are multiple authors with the same name, the author ID has to be corrected by hand.
 
