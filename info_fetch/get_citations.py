@@ -10,11 +10,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import utilities as u
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from bs4 import BeautifulSoup
 import re
 import time
@@ -47,10 +47,13 @@ driver.find_element_by_xpath("//*[@id='idSIButton9']").click()
 time.sleep(5)
 
 
-
-
-
-
+def check_exists_by_partial_link_text():
+    try:
+        element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, "Next")))
+        return True
+    except:
+        return False
+from selenium.common.exceptions import TimeoutException
 
 def fetch_title(url):
     print("fetching title...")
@@ -69,30 +72,38 @@ def fetch_title(url):
         mr_number = "MR" + result.group(1)
     print("Fetching citations for paper with ID:")
     print(mr_number)
-
-
+    
     titles = []
 
-    heads = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.headline"))
-    )
+    while True:
+        heads = WebDriverWait(driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.headline"))
+        )
 
-    for head in heads:
-        # fetch the title in this paper
-        title_element = head.find_element_by_css_selector('span.title')
-        title = title_element.text if title_element else None
+        for head in heads:
+            # fetch the title in this paper
+            title_element = head.find_element_by_css_selector('span.title')
+            title = title_element.text if title_element else None
 
-        # fetch the MR number in this paper
-        mrnum_element = head.find_element_by_css_selector('strong')
-        mrnum_of_cite = mrnum_element.text if mrnum_element else None
+            # fetch the MR number in this paper
+            mrnum_element = head.find_element_by_css_selector('strong')
+            mrnum_of_cite = mrnum_element.text if mrnum_element else None
 
-        titles.append((title, mrnum_of_cite))
+            titles.append((title, mrnum_of_cite))
+
+        try:
+            wait = WebDriverWait(driver, 1.5)
+            next_link = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "Next")))
+            next_link.click()
+            time.sleep(1)
+        except TimeoutException:
+            break
 
     driver.close()
-
     driver.switch_to.window(driver.window_handles[0])
     print("Done fetching title \n")
     return titles
+
 
 
 def fetch_single_title(url):
@@ -190,18 +201,28 @@ def search_for_pubs(authorID):
 
 #author_ID_for_search = '1054758' #Felix Leditzky
 
+#Sheldon Katz pubs URL: https://mathscinet-ams-org.proxy2.library.illinois.edu/mathscinet/2006/mathscinet/search/publications.html?pg1=INDI&s1=198078&sort=Newest&vfpref=pdf&r=1&extend=1
+
+
+
 path = os.getcwd()
 
 with open(path + '/data/author_ids.json', 'r') as f:
     data = json.load(f)
 
 
-for author_name, author_ID in data.items():
-    cite = fetch_citation(search_for_pubs(author_ID))
-    with open(f'data/citations/{author_name.replace(" ", "").replace(".","").replace(",","")}.json', 'w') as f:
+# for author_name, author_ID in data.items():
+#     cite = fetch_citation(search_for_pubs(author_ID))
+#     with open(f'data/citations/{author_name.replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
+#         json.dump(cite, f)
+
+authorIDlist= ["189281", "221040"]
+authorNameList = ["Tumanov, Alexander", "Ivanonv, Sergei V."]
+
+for authorID, authorName in zip(authorIDlist, authorNameList):
+    cite = fetch_citation(search_for_pubs(authorID=authorID))
+    with open(f'data/citations/{authorName.replace(" ", "").replace(".","").replace(",","")}_citations.json', 'w') as f:
         json.dump(cite, f)
-
-
 
 
 end_time = time.time()
